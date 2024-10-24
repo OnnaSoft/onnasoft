@@ -36,6 +36,8 @@ export default function About() {
               src={teamSrc}
               alt="OnnaSoft team working"
               className="rounded-lg shadow-md w-full h-auto"
+              width={560}
+              height={560}
               loading="lazy"
               decoding="async"
             />
