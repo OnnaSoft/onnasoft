@@ -18,15 +18,15 @@ export default function About() {
             </p>
             <ul className="space-y-4">
               <li className="flex items-center text-lg text-gray-700 dark:text-gray-300">
-                <ChevronRight className="h-6 w-6 text-orange-500 dark:text-orange-400 mr-3" />
+                <ChevronRight className="h-6 w-6 text-red-500 dark:text-red-400 mr-3" />
                 Expertise in full-stack software development
               </li>
               <li className="flex items-center text-lg text-gray-700 dark:text-gray-300">
-                <ChevronRight className="h-6 w-6 text-orange-500 dark:text-orange-400 mr-3" />
+                <ChevronRight className="h-6 w-6 text-red-500 dark:text-red-400 mr-3" />
                 Focus on innovation and emerging technologies
               </li>
               <li className="flex items-center text-lg text-gray-700 dark:text-gray-300">
-                <ChevronRight className="h-6 w-6 text-orange-500 dark:text-orange-400 mr-3" />
+                <ChevronRight className="h-6 w-6 text-red-500 dark:text-red-400 mr-3" />
                 Commitment to delivering scalable, robust solutions
               </li>
             </ul>

@@ -115,19 +115,19 @@ export default function Contact() {
             </h3>
             <div className="space-y-6">
               <p className="flex items-center text-lg text-gray-700 dark:text-gray-300">
-                <Building className="h-6 w-6 text-orange-500 dark:text-orange-400 mr-3" />
+                <Building className="h-6 w-6 text-red-500 dark:text-red-400 mr-3" />
                 <span>OnnaSoft, Inc. - Delaware C Corporation</span>
               </p>
               <p className="flex items-center text-lg text-gray-700 dark:text-gray-300">
-                <Mail className="h-6 w-6 text-orange-500 dark:text-orange-400 mr-3" />
+                <Mail className="h-6 w-6 text-red-500 dark:text-red-400 mr-3" />
                 <span>Representative: Julio Cesar Jr Torres Moreno</span>
               </p>
               <p className="flex items-center text-lg text-gray-700 dark:text-gray-300">
-                <Phone className="h-6 w-6 text-orange-500 dark:text-orange-400 mr-3" />
+                <Phone className="h-6 w-6 text-red-500 dark:text-red-400 mr-3" />
                 <span>+1 (206) 649-8382</span>
               </p>
               <p className="flex items-center text-lg text-gray-700 dark:text-gray-300">
-                <MapPin className="h-6 w-6 text-orange-500 dark:text-orange-400 mr-3" />
+                <MapPin className="h-6 w-6 text-red-500 dark:text-red-400 mr-3" />
                 <span>2261 Market Street, San Francisco, CA 94114 US</span>
               </p>
             </div>
@@ -174,7 +174,7 @@ export default function Contact() {
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="w-full text-xl bg-orange-500 hover:bg-orange-600 text-white py-4"
+              className="w-full text-xl bg-red-500 hover:bg-red-600 text-white py-4"
             >
               {isSubmitting ? "Sending..." : "Send Message"}
             </Button>
