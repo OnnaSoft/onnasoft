@@ -19,6 +19,8 @@ export const links: LinksFunction = () => [
   {
     rel: "stylesheet",
     href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
+    media: "print",
+    onload: "this.media='all'",
   },
 ];
 
@@ -32,10 +34,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
           name="description"
           content="OnnaSoft, Inc. - Your trusted software factory for innovative solutions. We specialize in custom development, web & mobile apps, performance optimization, and IT outsourcing."
         />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@700&display=swap"
-          rel="stylesheet"
-        ></link>
         <Meta />
         <Links />
         <title>OnnaSoft, Inc. | Innovative Software Solutions</title>
