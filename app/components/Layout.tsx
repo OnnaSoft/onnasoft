@@ -1,10 +1,11 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { Cpu, BookOpen } from "lucide-react";
+import { BookOpen } from "lucide-react";
 import { useScrollToSection } from "~/hooks/scrollToSection";
 import Footer from "~/components/Footer";
 import { useLocation, useNavigate } from "@remix-run/react";
 import ChatWindow from "./ChatWindow";
+import logoSrc from "~/assets/logo.png";
 
 interface LayoutProps {
   blogUrl: string;
@@ -30,7 +31,7 @@ export default function Layout({
               onClick={scrollToSection}
               className="flex items-center space-x-2"
             >
-              <Cpu className="h-10 w-10 text-orange-500 dark:text-orange-400" />
+              <img src={logoSrc} alt="OnnaSoft, Inc." className="h-8 w-8" />
               <span className="text-3xl font-bold text-gray-900 dark:text-white">
                 OnnaSoft, Inc.
               </span>
