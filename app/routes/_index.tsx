@@ -13,12 +13,18 @@ import Testimonials from "~/components/Testimonials";
 export const loader: LoaderFunction = async () => {
   return json({
     blogUrl: process.env.BLOG_URL,
+    enableChat: process.env.ENABLE_CHAT === "true",
   });
 };
 
-function LandingPage({ blogUrl }: { blogUrl: string }) {
+interface LandingPageProps {
+  blogUrl: string;
+  enableChat: boolean;
+}
+
+function LandingPage({ blogUrl, enableChat }: LandingPageProps) {
   return (
-    <Layout blogUrl={blogUrl}>
+    <Layout blogUrl={blogUrl} enableChat={enableChat}>
       <Hero />
       <Services />
       <About />
@@ -32,6 +38,6 @@ function LandingPage({ blogUrl }: { blogUrl: string }) {
 }
 
 export default function Index() {
-  const { blogUrl } = useLoaderData<typeof loader>();
-  return <LandingPage blogUrl={blogUrl} />;
+  const { blogUrl, enableChat } = useLoaderData<typeof loader>();
+  return <LandingPage blogUrl={blogUrl} enableChat={enableChat} />;
 }

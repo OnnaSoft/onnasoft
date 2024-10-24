@@ -4,14 +4,17 @@ import { Cpu, BookOpen } from "lucide-react";
 import { useScrollToSection } from "~/hooks/scrollToSection";
 import Footer from "~/components/Footer";
 import { useLocation, useNavigate } from "@remix-run/react";
+import ChatWindow from "./ChatWindow";
 
 interface LayoutProps {
   blogUrl: string;
+  enableChat: boolean;
 }
 
 export default function Layout({
   children,
   blogUrl,
+  enableChat,
 }: React.PropsWithChildren<LayoutProps>) {
   const scrollToSection = useScrollToSection();
   const navigate = useNavigate();
@@ -103,6 +106,7 @@ export default function Layout({
       <main className="flex-grow">{children}</main>
 
       <Footer />
+      {enableChat && <ChatWindow />}
     </div>
   );
 }

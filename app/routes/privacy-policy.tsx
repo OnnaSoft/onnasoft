@@ -7,12 +7,18 @@ import Layout from "~/components/Layout";
 export const loader: LoaderFunction = async () => {
   return json({
     blogUrl: process.env.BLOG_URL,
+    enableChat: process.env.ENABLE_CHAT === "true",
   });
 };
 
-function PrivacyPolicy({ blogUrl }: { blogUrl: string }) {
+interface PrivacyPolicyProps {
+  blogUrl: string;
+  enableChat: boolean;
+}
+
+function PrivacyPolicy({ blogUrl, enableChat }: PrivacyPolicyProps) {
   return (
-    <Layout blogUrl={blogUrl}>
+    <Layout blogUrl={blogUrl} enableChat={enableChat}>
       <div className="container mx-auto px-4 py-8 max-w-4xl">
         <h1 className="text-4xl font-bold mb-6 text-gray-900 dark:text-white">
           Privacy Policy
@@ -146,6 +152,6 @@ function PrivacyPolicy({ blogUrl }: { blogUrl: string }) {
 }
 
 export default function PrivacyPolicyPage() {
-  const { blogUrl } = useLoaderData<typeof loader>();
-  return <PrivacyPolicy blogUrl={blogUrl} />;
+  const { blogUrl, enableChat } = useLoaderData<typeof loader>();
+  return <PrivacyPolicy blogUrl={blogUrl} enableChat={enableChat} />;
 }
