@@ -28,12 +28,17 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          name="description"
+          content="OnnaSoft, Inc. - Your trusted software factory for innovative solutions. We specialize in custom development, web & mobile apps, performance optimization, and IT outsourcing."
+        />
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@700&display=swap"
           rel="stylesheet"
         ></link>
         <Meta />
         <Links />
+        <title>OnnaSoft, Inc. | Innovative Software Solutions</title>
       </head>
       <body>
         {children}
