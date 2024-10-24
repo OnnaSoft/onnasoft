@@ -20,9 +20,9 @@ const FAQItem = ({
           {question}
         </span>
         {isOpen ? (
-          <MinusCircle className="h-7 w-7 text-red-500 dark:text-red-400" />
+          <MinusCircle className="h-7 w-7 text-orange-500 dark:text-orange-400" />
         ) : (
-          <PlusCircle className="h-7 w-7 text-red-500 dark:text-red-400" />
+          <PlusCircle className="h-7 w-7 text-orange-500 dark:text-orange-400" />
         )}
       </button>
       {isOpen && (

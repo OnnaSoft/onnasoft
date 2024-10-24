@@ -26,7 +26,7 @@ export default function Footer() {
                 <a
                   href="#"
                   onClick={scrollToSection}
-                  className="text-lg text-gray-700 hover:text-red-500 dark:text-gray-300 dark:hover:text-red-400 transition-colors"
+                  className="text-lg text-gray-700 hover:text-orange-500 dark:text-gray-300 dark:hover:text-orange-400 transition-colors"
                 >
                   Home
                 </a>
@@ -35,7 +35,7 @@ export default function Footer() {
                 <a
                   href="#services"
                   onClick={scrollToSection}
-                  className="text-lg text-gray-700 hover:text-red-500 dark:text-gray-300 dark:hover:text-red-400 transition-colors"
+                  className="text-lg text-gray-700 hover:text-orange-500 dark:text-gray-300 dark:hover:text-orange-400 transition-colors"
                 >
                   Services
                 </a>
@@ -44,7 +44,7 @@ export default function Footer() {
                 <a
                   href="#about"
                   onClick={scrollToSection}
-                  className="text-lg text-gray-700 hover:text-red-500 dark:text-gray-300 dark:hover:text-red-400 transition-colors"
+                  className="text-lg text-gray-700 hover:text-orange-500 dark:text-gray-300 dark:hover:text-orange-400 transition-colors"
                 >
                   About
                 </a>
@@ -53,7 +53,7 @@ export default function Footer() {
                 <a
                   href="#testimonials"
                   onClick={scrollToSection}
-                  className="text-lg text-gray-700 hover:text-red-500 dark:text-gray-300 dark:hover:text-red-400 transition-colors"
+                  className="text-lg text-gray-700 hover:text-orange-500 dark:text-gray-300 dark:hover:text-orange-400 transition-colors"
                 >
                   Testimonials
                 </a>
@@ -62,7 +62,7 @@ export default function Footer() {
                 <a
                   href="#faq"
                   onClick={scrollToSection}
-                  className="text-lg text-gray-700 hover:text-red-500 dark:text-gray-300 dark:hover:text-red-400 transition-colors"
+                  className="text-lg text-gray-700 hover:text-orange-500 dark:text-gray-300 dark:hover:text-orange-400 transition-colors"
                 >
                   FAQ
                 </a>
@@ -71,7 +71,7 @@ export default function Footer() {
                 <a
                   href="#contact"
                   onClick={scrollToSection}
-                  className="text-lg text-gray-700 hover:text-red-500 dark:text-gray-300 dark:hover:text-red-400 transition-colors"
+                  className="text-lg text-gray-700 hover:text-orange-500 dark:text-gray-300 dark:hover:text-orange-400 transition-colors"
                 >
                   Contact
                 </a>
@@ -79,7 +79,7 @@ export default function Footer() {
               <li>
                 <a
                   href="/blog"
-                  className="text-lg text-gray-700 hover:text-red-500 dark:text-gray-300 dark:hover:text-red-400 transition-colors"
+                  className="text-lg text-gray-700 hover:text-orange-500 dark:text-gray-300 dark:hover:text-orange-400 transition-colors"
                 >
                   Blog
                 </a>

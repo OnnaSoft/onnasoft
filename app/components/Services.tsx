@@ -10,7 +10,7 @@ export default function Services() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           <div className="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-md transition-transform hover:scale-105">
-            <Code className="h-16 w-16 text-red-500 dark:text-red-400 mb-6" />
+            <Code className="h-16 w-16 text-orange-500 dark:text-orange-400 mb-6" />
             <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">
               Custom Development
             </h3>
@@ -19,7 +19,7 @@ export default function Services() {
             </p>
           </div>
           <div className="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-md transition-transform hover:scale-105">
-            <Globe className="h-16 w-16 text-red-500 dark:text-red-400 mb-6" />
+            <Globe className="h-16 w-16 text-orange-500 dark:text-orange-400 mb-6" />
             <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">
               Web & Mobile Apps
             </h3>
@@ -28,7 +28,7 @@ export default function Services() {
             </p>
           </div>
           <div className="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-md transition-transform hover:scale-105">
-            <Zap className="h-16 w-16 text-red-500 dark:text-red-400 mb-6" />
+            <Zap className="h-16 w-16 text-orange-500 dark:text-orange-400 mb-6" />
             <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">
               Performance Optimization
             </h3>
@@ -37,7 +37,7 @@ export default function Services() {
             </p>
           </div>
           <div className="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-md transition-transform hover:scale-105">
-            <Users className="h-16 w-16 text-red-500 dark:text-red-400 mb-6" />
+            <Users className="h-16 w-16 text-orange-500 dark:text-orange-400 mb-6" />
             <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">
               IT Outsourcing
             </h3>
@@ -46,7 +46,7 @@ export default function Services() {
             </p>
           </div>
           <div className="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-md transition-transform hover:scale-105">
-            <Search className="h-16 w-16 text-red-500 dark:text-red-400 mb-6" />
+            <Search className="h-16 w-16 text-orange-500 dark:text-orange-400 mb-6" />
             <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">
               SEO & Positioning
             </h3>
@@ -55,7 +55,7 @@ export default function Services() {
             </p>
           </div>
           <div className="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-md transition-transform hover:scale-105">
-            <Cloud className="h-16 w-16 text-red-500 dark:text-red-400 mb-6" />
+            <Cloud className="h-16 w-16 text-orange-500 dark:text-orange-400 mb-6" />
             <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">
               Cloud Migration
             </h3>
@@ -69,7 +69,7 @@ export default function Services() {
             Ready to transform your ideas into reality?
           </h3>
           <Button
-            className="text-xl px-10 py-4 bg-red-500 hover:bg-red-600 text-white"
+            className="text-xl px-10 py-4 bg-orange-500 hover:bg-orange-600 text-white"
             onClick={(e) => {
               e.preventDefault();
               document

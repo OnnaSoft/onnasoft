@@ -40,42 +40,42 @@ export default function Layout({
               <a
                 href="#services"
                 onClick={scrollToSection}
-                className="text-lg text-gray-700 hover:text-red-500 dark:text-gray-300 dark:hover:text-red-400 transition-colors"
+                className="text-lg text-gray-700 hover:text-orange-500 dark:text-gray-300 dark:hover:text-orange-400 transition-colors"
               >
                 Services
               </a>
               <a
                 href="#about"
                 onClick={scrollToSection}
-                className="text-lg text-gray-700 hover:text-red-500 dark:text-gray-300 dark:hover:text-red-400 transition-colors"
+                className="text-lg text-gray-700 hover:text-orange-500 dark:text-gray-300 dark:hover:text-orange-400 transition-colors"
               >
                 About
               </a>
               <a
                 href="#testimonials"
                 onClick={scrollToSection}
-                className="text-lg text-gray-700 hover:text-red-500 dark:text-gray-300 dark:hover:text-red-400 transition-colors"
+                className="text-lg text-gray-700 hover:text-orange-500 dark:text-gray-300 dark:hover:text-orange-400 transition-colors"
               >
                 Testimonials
               </a>
               <a
                 href="#faq"
                 onClick={scrollToSection}
-                className="text-lg text-gray-700 hover:text-red-500 dark:text-gray-300 dark:hover:text-red-400 transition-colors"
+                className="text-lg text-gray-700 hover:text-orange-500 dark:text-gray-300 dark:hover:text-orange-400 transition-colors"
               >
                 FAQ
               </a>
               <a
                 href="#contact"
                 onClick={scrollToSection}
-                className="text-lg text-gray-700 hover:text-red-500 dark:text-gray-300 dark:hover:text-red-400 transition-colors"
+                className="text-lg text-gray-700 hover:text-orange-500 dark:text-gray-300 dark:hover:text-orange-400 transition-colors"
               >
                 Contact
               </a>
               {blogUrl && (
                 <a
                   href={blogUrl}
-                  className="text-lg text-gray-700 hover:text-red-500 dark:text-gray-300 dark:hover:text-red-400 transition-colors flex items-center"
+                  className="text-lg text-gray-700 hover:text-orange-500 dark:text-gray-300 dark:hover:text-orange-400 transition-colors flex items-center"
                 >
                   <BookOpen className="h-5 w-5 mr-1" />
                   Blog
@@ -83,7 +83,7 @@ export default function Layout({
               )}
             </nav>
             <Button
-              className="hidden md:inline-flex text-lg bg-red-500 hover:bg-red-600 text-white"
+              className="hidden md:inline-flex text-lg bg-orange-500 hover:bg-orange-600 text-white"
               onClick={(e) => {
                 e.preventDefault();
 

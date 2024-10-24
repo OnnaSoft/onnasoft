@@ -7,7 +7,7 @@ export default function Hero() {
         <div className="text-center">
           <h1 className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-8">
             Your Trusted{" "}
-            <span className="text-red-500 dark:text-red-400">
+            <span className="text-orange-500 dark:text-orange-400">
               Software Factory
             </span>
           </h1>
@@ -21,7 +21,7 @@ export default function Hero() {
           </p>
           <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6">
             <Button
-              className="w-full md:w-auto text-xl px-10 py-4 bg-red-500 hover:bg-red-600 text-white"
+              className="w-full md:w-auto text-xl px-10 py-4 bg-orange-500 hover:bg-orange-600 text-white"
               onClick={(e) => {
                 e.preventDefault();
                 document
@@ -33,7 +33,7 @@ export default function Hero() {
             </Button>
             <Button
               variant="outline"
-              className="w-full md:w-auto text-xl px-10 py-4 text-red-500 hover:text-red-600 border-red-500 hover:border-red-600"
+              className="w-full md:w-auto text-xl px-10 py-4 text-orange-500 hover:text-orange-600 border-orange-500 hover:border-orange-600"
               onClick={(e) => {
                 e.preventDefault();
                 document

@@ -34,7 +34,7 @@ export default function ChatWindow() {
       {!isOpen && (
         <Button
           onClick={toggleChat}
-          className="rounded-full w-16 h-16 bg-red-500 hover:bg-red-600 text-white shadow-lg"
+          className="rounded-full w-16 h-16 bg-orange-500 hover:bg-orange-600 text-white shadow-lg"
           aria-label="Open chat"
         >
           <MessageCircle size={24} />
@@ -42,13 +42,13 @@ export default function ChatWindow() {
       )}
       {isOpen && (
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl w-80 h-96 flex flex-col">
-          <div className="p-4 bg-red-500 text-white rounded-t-lg flex justify-between items-center">
+          <div className="p-4 bg-orange-500 text-white rounded-t-lg flex justify-between items-center">
             <h3 className="font-semibold">Chat with us</h3>
             <Button
               onClick={toggleChat}
               variant="ghost"
               size="icon"
-              className="text-white hover:bg-red-600 rounded-full"
+              className="text-white hover:bg-orange-600 rounded-full"
               aria-label="Close chat"
             >
               <X size={20} />
@@ -63,7 +63,7 @@ export default function ChatWindow() {
                 <span
                   className={`inline-block p-2 rounded-lg ${
                     msg.isUser
-                      ? "bg-red-500 text-white"
+                      ? "bg-orange-500 text-white"
                       : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
                   }`}
                 >
@@ -86,7 +86,7 @@ export default function ChatWindow() {
               />
               <Button
                 type="submit"
-                className="bg-red-500 hover:bg-red-600 text-white rounded-r-md"
+                className="bg-orange-500 hover:bg-orange-600 text-white rounded-r-md"
               >
                 <Send size={20} />
               </Button>

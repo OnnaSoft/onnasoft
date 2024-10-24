@@ -28,14 +28,14 @@ export default function CookieConsent() {
         <div className="flex space-x-4">
           <Button
             onClick={handleAccept}
-            className="bg-red-500 hover:bg-red-600 text-white"
+            className="bg-orange-500 hover:bg-orange-600 text-white"
           >
             Accept
           </Button>
           <Button
             variant="outline"
             onClick={() => window.open("/privacy-policy", "_blank")}
-            className="text-red-500 hover:text-red-600 border-red-500 hover:border-red-600"
+            className="text-orange-500 hover:text-orange-600 border-orange-500 hover:border-orange-600"
           >
             Learn More
           </Button>
