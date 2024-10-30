@@ -1,8 +1,9 @@
 import { Cloud, Code, Globe, Search, Users, Zap } from "lucide-react";
 import { Button } from "./ui/button";
-import { Link } from "@remix-run/react";
+import { Link, useNavigate } from "@remix-run/react";
 
 export default function Services() {
+  const navigate = useNavigate();
   const services = [
     {
       icon: Code,
@@ -72,17 +73,14 @@ export default function Services() {
           <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
             Ready to transform your ideas into reality?
           </h3>
-          <Button
-            className="text-xl px-10 py-4 bg-orange-500 hover:bg-orange-600 text-white"
-            onClick={(e) => {
-              e.preventDefault();
-              document
-                .getElementById("contact")
-                ?.scrollIntoView({ behavior: "smooth" });
-            }}
-          >
-            Start Your Project Now
-          </Button>
+          <Link to="/contact">
+            <Button
+              size="lg"
+              className="bg-orange-500 hover:bg-orange-600 text-white text-lg"
+            >
+              Start Your Project Now
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

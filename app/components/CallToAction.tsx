@@ -14,7 +14,7 @@ export default function CallToAction() {
       <Link to="/contact">
         <Button
           size="lg"
-          className="bg-orange-500 hover:bg-orange-600 text-white"
+          className="bg-orange-500 hover:bg-orange-600 text-white text-lg"
         >
           Start Your Cloud Journey
         </Button>
