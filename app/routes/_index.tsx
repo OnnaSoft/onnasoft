@@ -26,7 +26,11 @@ export default function IndexPage() {
       <OutsourceDevelopmentBenefits />
       <Testimonials />
       <FAQ />
-      <CallToAction />
+      <section id="faq" className="py-20 bg-gray-50 dark:bg-gray-900">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <CallToAction />
+        </div>
+      </section>
       <CookieConsent />
     </Layout>
   );
