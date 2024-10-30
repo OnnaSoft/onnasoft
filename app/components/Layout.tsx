@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { BookOpen } from "lucide-react";
 import { useScrollToSection } from "~/hooks/scrollToSection";
 import Footer from "~/components/Footer";
-import { useLocation, useNavigate } from "@remix-run/react";
+import { Link, useLocation, useNavigate } from "@remix-run/react";
 import ChatWindow from "./ChatWindow";
 import logoSrc from "~/assets/logo.png";
 
@@ -45,35 +45,15 @@ export default function Layout({
                 Services
               </a>
               <a
-                href="#about"
-                onClick={scrollToSection}
-                className="text-lg text-gray-700 hover:text-orange-500 dark:text-gray-300 dark:hover:text-orange-400 transition-colors"
-              >
-                About
-              </a>
-              <a
-                href="#testimonials"
-                onClick={scrollToSection}
-                className="text-lg text-gray-700 hover:text-orange-500 dark:text-gray-300 dark:hover:text-orange-400 transition-colors"
-              >
-                Testimonials
-              </a>
-              <a
                 href="#faq"
                 onClick={scrollToSection}
                 className="text-lg text-gray-700 hover:text-orange-500 dark:text-gray-300 dark:hover:text-orange-400 transition-colors"
               >
                 FAQ
               </a>
-              <a
-                href="#contact"
-                onClick={scrollToSection}
-                className="text-lg text-gray-700 hover:text-orange-500 dark:text-gray-300 dark:hover:text-orange-400 transition-colors"
-              >
-                Contact
-              </a>
               {blogUrl && (
                 <a
+                  target="_blank"
                   href={blogUrl}
                   className="text-lg text-gray-700 hover:text-orange-500 dark:text-gray-300 dark:hover:text-orange-400 transition-colors flex items-center"
                 >
@@ -86,16 +66,7 @@ export default function Layout({
               className="hidden md:inline-flex text-lg bg-orange-500 hover:bg-orange-600 text-white"
               onClick={(e) => {
                 e.preventDefault();
-
-                if (location.pathname !== "/") {
-                  navigate("/");
-                }
-
-                setTimeout(() => {
-                  document
-                    .getElementById("contact")
-                    ?.scrollIntoView({ behavior: "smooth" });
-                }, 100);
+                navigate("/contact");
               }}
             >
               Schedule a Demo

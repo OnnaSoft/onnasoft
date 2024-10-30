@@ -36,7 +36,7 @@ const FAQItem = ({
 
 export default function FAQ() {
   return (
-    <section id="faq" className="py-20 bg-white dark:bg-gray-900">
+    <section id="faq" className="py-20 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-4 max-w-6xl">
         <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 dark:text-white mb-16">
           Frequently Asked Questions

@@ -1,3 +1,4 @@
+import { Link } from "@remix-run/react";
 import { Button } from "./ui/button";
 
 export default function Hero() {
@@ -21,7 +22,7 @@ export default function Hero() {
           </p>
           <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6">
             <Button
-              className="w-full md:w-auto text-xl px-10 py-4 bg-orange-500 hover:bg-orange-600 text-white"
+              className="w-full md:w-auto text-xl px-10 py-1 h-10 bg-orange-500 hover:bg-orange-600 text-white rounded-md"
               onClick={(e) => {
                 e.preventDefault();
                 document
@@ -31,18 +32,12 @@ export default function Hero() {
             >
               Our Services
             </Button>
-            <Button
-              variant="outline"
-              className="w-full md:w-auto text-xl px-10 py-4 text-orange-500 hover:text-orange-600 border-orange-500 hover:border-orange-600"
-              onClick={(e) => {
-                e.preventDefault();
-                document
-                  .getElementById("contact")
-                  ?.scrollIntoView({ behavior: "smooth" });
-              }}
+            <Link
+              to="/contact"
+              className="inline-block w-full md:w-auto text-xl px-10 py-1 h-10 bg-white hover:bg-gray-50 text-orange-500 hover:text-orange-600 font-medium rounded-md transition-colors duration-300 text-center border-2 border-orange-500 hover:border-orange-600"
             >
               Get a Free Consultation
-            </Button>
+            </Link>
           </div>
         </div>
       </div>

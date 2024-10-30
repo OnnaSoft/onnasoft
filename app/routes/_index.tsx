@@ -1,43 +1,32 @@
-import type { LoaderFunction } from "@remix-run/node";
-import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import About from "~/components/About";
 import Contact from "~/components/Contact";
 import CookieConsent from "~/components/CookieConsent";
+import CustomSoftwareBenefits from "~/components/CustomSoftwareBenefits";
 import FAQ from "~/components/FAQ";
 import Hero from "~/components/Hero";
 import Layout from "~/components/Layout";
+import OutsourceDevelopmentBenefits from "~/components/OutsourceDevelopmentBenefits";
 import Services from "~/components/Services";
+import SoftwareDevelopmentLeadership from "~/components/SoftwareDevelopmentLeadership";
 import Testimonials from "~/components/Testimonials";
+import { loader } from "../loaders/landing";
 
-export const loader: LoaderFunction = async () => {
-  return json({
-    blogUrl: process.env.BLOG_URL,
-    enableChat: process.env.ENABLE_CHAT === "true",
-  });
-};
+export { loader };
 
-interface LandingPageProps {
-  blogUrl: string;
-  enableChat: boolean;
-}
-
-function LandingPage({ blogUrl, enableChat }: LandingPageProps) {
+export default function IndexPage() {
+  const { blogUrl, enableChat } = useLoaderData<typeof loader>();
   return (
     <Layout blogUrl={blogUrl} enableChat={enableChat}>
       <Hero />
       <Services />
       <About />
+      <SoftwareDevelopmentLeadership />
+      <CustomSoftwareBenefits />
+      <OutsourceDevelopmentBenefits />
       <Testimonials />
       <FAQ />
-      <Contact />
-
       <CookieConsent />
     </Layout>
   );
-}
-
-export default function Index() {
-  const { blogUrl, enableChat } = useLoaderData<typeof loader>();
-  return <LandingPage blogUrl={blogUrl} enableChat={enableChat} />;
 }
