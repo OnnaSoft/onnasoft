@@ -1,6 +1,5 @@
 import { useLoaderData } from "@remix-run/react";
 import About from "~/components/About";
-import Contact from "~/components/Contact";
 import CookieConsent from "~/components/CookieConsent";
 import CustomSoftwareBenefits from "~/components/CustomSoftwareBenefits";
 import FAQ from "~/components/FAQ";
@@ -11,6 +10,7 @@ import Services from "~/components/Services";
 import SoftwareDevelopmentLeadership from "~/components/SoftwareDevelopmentLeadership";
 import Testimonials from "~/components/Testimonials";
 import { loader } from "../loaders/landing";
+import CallToAction from "~/components/CallToAction";
 
 export { loader };
 
@@ -26,6 +26,7 @@ export default function IndexPage() {
       <OutsourceDevelopmentBenefits />
       <Testimonials />
       <FAQ />
+      <CallToAction />
       <CookieConsent />
     </Layout>
   );
