@@ -37,28 +37,28 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
         <title>OnnaSoft, Inc. | Innovative Software Solutions</title>
-      </head>
-      <body>
-        {children}
-        <ScrollRestoration />
-        <Scripts />
+
         <script
           async
-          src="https://www.googletagmanager.com/gtag/js?id=G-T10TXD43DF"
+          src={`https://www.googletagmanager.com/gtag/js?id=G-T10TXD43DF`}
         ></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
-              function gtag(){
-                dataLayer.push(arguments);
-              }
-              
+              function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-T10TXD43DF');
+              gtag('config', 'G-T10TXD43DF', {
+                page_path: window.location.pathname,
+              });
             `,
           }}
-        ></script>
+        />
+      </head>
+      <body>
+        {children}
+        <ScrollRestoration />
+        <Scripts />
       </body>
     </html>
   );
