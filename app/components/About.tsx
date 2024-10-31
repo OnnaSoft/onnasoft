@@ -1,5 +1,5 @@
 import { ChevronRight } from "lucide-react";
-import teamSrc from "@/assets/team.webp";
+import teamSrc from "@/assets/1690868311.webp";
 
 export default function About() {
   return (
