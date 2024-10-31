@@ -1,5 +1,3 @@
-import { json } from "@remix-run/node";
-
 // You can store this in your .env file
 const DOMAIN = process.env.DOMAIN || "https://onnasoft.us";
 

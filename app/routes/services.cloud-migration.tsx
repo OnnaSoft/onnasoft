@@ -13,7 +13,6 @@ import {
   Server,
   Cog,
   Headphones,
-  ChevronRight,
 } from "lucide-react";
 import bannerSrc from "~/assets/generated-AwvMMb2vLphg1L6a.avif";
 
