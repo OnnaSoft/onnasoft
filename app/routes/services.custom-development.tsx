@@ -1,4 +1,4 @@
-import { useLoaderData } from "@remix-run/react";
+import { MetaFunction, useLoaderData } from "@remix-run/react";
 import Layout from "@/components/Layout";
 import { loader } from "~/loaders/landing";
 import {
@@ -19,7 +19,20 @@ import CallToAction from "~/components/CallToAction";
 
 export { loader };
 
-export default function CustomDevelopmentBlogPost() {
+export const meta: MetaFunction = () => {
+  return [
+    {
+      title:
+        "Custom Development: Tailored Software Solutions for Your Business | OnnaSoft",
+      description:
+        "OnnaSoft specializes in creating tailored software solutions designed to fit your unique business needs. From web and mobile applications to APIs and databases, we deliver custom, scalable, and secure software to empower your growth.",
+      keywords:
+        "custom software development, tailored software solutions, OnnaSoft, web development, mobile app development, API integration, database solutions, scalable software, secure software, business software solutions, enterprise software, startup software, digital transformation, agile development, software consulting, custom applications",
+    },
+  ];
+};
+
+export default function CustomDevelopmentServices() {
   const { blogUrl, enableChat } = useLoaderData<typeof loader>();
   const [activeWhyChoose, setActiveWhyChoose] = useState<number | null>(null);
   const [activeProcess, setActiveProcess] = useState<number | null>(null);
@@ -94,15 +107,19 @@ export default function CustomDevelopmentBlogPost() {
 
   return (
     <Layout blogUrl={blogUrl} enableChat={enableChat}>
-      <article className="max-w-6xl mx-auto px-4 py-12">
-        <header className="mb-12">
+      <article className="container mx-auto px-4 py-12 max-w-4xl">
+        <header className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             Custom Development: Tailored Software Solutions for Your Business
           </h1>
+          <p className="text-xl text-gray-700 dark:text-gray-300 mb-8">
+            Empowering your business with bespoke software solutions designed to
+            meet your unique needs and drive growth
+          </p>
           <img
             src={heroSrc}
             alt="Custom Software Development"
-            className="rounded-lg shadow-xl w-full"
+            className="w-full h-auto rounded-lg shadow-xl mb-12"
           />
         </header>
 

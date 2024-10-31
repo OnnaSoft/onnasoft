@@ -1,14 +1,20 @@
-import type { LoaderFunction } from "@remix-run/node";
-import { json } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { MetaFunction, useLoaderData } from "@remix-run/react";
 import CookieConsent from "~/components/CookieConsent";
 import Layout from "~/components/Layout";
+import { loader } from "~/loaders/landing";
 
-export const loader: LoaderFunction = async () => {
-  return json({
-    blogUrl: process.env.BLOG_URL,
-    enableChat: process.env.ENABLE_CHAT === "true",
-  });
+export { loader };
+
+export const meta: MetaFunction = () => {
+  return [
+    {
+      title: "Privacy Policy | OnnaSoft",
+      description:
+        "Learn about OnnaSoft's commitment to protecting your privacy. Our Privacy Policy outlines how we collect, use, and safeguard your personal information when you interact with our services.",
+      keywords:
+        "Privacy Policy, OnnaSoft, data protection, personal information, privacy rights, data security, information usage, GDPR compliance, user privacy, data handling, information collection, secure data, data policy, user confidentiality",
+    },
+  ];
 };
 
 interface PrivacyPolicyProps {

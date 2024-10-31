@@ -1,9 +1,21 @@
-import { useLoaderData } from "@remix-run/react";
+import { MetaFunction, useLoaderData } from "@remix-run/react";
 import CallToAction from "~/components/CallToAction";
 import Layout from "~/components/Layout";
 import { loader } from "~/loaders/landing";
 
 export { loader };
+
+export const meta: MetaFunction = () => {
+  return [
+    {
+      title: "Our Mission | OnnaSoft",
+      description:
+        "Discover OnnaSoft's mission to drive digital transformation by delivering scalable and innovative software solutions for established businesses and ambitious startups.",
+      keywords:
+        "OnnaSoft mission, digital transformation, custom software development, scalable software solutions, enterprise digital innovation, support for startups, agile software processes, software quality standards, technology for business growth, mission-driven software solutions",
+    },
+  ];
+};
 
 export default function Mission() {
   const { blogUrl, enableChat } = useLoaderData<typeof loader>();

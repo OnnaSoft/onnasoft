@@ -1,9 +1,21 @@
-import { useLoaderData } from "@remix-run/react";
+import { MetaFunction, useLoaderData } from "@remix-run/react";
 import CallToAction from "~/components/CallToAction";
 import Layout from "~/components/Layout";
 import { loader } from "~/loaders/landing";
 
 export { loader };
+
+export const meta: MetaFunction = () => {
+  return [
+    {
+      title: "Our Vision | OnnaSoft",
+      description:
+        "OnnaSoft envisions setting the standard in reliable, high-quality software development, empowering businesses to achieve excellence through innovative technology and agile solutions.",
+      keywords:
+        "OnnaSoft vision, quality software development, reliable technology solutions, enterprise software excellence, innovation in tech, agile software development, scalable software solutions, digital leadership, OnnaSoft standards, tech for business growth",
+    },
+  ];
+};
 
 export default function Vision() {
   const { blogUrl, enableChat } = useLoaderData<typeof loader>();
