@@ -25,7 +25,10 @@ export default function Footer() {
               <li>
                 <a
                   href="#"
-                  onClick={scrollToSection}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection("hero");
+                  }}
                   className="text-lg text-gray-700 hover:text-orange-500 dark:text-gray-300 dark:hover:text-orange-400 transition-colors"
                 >
                   Home
@@ -34,7 +37,10 @@ export default function Footer() {
               <li>
                 <a
                   href="#services"
-                  onClick={scrollToSection}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection("services");
+                  }}
                   className="text-lg text-gray-700 hover:text-orange-500 dark:text-gray-300 dark:hover:text-orange-400 transition-colors"
                 >
                   Services
@@ -43,7 +49,10 @@ export default function Footer() {
               <li>
                 <a
                   href="#about"
-                  onClick={scrollToSection}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection("about");
+                  }}
                   className="text-lg text-gray-700 hover:text-orange-500 dark:text-gray-300 dark:hover:text-orange-400 transition-colors"
                 >
                   About
@@ -52,7 +61,10 @@ export default function Footer() {
               <li>
                 <a
                   href="#testimonials"
-                  onClick={scrollToSection}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection("testimonials");
+                  }}
                   className="text-lg text-gray-700 hover:text-orange-500 dark:text-gray-300 dark:hover:text-orange-400 transition-colors"
                 >
                   Testimonials
@@ -61,19 +73,13 @@ export default function Footer() {
               <li>
                 <a
                   href="#faq"
-                  onClick={scrollToSection}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection("faq");
+                  }}
                   className="text-lg text-gray-700 hover:text-orange-500 dark:text-gray-300 dark:hover:text-orange-400 transition-colors"
                 >
                   FAQ
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#contact"
-                  onClick={scrollToSection}
-                  className="text-lg text-gray-700 hover:text-orange-500 dark:text-gray-300 dark:hover:text-orange-400 transition-colors"
-                >
-                  Contact
                 </a>
               </li>
               <li>

@@ -1,9 +1,8 @@
 import { Cloud, Code, Globe, Search, Users, Zap } from "lucide-react";
 import { Button } from "./ui/button";
-import { Link, useNavigate } from "@remix-run/react";
+import { Link } from "@remix-run/react";
 
 export default function Services() {
-  const navigate = useNavigate();
   const services = [
     {
       icon: Code,

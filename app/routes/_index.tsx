@@ -11,8 +11,21 @@ import SoftwareDevelopmentLeadership from "~/components/SoftwareDevelopmentLeade
 import Testimonials from "~/components/Testimonials";
 import { loader } from "../loaders/landing";
 import CallToAction from "~/components/CallToAction";
+import { MetaFunction } from "@remix-run/node";
 
 export { loader };
+
+export const meta: MetaFunction = () => {
+  return [
+    {
+      title: "Custom Development | OnnaSoft",
+      description:
+        "Tailored software solutions for web, mobile, API, and database platforms.",
+      keywords:
+        "custom software development, scalable software solutions, web development, mobile development, API integration services, cloud computing solutions, DevOps automation, high-performance software, secure software solutions, fintech software development, healthcare software development, agile development processes, digital transformation, OnnaSoft software factory, software for enterprise businesses, software for startups and SMBs, custom software consulting, software engineering services, end-to-end software solutions, scalable SaaS applications, secure big data processing",
+    },
+  ];
+};
 
 export default function IndexPage() {
   const { blogUrl, enableChat } = useLoaderData<typeof loader>();
