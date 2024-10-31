@@ -42,6 +42,23 @@ export function Layout({ children }: { children: React.ReactNode }) {
         {children}
         <ScrollRestoration />
         <Scripts />
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-T10TXD43DF"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){
+                dataLayer.push(arguments);
+              }
+              
+              gtag('js', new Date());
+              gtag('config', 'G-T10TXD43DF');
+            `,
+          }}
+        ></script>
       </body>
     </html>
   );

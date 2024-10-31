@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+Allow: /services/
+Allow: /contact
+Allow: /mission
+Allow: /vision
+Allow: /privacy-policy
+
+# Prevent crawling of potential admin or sensitive areas
+Disallow: /admin/
+Disallow: /private/
+
+# Sitemap location
+Sitemap: https://onnasoft.us/sitemap.xml
