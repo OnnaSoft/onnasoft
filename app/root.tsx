@@ -38,7 +38,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
         <script
           async
-          src={`https://www.googletagmanager.com/gtag/js?id=G-Z8DZTJB00Z`}
+          src={`https://www.googletagmanager.com/gtag/js?id=G-CV141N367N`}
         ></script>
         <script
           dangerouslySetInnerHTML={{
@@ -46,7 +46,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-Z8DZTJB00Z', {
+              gtag('config', 'G-CV141N367N', {
                 page_path: window.location.pathname,
               });
             `,
