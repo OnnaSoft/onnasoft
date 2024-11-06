@@ -6,7 +6,6 @@ import {
   Scripts,
   ScrollRestoration,
   useLoaderData,
-  useLocation,
 } from "@remix-run/react";
 import type { LinksFunction, LoaderFunction } from "@remix-run/node";
 import "@/tailwind.css";
@@ -26,22 +25,22 @@ export const links: LinksFunction = () => [
 ];
 
 export const loader: LoaderFunction = async ({ request }) => {
+  const url = new URL(request.url);
+  const protocol = request.headers.get("x-forwarded-proto");
   return json({
-    origin: new URL(request.url).origin,
+    canonical: `${protocol ? protocol + ':': url.protocol}//${url.host}${url.pathname}`,
   });
 };
 
 export function Layout({ children }: { children: React.ReactNode }) {
-  const { origin } = useLoaderData<typeof loader>();
-  const { pathname } = useLocation();
-  const href = origin + pathname;
+  const { canonical } = useLoaderData<typeof loader>();
 
   return (
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link href={href} rel="canonical" />
+        <link href={canonical} rel="canonical" />
         <Meta />
         <Links />
 
