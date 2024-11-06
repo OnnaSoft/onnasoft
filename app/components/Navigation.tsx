@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   BookOpen,
@@ -15,6 +15,7 @@ import {
 import { Link } from "@remix-run/react";
 import { useScrollToSection } from "~/hooks/scrollToSection";
 import logoSrc from "~/assets/logo.png";
+import LandingContext from "~/contexts/landing";
 
 const services = [
   {
@@ -58,7 +59,7 @@ const services = [
 ];
 
 export default function Navigation() {
-  const blogUrl = ""
+  const { blogUrl } = useContext(LandingContext);
   const scrollToSection = useScrollToSection();
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

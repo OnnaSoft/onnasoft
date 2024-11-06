@@ -1,6 +1,9 @@
+import { useContext } from "react";
+import LandingContext from "~/contexts/landing";
 import { useScrollToSection } from "~/hooks/scrollToSection";
 
 export default function Footer() {
+  const { blogUrl } = useContext(LandingContext);
   const scrollToSection = useScrollToSection();
   return (
     <footer className="bg-gray-100 dark:bg-gray-800 py-12">
@@ -24,7 +27,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="#"
+                  href="#hero"
                   onClick={(e) => {
                     e.preventDefault();
                     scrollToSection("hero");
@@ -84,7 +87,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="/blog"
+                  href={blogUrl}
                   className="text-lg text-gray-700 hover:text-orange-500 dark:text-gray-300 dark:hover:text-orange-400 transition-colors"
                 >
                   Blog
