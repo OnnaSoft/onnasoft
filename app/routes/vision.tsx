@@ -9,9 +9,19 @@ export const meta: MetaFunction = () => {
   return [
     {
       title: "Our Vision | OnnaSoft",
-      description:
+    },
+    {
+      property: "og:title",
+      content: "Our Vision | OnnaSoft",
+    },
+    {
+      name: "description",
+      content:
         "OnnaSoft envisions setting the standard in reliable, high-quality software development, empowering businesses to achieve excellence through innovative technology and agile solutions.",
-      keywords:
+    },
+    {
+      name: "keywords",
+      content:
         "OnnaSoft vision, quality software development, reliable technology solutions, enterprise software excellence, innovation in tech, agile software development, scalable software solutions, digital leadership, OnnaSoft standards, tech for business growth",
     },
   ];

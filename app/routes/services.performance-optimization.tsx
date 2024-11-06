@@ -24,9 +24,20 @@ export const meta: MetaFunction = () => {
     {
       title:
         "Performance Optimization: Enhancing Speed, Efficiency, and Scalability | OnnaSoft",
-      description:
+    },
+    {
+      property: "og:title",
+      content:
+        "Performance Optimization: Enhancing Speed, Efficiency, and Scalability | OnnaSoft",
+    },
+    {
+      name: "description",
+      content:
         "Optimize your software's performance with OnnaSoft. Improve speed, efficiency, and scalability to ensure a high-quality user experience and operational excellence.",
-      keywords:
+    },
+    {
+      name: "keywords",
+      content:
         "performance optimization, software speed, efficiency enhancement, scalability solutions, software performance, optimize software, high-performance applications, scalable solutions, OnnaSoft optimization, real-time processing, load handling, software efficiency, backend optimization, user experience enhancement",
     },
   ];

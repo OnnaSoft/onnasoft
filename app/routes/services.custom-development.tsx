@@ -24,9 +24,20 @@ export const meta: MetaFunction = () => {
     {
       title:
         "Custom Development: Tailored Software Solutions for Your Business | OnnaSoft",
-      description:
+    },
+    {
+      property: "og:title",
+      content:
+        "Custom Development: Tailored Software Solutions for Your Business | OnnaSoft",
+    },
+    {
+      name: "description",
+      content:
         "OnnaSoft specializes in creating tailored software solutions designed to fit your unique business needs. From web and mobile applications to APIs and databases, we deliver custom, scalable, and secure software to empower your growth.",
-      keywords:
+    },
+    {
+      name: "keywords",
+      content:
         "custom software development, tailored software solutions, OnnaSoft, web development, mobile app development, API integration, database solutions, scalable software, secure software, business software solutions, enterprise software, startup software, digital transformation, agile development, software consulting, custom applications",
     },
   ];

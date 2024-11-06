@@ -22,9 +22,20 @@ export const meta: MetaFunction = () => {
     {
       title:
         "IT Outsourcing: Flexible Staffing Solutions for Your Development Needs | OnnaSoft",
-      description:
+    },
+    {
+      property: "og:title",
+      content:
+        "IT Outsourcing: Flexible Staffing Solutions for Your Development Needs | OnnaSoft",
+    },
+    {
+      name: "description",
+      content:
         "OnnaSoft provides flexible IT outsourcing solutions, offering access to top-tier development talent to scale your team efficiently. Focus on core business while we handle your development needs.",
-      keywords:
+    },
+    {
+      name: "keywords",
+      content:
         "IT outsourcing, flexible staffing solutions, development outsourcing, software development team, scale development team, access tech talent, OnnaSoft IT services, software development outsourcing, team scalability, IT support, cost-effective IT solutions, DevOps outsourcing, development support",
     },
   ];

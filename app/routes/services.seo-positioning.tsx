@@ -23,9 +23,20 @@ export const meta: MetaFunction = () => {
     {
       title:
         "SEO Positioning: Boost Your Online Visibility and Organic Traffic | OnnaSoft",
-      description:
+    },
+    {
+      property: "og:title",
+      content:
+        "SEO Positioning: Boost Your Online Visibility and Organic Traffic | OnnaSoft",
+    },
+    {
+      name: "description",
+      content:
         "Enhance your website's visibility, improve search engine rankings, and attract more qualified leads with OnnaSoft's expert SEO positioning services.",
-      keywords:
+    },
+    {
+      name: "keywords",
+      content:
         "SEO positioning, online visibility, organic traffic, search engine optimization, SEO services, website ranking improvement, content optimization, keyword strategy, technical SEO, OnnaSoft SEO solutions, boost visibility, attract leads, digital marketing strategy",
     },
   ];

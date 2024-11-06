@@ -23,9 +23,20 @@ export const meta: MetaFunction = () => {
     {
       title:
         "The Benefits of Cloud Computing for Business Owners and Entrepreneurs | OnnaSoft",
-      description:
+    },
+    {
+      property: "og:title",
+      content:
+        "The Benefits of Cloud Computing for Business Owners and Entrepreneurs | OnnaSoft",
+    },
+    {
+      name: "description",
+      content:
         "Explore how cloud computing with OnnaSoft enhances business efficiency, scalability, and data security. Our cloud solutions offer continuous availability, flexibility, and reduced operational costs to support your growth.",
-      keywords:
+    },
+    {
+      name: "keywords",
+      content:
         "cloud computing, business cloud solutions, OnnaSoft, cloud services, cloud efficiency, data security, scalability, operational cost reduction, cloud for business, cloud benefits, business growth, cloud infrastructure, cloud-based solutions, cloud technology for entrepreneurs, secure cloud solutions",
     },
   ];

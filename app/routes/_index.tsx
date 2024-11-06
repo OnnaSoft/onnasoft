@@ -19,9 +19,19 @@ export const meta: MetaFunction = () => {
   return [
     {
       title: "Custom Development | OnnaSoft",
-      description:
-        "Tailored software solutions for web, mobile, API, and database platforms.",
-      keywords:
+    },
+    {
+      property: "og:title",
+      content: "Custom Development | OnnaSoft",
+    },
+    {
+      name: "description",
+      content:
+        "Tailored software solutions for web, mobile, API, and database platforms",
+    },
+    {
+      name: "keywords",
+      content:
         "custom software development, scalable software solutions, web development, mobile development, API integration services, cloud computing solutions, DevOps automation, high-performance software, secure software solutions, fintech software development, healthcare software development, agile development processes, digital transformation, OnnaSoft software factory, software for enterprise businesses, software for startups and SMBs, custom software consulting, software engineering services, end-to-end software solutions, scalable SaaS applications, secure big data processing",
     },
   ];

@@ -5,13 +5,23 @@ import { loader } from "~/loaders/landing";
 
 export { loader };
 
-export const meta: MetaFunction = () => {
+export const meta: MetaFunction = (args) => {
   return [
     {
       title: "Our Mission | OnnaSoft",
-      description:
+    },
+    {
+      property: "og:title",
+      content: "Our Mission | OnnaSoft",
+    },
+    {
+      name: "description",
+      content:
         "Discover OnnaSoft's mission to drive digital transformation by delivering scalable and innovative software solutions for established businesses and ambitious startups.",
-      keywords:
+    },
+    {
+      name: "keywords",
+      content:
         "OnnaSoft mission, digital transformation, custom software development, scalable software solutions, enterprise digital innovation, support for startups, agile software processes, software quality standards, technology for business growth, mission-driven software solutions",
     },
   ];

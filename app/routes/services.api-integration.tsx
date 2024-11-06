@@ -16,6 +16,21 @@ export const meta: MetaFunction = () => {
       keywords:
         "API integration, third-party API, OnnaSoft, seamless connections, business API solutions, secure API integration, custom API solutions, business scalability, optimized workflows",
     },
+    {
+      property: "og:title",
+      content:
+        "Third-Party API Integration: Unlocking Seamless Connections for Your Business",
+    },
+    {
+      name: "description",
+      content:
+        "Discover how OnnaSoft's third-party API integration services can enhance your business capabilities, improve efficiency, and deliver a seamless user experience.",
+    },
+    {
+      name: "keywords",
+      content:
+        "API integration, third-party API, OnnaSoft, seamless connections, business API solutions, secure API integration, custom API solutions, business scalability, optimized workflows",
+    },
   ];
 };
 

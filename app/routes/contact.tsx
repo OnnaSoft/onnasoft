@@ -10,9 +10,19 @@ export const meta: MetaFunction = () => {
   return [
     {
       title: "Contact Us | OnnaSoft",
-      description:
+    },
+    {
+      property: "og:title",
+      content: "Contact Us | OnnaSoft",
+    },
+    {
+      name: "description",
+      content:
         "Get in touch with OnnaSoft for tailored software solutions across web, mobile, API, and database platforms. Our team is here to support your business needs.",
-      keywords:
+    },
+    {
+      name: "keywords",
+      content:
         "contact OnnaSoft, software development inquiries, custom software solutions, web development contact, mobile app development contact, API integration support, database solutions contact, software consulting, digital transformation support, enterprise software services, scalable software solutions contact",
     },
   ];

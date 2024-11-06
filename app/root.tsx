@@ -1,11 +1,14 @@
 import {
+  json,
   Links,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLoaderData,
+  useLocation,
 } from "@remix-run/react";
-import type { LinksFunction } from "@remix-run/node";
+import type { LinksFunction, LoaderFunction } from "@remix-run/node";
 import "@/tailwind.css";
 
 export const links: LinksFunction = () => [
@@ -22,19 +25,25 @@ export const links: LinksFunction = () => [
   },
 ];
 
+export const loader: LoaderFunction = async ({ request }) => {
+  return json({
+    origin: new URL(request.url).origin,
+  });
+};
+
 export function Layout({ children }: { children: React.ReactNode }) {
+  const { origin } = useLoaderData<typeof loader>();
+  const { pathname } = useLocation();
+  const href = origin + pathname;
+
   return (
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta
-          name="description"
-          content="OnnaSoft, Inc. - Your trusted software factory for innovative solutions. We specialize in custom development, web & mobile apps, performance optimization, and IT outsourcing."
-        />
+        <link href={href} rel="canonical" />
         <Meta />
         <Links />
-        <title>OnnaSoft, Inc. | Innovative Software Solutions</title>
 
         <script
           async

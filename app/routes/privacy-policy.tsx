@@ -14,6 +14,20 @@ export const meta: MetaFunction = () => {
       keywords:
         "Privacy Policy, OnnaSoft, data protection, personal information, privacy rights, data security, information usage, GDPR compliance, user privacy, data handling, information collection, secure data, data policy, user confidentiality",
     },
+    {
+      property: "og:title",
+      content: "Privacy Policy | OnnaSoft",
+    },
+    {
+      name: "description",
+      content:
+        "Learn about OnnaSoft's commitment to protecting your privacy. Our Privacy Policy outlines how we collect, use, and safeguard your personal information when you interact with our services.",
+    },
+    {
+      name: "keywords",
+      content:
+        "Privacy Policy, OnnaSoft, data protection, personal information, privacy rights, data security, information usage, GDPR compliance, user privacy, data handling, information collection, secure data, data policy, user confidentiality",
+    },
   ];
 };
 
