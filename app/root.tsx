@@ -27,12 +27,13 @@ export const loader: LoaderFunction = async ({ request }) => {
   const url = new URL(request.url);
   const protocol = request.headers.get("x-forwarded-proto");
   return json({
+    googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID,
     canonical: `${protocol ? protocol + ':': url.protocol}//${url.host}${url.pathname}`,
   });
 };
 
 export function Layout({ children }: { children: React.ReactNode }) {
-  const { canonical } = useLoaderData<typeof loader>();
+  const { canonical, googleAnalyticsId } = useLoaderData<typeof loader>();
 
   return (
     <html lang="en">
@@ -44,7 +45,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
 
         <script
-          src="https://www.googletagmanager.com/gtag/js?id=G-CV141N367N"
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
         ></script>
         <script
           dangerouslySetInnerHTML={{
@@ -52,7 +54,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-CV141N367N', {
+              gtag('config', '${googleAnalyticsId}', {
                 page_path: window.location.pathname,
               });
             `,
