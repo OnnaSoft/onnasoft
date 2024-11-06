@@ -44,7 +44,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
 
         <script
-          async={true}
           src="https://www.googletagmanager.com/gtag/js?id=G-CV141N367N"
         ></script>
         <script
