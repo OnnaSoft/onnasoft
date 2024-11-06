@@ -1,4 +1,3 @@
-import { useLoaderData } from "@remix-run/react";
 import Layout from "@/components/Layout";
 import {
   BarChart,
@@ -11,12 +10,9 @@ import {
   Clock,
   ChartBar,
 } from "lucide-react";
-import { loader } from "~/loaders/landing";
 import CallToAction from "~/components/CallToAction";
 import { MetaFunction } from "@remix-run/node";
 import bannerSrc from "~/assets/936409880.webp";
-
-export { loader };
 
 export const meta: MetaFunction = () => {
   return [
@@ -43,17 +39,15 @@ export const meta: MetaFunction = () => {
 };
 
 export default function SEOPositioningServices() {
-  const { blogUrl, enableChat } = useLoaderData<typeof loader>();
-
   return (
-    <Layout blogUrl={blogUrl} enableChat={enableChat}>
+    <Layout>
       <article className="container mx-auto px-4 py-12 max-w-4xl">
         <header className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             SEO Positioning: Boost Your Online Visibility and Organic Traffic
           </h1>
           <p className="text-xl text-gray-700 dark:text-gray-300 mb-8">
-            Elevate your website's search engine rankings and attract more
+            Elevate your website&apos;s search engine rankings and attract more
             qualified leads
           </p>
           <img
@@ -65,9 +59,9 @@ export default function SEOPositioningServices() {
 
         <div className="prose dark:prose-invert max-w-none mb-16">
           <p className="text-xl text-gray-700 dark:text-gray-300 mb-6">
-            In today's digital landscape, high search engine visibility is
+            In today&apos;s digital landscape, high search engine visibility is
             crucial to success. At OnnaSoft, we specialize in SEO positioning
-            strategies tailored to increase your website's search engine
+            strategies tailored to increase your website&apos;s search engine
             rankings, attract organic traffic, and drive more qualified leads.
             Our holistic approach integrates technical SEO, keyword-driven
             content creation, and off-page strategies to help your business
@@ -82,7 +76,7 @@ export default function SEOPositioningServices() {
               <BarChart className="h-6 w-6 text-orange-500 dark:text-orange-400 mr-3 mt-1 flex-shrink-0" />
               <span className="text-lg text-gray-700 dark:text-gray-300">
                 <strong>Increased Organic Traffic:</strong> Our SEO tactics are
-                designed to raise your website's presence in search results,
+                designed to raise your website&apos;s presence in search results,
                 delivering a steady stream of organic visitors.
               </span>
             </li>
@@ -122,12 +116,12 @@ export default function SEOPositioningServices() {
               </span>
               <span className="text-lg text-gray-700 dark:text-gray-300">
                 <strong>Comprehensive SEO Audit:</strong> We start by conducting
-                an in-depth audit of your website's current SEO standing. This
+                an in-depth audit of your website&apos;s current SEO standing. This
                 analysis covers on-page elements, technical SEO factors,
                 backlink profile, keyword performance, and web performance
                 metrics such as Largest Contentful Paint (LCP). By identifying
                 areas for improvement, we can ensure your website adheres to
-                Google's Core Web Vitals, which are key for better ranking
+                Google&apos;s Core Web Vitals, which are key for better ranking
                 potential.
               </span>
             </li>
@@ -141,7 +135,7 @@ export default function SEOPositioningServices() {
                 industry and target audience. Our process considers search
                 volume, keyword difficulty, and relevance to your business to
                 ensure each term aligns with user intent. We also study
-                competitors' strategies and target long-tail keywords for better
+                competitors&apos; strategies and target long-tail keywords for better
                 conversion rates.
               </span>
             </li>
@@ -165,7 +159,7 @@ export default function SEOPositioningServices() {
                 addresses technical aspects of SEO, such as site speed, mobile
                 compatibility, and crawlability. We prioritize Core Web Vitals,
                 including Largest Contentful Paint (LCP), to enhance loading
-                times and meet Google's performance criteria for optimal
+                times and meet Google&apos;s performance criteria for optimal
                 ranking.
               </span>
             </li>
@@ -240,7 +234,7 @@ export default function SEOPositioningServices() {
               <span className="text-lg text-gray-700 dark:text-gray-300">
                 <strong>Core Web Vitals Optimization:</strong> We ensure metrics
                 like LCP, First Input Delay (FID), and Cumulative Layout Shift
-                (CLS) meet Google's standards for higher search ranking
+                (CLS) meet Google&apos;s standards for higher search ranking
                 potential.
               </span>
             </li>

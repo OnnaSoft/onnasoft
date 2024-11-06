@@ -1,10 +1,7 @@
-import { MetaFunction, useLoaderData } from "@remix-run/react";
+import { MetaFunction } from "@remix-run/react";
 import Layout from "@/components/Layout";
-import { loader } from "~/loaders/landing";
 import bannerSrc from "~/assets/926493504.webp";
 import CallToAction from "~/components/CallToAction";
-
-export { loader };
 
 export const meta: MetaFunction = () => {
   return [
@@ -35,10 +32,8 @@ export const meta: MetaFunction = () => {
 };
 
 export default function APIIntegrationArticle() {
-  const { blogUrl, enableChat } = useLoaderData<typeof loader>();
-
   return (
-    <Layout blogUrl={blogUrl} enableChat={enableChat}>
+    <Layout>
       <article className="container mx-auto px-4 py-12 max-w-4xl">
         <header className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 leading-tight">
@@ -61,7 +56,7 @@ export default function APIIntegrationArticle() {
             Introduction
           </h2>
           <p className="mb-8">
-            In today's interconnected digital landscape, the ability to
+            In today&apos;s interconnected digital landscape, the ability to
             seamlessly integrate third-party APIs into your business systems can
             be the difference between staying competitive and falling behind. At
             OnnaSoft, we specialize in creating these vital connections,
@@ -73,10 +68,10 @@ export default function APIIntegrationArticle() {
             The Power of API Integration
           </h2>
           <p className="mb-8">
-            API integration is more than just connecting systems; it's about
+            API integration is more than just connecting systems; it&apos;s about
             creating synergies that drive business growth, improve operational
             efficiency, and deliver exceptional value to your users. Whether
-            you're looking to incorporate secure payment gateways, harness the
+            you&apos;re looking to incorporate secure payment gateways, harness the
             power of AI-driven chatbots, implement advanced analytics, or tap
             into social media platforms, our expert team ensures smooth,
             efficient, and secure integrations.
@@ -88,7 +83,7 @@ export default function APIIntegrationArticle() {
           <p className="mb-4">
             Our API integration services are designed to transform your systems
             into a robust, feature-rich ecosystem that perfectly aligns with
-            your unique business needs. Here's why businesses trust us with
+            your unique business needs. Here&apos;s why businesses trust us with
             their integration projects:
           </p>
           <ul className="list-disc pl-6 mb-8 space-y-2">
@@ -171,7 +166,7 @@ export default function APIIntegrationArticle() {
               <strong className="text-gray-900 dark:text-gray-100">
                 Ongoing Support:
               </strong>{" "}
-              Our commitment doesn't end at deployment. We provide continuous
+              Our commitment doesn&apos;t end at deployment. We provide continuous
               monitoring, updates, and support to ensure your integrations
               remain effective and up-to-date.
             </li>
@@ -182,7 +177,7 @@ export default function APIIntegrationArticle() {
           </h2>
           <p className="mb-4">
             We specialize in integrating a wide range of third-party APIs to
-            enhance your application's functionality. Some of the key
+            enhance your application&apos;s functionality. Some of the key
             integration types we offer include:
           </p>
           <ul className="list-disc pl-6 mb-8 space-y-2">
@@ -238,15 +233,15 @@ export default function APIIntegrationArticle() {
           <p className="mb-4">
             In an increasingly connected world, the ability to seamlessly
             integrate third-party APIs can give your business a significant
-            competitive advantage. At OnnaSoft, we're committed to helping you
+            competitive advantage. At OnnaSoft, we&apos;re committed to helping you
             unlock the full potential of your applications through expert API
             integration services.
           </p>
           <p className="mb-8">
-            Whether you're looking to streamline your operations, enhance
+            Whether you&apos;re looking to streamline your operations, enhance
             customer experiences, or gain a competitive edge in your industry,
             our tailored approach to API integration can help you achieve your
-            goals. Let's work together to transform your vision into reality and
+            goals. Let&apos;s work together to transform your vision into reality and
             set your business on the path to digital success.
           </p>
         </div>

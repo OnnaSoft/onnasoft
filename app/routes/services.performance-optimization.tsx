@@ -1,6 +1,4 @@
-import { useLoaderData } from "@remix-run/react";
 import Layout from "~/components/Layout";
-import { loader } from "~/loaders/landing";
 import CallToAction from "~/components/CallToAction";
 import {
   Zap,
@@ -16,8 +14,6 @@ import {
 } from "lucide-react";
 import { MetaFunction } from "@remix-run/react";
 import bannerSrc from "~/assets/1462932996.webp";
-
-export { loader };
 
 export const meta: MetaFunction = () => {
   return [
@@ -144,10 +140,8 @@ const services = [
 ];
 
 export default function PerformanceOptimizationServices() {
-  const { blogUrl, enableChat } = useLoaderData<typeof loader>();
-
   return (
-    <Layout blogUrl={blogUrl} enableChat={enableChat}>
+    <Layout>
       <article className="container mx-auto px-4 py-12 max-w-4xl">
         <header className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
@@ -167,7 +161,7 @@ export default function PerformanceOptimizationServices() {
 
         <div className="prose dark:prose-invert max-w-none mb-16">
           <p className="text-xl text-gray-700 dark:text-gray-300 mb-6">
-            In today's fast-paced digital environment, every second counts, and
+            In today&apos;s fast-paced digital environment, every second counts, and
             performance is key to success. At OnnaSoft, we specialize in
             optimizing your applications to meet and exceed both user
             expectations and business requirements. Our Performance Optimization
@@ -226,8 +220,8 @@ export default function PerformanceOptimizationServices() {
           </h2>
           <p className="text-xl text-gray-700 dark:text-gray-300 mb-6">
             In an increasingly competitive digital landscape, performance
-            optimization is not just a luxury—it's a necessity. At OnnaSoft,
-            we're committed to helping your systems perform at their best, from
+            optimization is not just a luxury—it&apos;s a necessity. At OnnaSoft,
+            we&apos;re committed to helping your systems perform at their best, from
             SEO-optimized web pages to distributed, real-time systems. Our
             comprehensive approach to performance optimization gives you a
             significant competitive advantage, enhances user experience, and
@@ -235,15 +229,15 @@ export default function PerformanceOptimizationServices() {
             growing market.
           </p>
           <p className="text-xl text-gray-700 dark:text-gray-300 mb-6">
-            By choosing OnnaSoft for your performance optimization needs, you're
-            not just improving your current systems—you're investing in the
+            By choosing OnnaSoft for your performance optimization needs, you&apos;re
+            not just improving your current systems—you&apos;re investing in the
             future of your business. Our tailored solutions, cutting-edge
             technologies, and expert team ensure that your applications will not
             only meet but exceed both user expectations and business
             requirements.
           </p>
           <p className="text-xl text-gray-700 dark:text-gray-300 mb-6">
-            Don't let performance issues hold your business back. Partner with
+            Don&apos;t let performance issues hold your business back. Partner with
             OnnaSoft today, and let us help you unlock the full potential of
             your software. Together, we can create faster, more efficient, and
             highly scalable applications that drive your business forward in the

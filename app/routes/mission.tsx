@@ -1,11 +1,8 @@
-import { MetaFunction, useLoaderData } from "@remix-run/react";
+import { MetaFunction } from "@remix-run/react";
 import CallToAction from "~/components/CallToAction";
 import Layout from "~/components/Layout";
-import { loader } from "~/loaders/landing";
 
-export { loader };
-
-export const meta: MetaFunction = (args) => {
+export const meta: MetaFunction = () => {
   return [
     {
       title: "Our Mission | OnnaSoft",
@@ -28,10 +25,8 @@ export const meta: MetaFunction = (args) => {
 };
 
 export default function Mission() {
-  const { blogUrl, enableChat } = useLoaderData<typeof loader>();
-
   return (
-    <Layout blogUrl={blogUrl} enableChat={enableChat}>
+    <Layout>
       <div className="container mx-auto px-4 py-12 max-w-4xl">
         <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-8 text-center">
           OnnaSoft, Inc. Mission
@@ -94,7 +89,7 @@ export default function Mission() {
           <p className="text-lg mb-6">
             At OnnaSoft, we know that the digital success of any organization
             depends on a coherent integration of technology in all aspects of
-            the business. That's why we commit to being a strategic partner that
+            the business. That&apos;s why we commit to being a strategic partner that
             not only leads the implementation of software solutions but also
             guides our clients in building processes that guarantee solid and
             sustainable growth.

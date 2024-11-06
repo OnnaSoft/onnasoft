@@ -1,10 +1,6 @@
 import { MetaFunction } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
 import Contact from "~/components/Contact";
 import Layout from "~/components/Layout";
-import { loader } from "~/loaders/landing";
-
-export { loader };
 
 export const meta: MetaFunction = () => {
   return [
@@ -29,10 +25,8 @@ export const meta: MetaFunction = () => {
 };
 
 export default function ContactPage() {
-  const { blogUrl, enableChat } = useLoaderData<typeof loader>();
-
   return (
-    <Layout blogUrl={blogUrl} enableChat={enableChat}>
+    <Layout>
       <Contact />
     </Layout>
   );

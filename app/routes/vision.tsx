@@ -31,7 +31,7 @@ export default function Vision() {
   const { blogUrl, enableChat } = useLoaderData<typeof loader>();
 
   return (
-    <Layout blogUrl={blogUrl} enableChat={enableChat}>
+    <Layout>
       <div className="container mx-auto px-4 py-12 max-w-4xl">
         <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-8 text-center">
           OnnaSoft, Inc. Vision

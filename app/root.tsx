@@ -9,6 +9,7 @@ import {
 } from "@remix-run/react";
 import type { LinksFunction, LoaderFunction } from "@remix-run/node";
 import "@/tailwind.css";
+import LandingContext from "./contexts/landing";
 
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -27,13 +28,15 @@ export const loader: LoaderFunction = async ({ request }) => {
   const url = new URL(request.url);
   const protocol = request.headers.get("x-forwarded-proto");
   return json({
+    blogUrl: process.env.BLOG_URL,
+    enableChat: process.env.ENABLE_CHAT === "true",
     googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID,
-    canonical: `${protocol ? protocol + ':': url.protocol}//${url.host}${url.pathname}`,
+    canonical: `${protocol ? protocol + ':' : url.protocol}//${url.host}${url.pathname}`,
   });
 };
 
 export function Layout({ children }: { children: React.ReactNode }) {
-  const { canonical, googleAnalyticsId } = useLoaderData<typeof loader>();
+  const { canonical, googleAnalyticsId, blogUrl, enableChat } = useLoaderData<typeof loader>();
 
   return (
     <html lang="en">
@@ -62,7 +65,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         />
       </head>
       <body>
-        {children}
+        <LandingContext.Provider value={{ blogUrl, enableChat }}>
+          {children}
+        </LandingContext.Provider>
         <ScrollRestoration />
         <Scripts />
       </body>

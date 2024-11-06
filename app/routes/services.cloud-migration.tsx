@@ -1,6 +1,5 @@
-import { MetaFunction, useLoaderData } from "@remix-run/react";
+import { MetaFunction } from "@remix-run/react";
 import Layout from "~/components/Layout";
-import { loader } from "~/loaders/landing";
 import CallToAction from "~/components/CallToAction";
 import {
   Cloud,
@@ -15,8 +14,6 @@ import {
   Headphones,
 } from "lucide-react";
 import bannerSrc from "~/assets/generated-AwvMMb2vLphg1L6a.avif";
-
-export { loader };
 
 export const meta: MetaFunction = () => {
   return [
@@ -43,8 +40,6 @@ export const meta: MetaFunction = () => {
 };
 
 export default function CloudComputingBenefits() {
-  const { blogUrl, enableChat } = useLoaderData<typeof loader>();
-
   const benefits = [
     {
       icon: Cloud,
@@ -112,7 +107,7 @@ export default function CloudComputingBenefits() {
   ];
 
   return (
-    <Layout blogUrl={blogUrl} enableChat={enableChat}>
+    <Layout>
       <article className="container mx-auto px-4 py-12 max-w-4xl">
         <header className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
@@ -131,7 +126,7 @@ export default function CloudComputingBenefits() {
         </header>
         <div className="prose dark:prose-invert max-w-none mb-16">
           <p className="text-xl text-gray-700 dark:text-gray-300">
-            In today's fast-paced business environment, cloud computing has
+            In today&apos;s fast-paced business environment, cloud computing has
             become a strategic advantage for business owners and entrepreneurs
             who aim to optimize resources, enhance efficiency, and minimize
             operational risks. Cloud technology enables businesses to streamline
@@ -175,7 +170,7 @@ export default function CloudComputingBenefits() {
           <p className="text-xl text-gray-700 dark:text-gray-300 mb-6">
             Cloud computing is revolutionizing the way businesses operate,
             offering a myriad of benefits that can significantly impact your
-            bottom line and operational efficiency. Let's delve deeper into how
+            bottom line and operational efficiency. Let&apos;s delve deeper into how
             each of these key benefits can transform your business:
           </p>
 
@@ -183,7 +178,7 @@ export default function CloudComputingBenefits() {
             1. Continuous Availability and Resilience
           </h3>
           <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
-            In today's 24/7 business world, downtime can be costly. Cloud
+            In today&apos;s 24/7 business world, downtime can be costly. Cloud
             computing provides robust infrastructure with built-in redundancies
             and failover mechanisms. This means your critical applications and
             data remain accessible even in the face of hardware failures, power
@@ -266,7 +261,7 @@ export default function CloudComputingBenefits() {
           <p className="text-xl text-gray-700 dark:text-gray-300 mt-8">
             By leveraging these benefits of cloud computing, businesses can
             create more agile, efficient, and competitive operations. Whether
-            you're a small startup or a large enterprise, the cloud offers
+            you&apos;re a small startup or a large enterprise, the cloud offers
             scalable solutions that can be tailored to your specific needs,
             allowing you to focus on what matters most – growing your business
             and serving your customers.

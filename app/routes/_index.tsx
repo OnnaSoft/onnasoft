@@ -1,4 +1,3 @@
-import { useLoaderData } from "@remix-run/react";
 import About from "~/components/About";
 import CookieConsent from "~/components/CookieConsent";
 import CustomSoftwareBenefits from "~/components/CustomSoftwareBenefits";
@@ -9,11 +8,8 @@ import OutsourceDevelopmentBenefits from "~/components/OutsourceDevelopmentBenef
 import Services from "~/components/Services";
 import SoftwareDevelopmentLeadership from "~/components/SoftwareDevelopmentLeadership";
 import Testimonials from "~/components/Testimonials";
-import { loader } from "../loaders/landing";
 import CallToAction from "~/components/CallToAction";
 import { MetaFunction } from "@remix-run/node";
-
-export { loader };
 
 export const meta: MetaFunction = () => {
   return [
@@ -38,9 +34,8 @@ export const meta: MetaFunction = () => {
 };
 
 export default function IndexPage() {
-  const { blogUrl, enableChat } = useLoaderData<typeof loader>();
   return (
-    <Layout blogUrl={blogUrl} enableChat={enableChat}>
+    <Layout>
       <Hero />
       <Services />
       <About />
