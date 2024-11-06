@@ -139,7 +139,7 @@ const services = [
   },
 ];
 
-export default function PerformanceOptimizationServices() {
+export default function PerformanceOptimization() {
   return (
     <Layout>
       <article className="container mx-auto px-4 py-12 max-w-4xl">

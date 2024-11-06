@@ -31,7 +31,7 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-export default function APIIntegrationArticle() {
+export default function APIIntegration() {
   return (
     <Layout>
       <article className="container mx-auto px-4 py-12 max-w-4xl">

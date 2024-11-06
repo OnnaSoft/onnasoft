@@ -40,7 +40,7 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-export default function CustomDevelopmentServices() {
+export default function CustomDevelopment() {
   const [activeWhyChoose, setActiveWhyChoose] = useState<number | null>(null);
   const [activeProcess, setActiveProcess] = useState<number | null>(null);
 
