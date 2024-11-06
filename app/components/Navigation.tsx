@@ -1,5 +1,5 @@
-import { useContext, useState } from "react";
-import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { Link, useLocation } from "@remix-run/react";
 import {
   BookOpen,
   ChevronDown,
@@ -12,24 +12,18 @@ import {
   Menu,
   X,
 } from "lucide-react";
-import { Link } from "@remix-run/react";
-import { useScrollToSection } from "~/hooks/scrollToSection";
-import logoSrc from "~/assets/logo.png";
-import LandingContext from "~/contexts/landing";
 
 const services = [
   {
     icon: Code,
     title: "Custom Development",
-    description:
-      "Tailored software solutions to meet your unique business needs",
+    description: "Tailored software solutions to meet your unique business needs",
     link: "/services/custom-development",
   },
   {
     icon: Globe,
     title: "Third-Party API Integration",
-    description:
-      "Seamless integration of external services into your applications",
+    description: "Seamless integration of external services into your applications",
     link: "/services/api-integration",
   },
   {
@@ -58,30 +52,31 @@ const services = [
   },
 ];
 
-export default function Navigation() {
-  const { blogUrl } = useContext(LandingContext);
-  const scrollToSection = useScrollToSection();
+const programmingLanguages = [
+  { name: "Golang", link: "/languages/golang" },
+  { name: "JavaScript/TypeScript", link: "/languages/javascript-typescript" },
+  { name: "Python", link: "/languages/python" },
+  { name: "SQL", link: "/languages/sql" },
+];
+
+export default function Navigation({ blogUrl }: { blogUrl?: string }) {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isProgrammingLanguagesOpen, setIsProgrammingLanguagesOpen] = useState(false);
+  const location = useLocation();
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+
   return (
     <header className="sticky top-0 z-50 bg-white bg-opacity-90 dark:bg-gray-800 dark:bg-opacity-90 backdrop-filter backdrop-blur-lg">
       <div className="container mx-auto px-4 py-4 max-w-6xl">
         <div className="flex justify-between items-center">
-          <a
-            href="/"
-            className="flex items-center space-x-2"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection("hero");
-            }}
-          >
-            <img src={logoSrc} alt="OnnaSoft, Inc." className="h-8 w-8" />
+          <Link to="/" className="flex items-center space-x-2">
+            <img src="/images/logo.png" alt="OnnaSoft, Inc." className="h-8 w-8" />
             <span className="text-3xl font-bold text-gray-900 dark:text-white">
               OnnaSoft, Inc.
             </span>
-          </a>
+          </Link>
           <nav className="hidden md:flex space-x-8">
             <div className="relative group">
               <button
@@ -92,44 +87,67 @@ export default function Navigation() {
                 <ChevronDown className="h-5 w-5 ml-1" />
               </button>
               {isServicesOpen && (
-                <div className="absolute left-0 mt-2 w-64 bg-white dark:bg-gray-800 rounded-md shadow-lg py-1 z-10">
-                  {services.map((service, index) => (
-                    <Link
-                      key={index}
-                      to={service.link}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
-                    >
-                      <div className="flex items-center">
-                        <service.icon className="h-5 w-5 mr-2" />
-                        <div>
-                          <div className="font-semibold">{service.title}</div>
-                          <div className="text-xs text-gray-500 dark:text-gray-400">
-                            {service.description}
+                <div className="absolute left-0 mt-2 w-[600px] bg-white dark:bg-gray-800 rounded-md shadow-lg py-1 z-10 grid grid-cols-2">
+                  <div>
+                    <h3 className="px-4 py-2 text-sm font-semibold">Services</h3>
+                    {services.map((service, index) => (
+                      <Link
+                        key={index}
+                        to={service.link}
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
+                      >
+                        <div className="flex items-center">
+                          <service.icon className="h-5 w-5 mr-2" />
+                          <div>
+                            <div className="font-semibold">{service.title}</div>
+                            <div className="text-xs text-gray-500 dark:text-gray-400">
+                              {service.description}
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </Link>
-                  ))}
+                      </Link>
+                    ))}
+                  </div>
+                  <div>
+                    <h3 className="px-4 py-2 text-sm font-semibold">Programming Languages</h3>
+                    {programmingLanguages.map((lang, index) => (
+                      <Link
+                        key={index}
+                        to={lang.link}
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
+                      >
+                        {lang.name}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
             <Link
               to="/mission"
-              className="text-lg text-gray-700 hover:text-orange-500 dark:text-gray-300 dark:hover:text-orange-400 transition-colors"
+              className={`text-lg ${
+                location.pathname === "/mission"
+                  ? "text-orange-500 dark:text-orange-400"
+                  : "text-gray-700 dark:text-gray-300 hover:text-orange-500 dark:hover:text-orange-400"
+              } transition-colors`}
             >
               Mission
             </Link>
             <Link
               to="/vision"
-              className="text-lg text-gray-700 hover:text-orange-500 dark:text-gray-300 dark:hover:text-orange-400 transition-colors"
+              className={`text-lg ${
+                location.pathname === "/vision"
+                  ? "text-orange-500 dark:text-orange-400"
+                  : "text-gray-700 dark:text-gray-300 hover:text-orange-500 dark:hover:text-orange-400"
+              } transition-colors`}
             >
               Vision
             </Link>
             {blogUrl && (
               <a
+                href={blogUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                href={blogUrl}
                 className="text-lg text-gray-700 hover:text-orange-500 dark:text-gray-300 dark:hover:text-orange-400 transition-colors flex items-center"
               >
                 <BookOpen className="h-5 w-5 mr-1" />
@@ -138,10 +156,11 @@ export default function Navigation() {
             )}
           </nav>
           <div className="hidden md:block">
-            <Link to="/contact">
-              <Button className="text-lg bg-orange-500 hover:bg-orange-600 text-white">
-                Schedule a Demo
-              </Button>
+            <Link
+              to="/contact"
+              className="text-lg bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded transition-colors"
+            >
+              Schedule a Demo
             </Link>
           </div>
           <button
@@ -176,12 +195,41 @@ export default function Navigation() {
                         key={index}
                         to={service.link}
                         className="block pl-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
-                        onClick={toggleMobileMenu}
+                        onClick={() => {
+                          setIsServicesOpen(false);
+                          toggleMobileMenu();
+                        }}
                       >
                         <div className="flex items-center">
                           <service.icon className="h-5 w-5 mr-2" />
                           <div>{service.title}</div>
                         </div>
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+              <div>
+                <button
+                  onClick={() => setIsProgrammingLanguagesOpen(!isProgrammingLanguagesOpen)}
+                  className="w-full text-left text-lg text-gray-700 hover:text-orange-500 dark:text-gray-300 dark:hover:text-orange-400 transition-colors flex items-center justify-between"
+                >
+                  Programming Languages
+                  <ChevronDown className="h-5 w-5" />
+                </button>
+                {isProgrammingLanguagesOpen && (
+                  <div className="mt-2 space-y-2">
+                    {programmingLanguages.map((lang, index) => (
+                      <Link
+                        key={index}
+                        to={lang.link}
+                        className="block pl-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
+                        onClick={() => {
+                          setIsProgrammingLanguagesOpen(false);
+                          toggleMobileMenu();
+                        }}
+                      >
+                        {lang.name}
                       </Link>
                     ))}
                   </div>
@@ -203,9 +251,9 @@ export default function Navigation() {
               </Link>
               {blogUrl && (
                 <a
+                  href={blogUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  href={blogUrl}
                   className="block text-lg text-gray-700 hover:text-orange-500 dark:text-gray-300 dark:hover:text-orange-400 transition-colors flex items-center"
                   onClick={toggleMobileMenu}
                 >
@@ -215,17 +263,15 @@ export default function Navigation() {
               )}
               <Link
                 to="/contact"
-                className="block"
+                className="block text-lg bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded transition-colors"
                 onClick={toggleMobileMenu}
               >
-                <Button className="w-full text-lg bg-orange-500 hover:bg-orange-600 text-white">
-                  Schedule a Demo
-                </Button>
+                Schedule a Demo
               </Link>
             </div>
           </div>
         </div>
       )}
     </header>
-  )
+  );
 }
