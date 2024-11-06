@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "@remix-run/react";
 import Layout from "~/components/Layout";
 import { Users, Briefcase, ChartBar, Clock, ChevronDown } from "lucide-react";
 import CallToAction from "~/components/CallToAction";
