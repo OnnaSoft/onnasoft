@@ -76,7 +76,7 @@ export default function Navigation() {
       <div className="container mx-auto px-4 py-4 max-w-6xl">
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center space-x-2">
-            <img src={logoSrc} alt="OnnaSoft, Inc." className="h-8 w-8" />
+            <img src={logoSrc} alt="Home" className="h-8 w-8" />
             <span className="text-3xl font-bold text-gray-900 dark:text-white">
               OnnaSoft, Inc.
             </span>
