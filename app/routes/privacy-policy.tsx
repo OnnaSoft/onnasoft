@@ -1,9 +1,6 @@
-import { MetaFunction, useLoaderData } from "@remix-run/react";
+import { MetaFunction } from "@remix-run/react";
 import CookieConsent from "~/components/CookieConsent";
 import Layout from "~/components/Layout";
-import { loader } from "~/loaders/landing";
-
-export { loader };
 
 export const meta: MetaFunction = () => {
   return [
@@ -31,14 +28,9 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-interface PrivacyPolicyProps {
-  blogUrl: string;
-  enableChat: boolean;
-}
-
-function PrivacyPolicy({ blogUrl, enableChat }: PrivacyPolicyProps) {
+export default function PrivacyPolicyPage() {
   return (
-    <Layout blogUrl={blogUrl} enableChat={enableChat}>
+    <Layout>
       <div className="container mx-auto px-4 py-8 max-w-4xl">
         <h1 className="text-4xl font-bold mb-6 text-gray-900 dark:text-white">
           Privacy Policy
@@ -139,7 +131,7 @@ function PrivacyPolicy({ blogUrl, enableChat }: PrivacyPolicyProps) {
           <p className="text-gray-700 dark:text-gray-300 mb-4">
             We may update this Privacy Policy from time to time. We will notify
             you of any changes by posting the new Privacy Policy on this page
-            and updating the "Last updated" date.
+            and updating the &quot;Last updated&quot; date.
           </p>
         </section>
 
@@ -168,10 +160,5 @@ function PrivacyPolicy({ blogUrl, enableChat }: PrivacyPolicyProps) {
       </div>
       <CookieConsent />
     </Layout>
-  );
-}
-
-export default function PrivacyPolicyPage() {
-  const { blogUrl, enableChat } = useLoaderData<typeof loader>();
-  return <PrivacyPolicy blogUrl={blogUrl} enableChat={enableChat} />;
+  )
 }

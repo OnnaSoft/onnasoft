@@ -1,9 +1,6 @@
-import { MetaFunction, useLoaderData } from "@remix-run/react";
+import { MetaFunction } from "@remix-run/react";
 import CallToAction from "~/components/CallToAction";
 import Layout from "~/components/Layout";
-import { loader } from "~/loaders/landing";
-
-export { loader };
 
 export const meta: MetaFunction = () => {
   return [
@@ -28,10 +25,8 @@ export const meta: MetaFunction = () => {
 };
 
 export default function Vision() {
-  const { blogUrl, enableChat } = useLoaderData<typeof loader>();
-
   return (
-    <Layout blogUrl={blogUrl} enableChat={enableChat}>
+    <Layout>
       <div className="container mx-auto px-4 py-12 max-w-4xl">
         <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-8 text-center">
           OnnaSoft, Inc. Vision
@@ -39,15 +34,15 @@ export default function Vision() {
 
         <div className="prose dark:prose-invert max-w-none">
           <p className="text-xl font-semibold mb-6 text-center">
-            "To position OnnaSoft as the standard for quality and reliability in
-            the development of enterprise technological solutions."
+            &quot;To position OnnaSoft as the standard for quality and reliability in
+            the development of enterprise technological solutions.&quot;
           </p>
 
           <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mt-8 mb-4">
             Excellence and Quality as the Norm
           </h2>
           <p className="text-lg mb-6">
-            At OnnaSoft, quality is more than a goal: it's a daily commitment.
+            At OnnaSoft, quality is more than a goal: it&apos;s a daily commitment.
             We aspire to be a reference for excellence in enterprise software
             development, establishing quality control and assurance practices at
             every phase of the project. From conceptualization to
@@ -94,13 +89,13 @@ export default function Vision() {
             so our approach focuses on creating customized solutions that not
             only address current client problems but also facilitate long-term
             growth. Our team designs and develops scalable systems that
-            integrate easily into our clients' technological ecosystems,
+            integrate easily into our clients&apos; technological ecosystems,
             allowing for continuous development and agile adaptation to future
             needs.
           </p>
           <p className="text-lg mb-6">
             This includes modular and flexible architectures that allow adding
-            functionalities without disrupting the company's workflow. With
+            functionalities without disrupting the company&apos;s workflow. With
             experience in creating solutions for web applications, mobile, APIs,
             and databases, as well as for Big Data flows and cloud environment
             management (AWS, Kubernetes, and Cloudflare), OnnaSoft becomes a

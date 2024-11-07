@@ -6,10 +6,10 @@ import {
   Scripts,
   ScrollRestoration,
   useLoaderData,
-  useLocation,
 } from "@remix-run/react";
 import type { LinksFunction, LoaderFunction } from "@remix-run/node";
 import "@/tailwind.css";
+import LandingContext from "./contexts/landing";
 
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -21,33 +21,35 @@ export const links: LinksFunction = () => [
   {
     rel: "stylesheet",
     href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
-    media: "print",
   },
 ];
 
 export const loader: LoaderFunction = async ({ request }) => {
+  const url = new URL(request.url);
+  const protocol = request.headers.get("x-forwarded-proto");
   return json({
-    origin: new URL(request.url).origin,
+    blogUrl: process.env.BLOG_URL,
+    enableChat: process.env.ENABLE_CHAT === "true",
+    googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID,
+    canonical: `${protocol ? protocol + ':' : url.protocol}//${url.host}${url.pathname}`,
   });
 };
 
 export function Layout({ children }: { children: React.ReactNode }) {
-  const { origin } = useLoaderData<typeof loader>();
-  const { pathname } = useLocation();
-  const href = origin + pathname;
+  const { canonical, googleAnalyticsId, blogUrl, enableChat } = useLoaderData<typeof loader>();
 
   return (
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link href={href} rel="canonical" />
+        <link href={canonical} rel="canonical" />
         <Meta />
         <Links />
 
         <script
           async
-          src={`https://www.googletagmanager.com/gtag/js?id=G-CV141N367N`}
+          src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
         ></script>
         <script
           dangerouslySetInnerHTML={{
@@ -55,7 +57,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-CV141N367N', {
+              gtag('config', '${googleAnalyticsId}', {
                 page_path: window.location.pathname,
               });
             `,
@@ -63,7 +65,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         />
       </head>
       <body>
-        {children}
+        <LandingContext.Provider value={{ blogUrl, enableChat }}>
+          {children}
+        </LandingContext.Provider>
         <ScrollRestoration />
         <Scripts />
       </body>

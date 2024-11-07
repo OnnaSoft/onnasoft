@@ -1,6 +1,5 @@
-import { MetaFunction, useLoaderData } from "@remix-run/react";
+import { MetaFunction } from "@remix-run/react";
 import Layout from "~/components/Layout";
-import { loader } from "~/loaders/landing";
 import CallToAction from "~/components/CallToAction";
 import {
   Users,
@@ -14,8 +13,6 @@ import {
   BarChart,
 } from "lucide-react";
 import bannerSrc from "~/assets/1860390085.webp";
-
-export { loader };
 
 export const meta: MetaFunction = () => {
   return [
@@ -41,11 +38,9 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-export default function ITOutsourcingArticle() {
-  const { blogUrl, enableChat } = useLoaderData<typeof loader>();
-
+export default function ITOutsourcing() {
   return (
-    <Layout blogUrl={blogUrl} enableChat={enableChat}>
+    <Layout>
       <article className="container mx-auto px-4 py-12 max-w-4xl">
         <header className="text-center mb-12">
           <h1 className="text-5xl font-bold text-gray-900 dark:text-white mb-4 leading-tight">
@@ -64,7 +59,7 @@ export default function ITOutsourcingArticle() {
 
         <div className="prose dark:prose-invert max-w-none">
           <p className="text-xl text-gray-700 dark:text-gray-300 mb-8">
-            In today's rapidly evolving technological landscape, businesses
+            In today&apos;s rapidly evolving technological landscape, businesses
             across various industries face the challenge of staying competitive
             while managing their IT needs efficiently. For many companies,
             especially those where technology is not the primary focus, hiring
@@ -260,7 +255,7 @@ export default function ITOutsourcingArticle() {
           </h2>
 
           <p className="text-xl text-gray-700 dark:text-gray-300 mb-8">
-            At OnnaSoft, we're committed to providing flexible, reliable, and
+            At OnnaSoft, we&apos;re committed to providing flexible, reliable, and
             cost-effective IT outsourcing solutions that empower your business
             to thrive in the digital age. Our expert team stands ready to
             support your IT needs, allowing you to focus on what you do best

@@ -1,6 +1,5 @@
-import { MetaFunction, useLoaderData } from "@remix-run/react";
+import { MetaFunction } from "@remix-run/react";
 import Layout from "@/components/Layout";
-import { loader } from "~/loaders/landing";
 import {
   Server,
   Users,
@@ -16,8 +15,6 @@ import whyCustomSrc from "~/assets/621349102.webp";
 import customDevelopmentProcess from "~/assets/174080919.webp";
 import { useState } from "react";
 import CallToAction from "~/components/CallToAction";
-
-export { loader };
 
 export const meta: MetaFunction = () => {
   return [
@@ -43,8 +40,7 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-export default function CustomDevelopmentServices() {
-  const { blogUrl, enableChat } = useLoaderData<typeof loader>();
+export default function CustomDevelopment() {
   const [activeWhyChoose, setActiveWhyChoose] = useState<number | null>(null);
   const [activeProcess, setActiveProcess] = useState<number | null>(null);
 
@@ -117,7 +113,7 @@ export default function CustomDevelopmentServices() {
   ];
 
   return (
-    <Layout blogUrl={blogUrl} enableChat={enableChat}>
+    <Layout>
       <article className="container mx-auto px-4 py-12 max-w-4xl">
         <header className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
@@ -136,7 +132,7 @@ export default function CustomDevelopmentServices() {
 
         <div className="prose dark:prose-invert max-w-none">
           <p className="text-lg leading-relaxed mb-8">
-            In today's rapidly evolving digital landscape, businesses are
+            In today&apos;s rapidly evolving digital landscape, businesses are
             constantly seeking ways to stay ahead of the competition and
             optimize their operations. One powerful strategy that has gained
             significant traction is custom software development. At OnnaSoft, we
@@ -152,7 +148,7 @@ export default function CustomDevelopmentServices() {
               <p className="text-lg leading-relaxed mb-6">
                 Custom software development offers a range of benefits over
                 off-the-shelf solutions, providing an edge that can transform
-                the way you do business. Here's why custom development with
+                the way you do business. Here&apos;s why custom development with
                 OnnaSoft can be a game-changer for your organization:
               </p>
               <ul className="text-lg space-y-4">
@@ -306,17 +302,17 @@ export default function CustomDevelopmentServices() {
           </h2>
           <p className="text-lg leading-relaxed mb-4">
             Custom software development is more than just a technological
-            upgrade; it's a strategic investment in your business's future. By
-            choosing OnnaSoft for your custom development needs, you're
-            partnering with a team that's committed to understanding your unique
+            upgrade; it&apos;s a strategic investment in your business&apos;s future. By
+            choosing OnnaSoft for your custom development needs, you&apos;re
+            partnering with a team that&apos;s committed to understanding your unique
             challenges and delivering solutions that drive real, measurable
             results.
           </p>
           <p className="text-lg leading-relaxed mb-4">
-            Whether you're looking to streamline your operations, enhance
+            Whether you&apos;re looking to streamline your operations, enhance
             customer experiences, or gain a competitive edge in your industry,
             our tailored approach to software development can help you achieve
-            your goals. Let's work together to transform your vision into
+            your goals. Let&apos;s work together to transform your vision into
             reality and set your business on the path to digital success.
           </p>
         </div>
