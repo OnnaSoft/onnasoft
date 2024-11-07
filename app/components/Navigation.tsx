@@ -12,20 +12,22 @@ import {
   Menu,
   X,
 } from "lucide-react";
-import logoSrc from '@/assets/logo.png'
+import logoSrc from "@/assets/logo2.png";
 import LandingContext from "~/contexts/landing";
 
 const services = [
   {
     icon: Code,
     title: "Custom Development",
-    description: "Tailored software solutions to meet your unique business needs",
+    description:
+      "Tailored software solutions to meet your unique business needs",
     link: "/services/custom-development",
   },
   {
     icon: Globe,
     title: "Third-Party API Integration",
-    description: "Seamless integration of external services into your applications",
+    description:
+      "Seamless integration of external services into your applications",
     link: "/services/api-integration",
   },
   {
@@ -43,7 +45,8 @@ const services = [
   {
     icon: Users,
     title: "Staff Augmentation",
-    description: "Flexible staffing solutions to enhance your team's capabilities",
+    description:
+      "Flexible staffing solutions to enhance your team's capabilities",
     link: "/services/staff-augmentation",
   },
   {
@@ -59,7 +62,6 @@ const services = [
     link: "/services/cloud-migration",
   },
 ];
-
 
 export default function Navigation() {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
@@ -112,19 +114,21 @@ export default function Navigation() {
             </div>
             <Link
               to="/mission"
-              className={`text-lg ${location.pathname === "/mission"
+              className={`text-lg ${
+                location.pathname === "/mission"
                   ? "text-orange-500 dark:text-orange-400"
                   : "text-gray-700 dark:text-gray-300 hover:text-orange-500 dark:hover:text-orange-400"
-                } transition-colors`}
+              } transition-colors`}
             >
               Mission
             </Link>
             <Link
               to="/vision"
-              className={`text-lg ${location.pathname === "/vision"
+              className={`text-lg ${
+                location.pathname === "/vision"
                   ? "text-orange-500 dark:text-orange-400"
                   : "text-gray-700 dark:text-gray-300 hover:text-orange-500 dark:hover:text-orange-400"
-                } transition-colors`}
+              } transition-colors`}
             >
               Vision
             </Link>
