@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, useLocation } from "@remix-run/react";
 import {
   BookOpen,
@@ -13,6 +13,7 @@ import {
   X,
 } from "lucide-react";
 import logoSrc from '@/assets/logo.png'
+import LandingContext from "~/contexts/landing";
 
 const services = [
   {
@@ -60,9 +61,10 @@ const services = [
 ];
 
 
-export default function Navigation({ blogUrl }: { blogUrl?: string }) {
+export default function Navigation() {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { blogUrl } = useContext(LandingContext);
   const location = useLocation();
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -110,21 +112,19 @@ export default function Navigation({ blogUrl }: { blogUrl?: string }) {
             </div>
             <Link
               to="/mission"
-              className={`text-lg ${
-                location.pathname === "/mission"
+              className={`text-lg ${location.pathname === "/mission"
                   ? "text-orange-500 dark:text-orange-400"
                   : "text-gray-700 dark:text-gray-300 hover:text-orange-500 dark:hover:text-orange-400"
-              } transition-colors`}
+                } transition-colors`}
             >
               Mission
             </Link>
             <Link
               to="/vision"
-              className={`text-lg ${
-                location.pathname === "/vision"
+              className={`text-lg ${location.pathname === "/vision"
                   ? "text-orange-500 dark:text-orange-400"
                   : "text-gray-700 dark:text-gray-300 hover:text-orange-500 dark:hover:text-orange-400"
-              } transition-colors`}
+                } transition-colors`}
             >
               Vision
             </Link>
