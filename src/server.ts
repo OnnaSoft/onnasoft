@@ -27,7 +27,7 @@ app.use(
 const build = viteDevServer
   ? async () => await viteDevServer.ssrLoadModule("virtual:remix/server-build")
   : // @ts-ignore
-    await import("./build/server/index.js");
+    await import("build/server/index.js");
 
 api.use(express.json());
 api.use(express.urlencoded({ extended: true }));
