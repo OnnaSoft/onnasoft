@@ -23,6 +23,7 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
     assistantId: process.env.OPENAI_ASSISTANT_ID ?? "",
     enableChat: process.env.ENABLE_CHAT === "true",
     googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID,
+    googleAdsConversionId: process.env.GOOGLE_ADS_CONVERSION_ID,
     canonical: `${protocol ? protocol + ":" : url.protocol}//${url.host}${
       url.pathname
     }`,
@@ -30,8 +31,13 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 };
 
 export function Layout({ children }: { children: React.ReactNode }) {
-  const { canonical, googleAnalyticsId, blogUrl, assistantId } =
-    useLoaderData<typeof loader>();
+  const {
+    canonical,
+    googleAnalyticsId,
+    blogUrl,
+    assistantId,
+    googleAdsConversionId,
+  } = useLoaderData<typeof loader>();
 
   return (
     <html lang="en">
@@ -57,6 +63,17 @@ export function Layout({ children }: { children: React.ReactNode }) {
               gtag('js', new Date());
               gtag('config', '${googleAnalyticsId}', {
                 page_path: window.location.pathname,
+              });
+            `,
+          }}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              gtag('event', 'conversion', {
+                  'send_to': '${googleAdsConversionId}',
+                  'value': 1.0,
+                  'currency': 'COP'
               });
             `,
           }}
