@@ -42,13 +42,10 @@ export default function IndexPage() {
       <SoftwareDevelopmentLeadership />
       <CustomSoftwareBenefits />
       <OutsourceDevelopmentBenefits />
-      <Testimonials />
       <FAQ />
-      <section id="call-to-action" className="py-20 bg-white dark:bg-gray-900">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <CallToAction />
-        </div>
-      </section>
+
+      <CallToAction />
+
       <CookieConsent />
     </Layout>
   );

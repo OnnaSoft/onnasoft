@@ -1,8 +1,9 @@
 import { createRequestHandler } from "@remix-run/express";
 import express from "express";
-import authRouter from "routes/auth";
-import contactRouter from "routes/contact";
 import dotenv from "dotenv";
+import authRouter from "src/routes/auth";
+import contactRouter from "src/routes/contact";
+import chatRouter from "src/routes/chat.js";
 
 dotenv.config();
 
@@ -32,6 +33,7 @@ api.use(express.json());
 api.use(express.urlencoded({ extended: true }));
 
 api.use("/auth", authRouter);
+api.use("/chat", chatRouter);
 api.use("/contact", contactRouter);
 
 api.use((req, res) => {

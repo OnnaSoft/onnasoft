@@ -119,7 +119,7 @@ export default function CustomDevelopment() {
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             Custom Development: Tailored Software Solutions for Your Business
           </h1>
-          <p className="text-xl text-gray-700 dark:text-gray-300 mb-8">
+          <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased">
             Empowering your business with bespoke software solutions designed to
             meet your unique needs and drive growth
           </p>
@@ -131,7 +131,7 @@ export default function CustomDevelopment() {
         </header>
 
         <div className="prose dark:prose-invert max-w-none">
-          <p className="text-lg leading-relaxed mb-8">
+          <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased">
             In today&apos;s rapidly evolving digital landscape, businesses are
             constantly seeking ways to stay ahead of the competition and
             optimize their operations. One powerful strategy that has gained
@@ -145,7 +145,7 @@ export default function CustomDevelopment() {
               <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-200 mb-6">
                 Why Choose Custom Development?
               </h2>
-              <p className="text-lg leading-relaxed mb-6">
+              <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased">
                 Custom software development offers a range of benefits over
                 off-the-shelf solutions, providing an edge that can transform
                 the way you do business. Here&apos;s why custom development with
@@ -172,7 +172,7 @@ export default function CustomDevelopment() {
                       />
                     </button>
                     {activeWhyChoose === index && (
-                      <p className="mt-2 text-gray-600 dark:text-gray-400">
+                      <p className="mt-2 text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased">
                         {item.description}
                       </p>
                     )}
@@ -194,7 +194,7 @@ export default function CustomDevelopment() {
               <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-200 mb-6">
                 Our Custom Development Process
               </h2>
-              <p className="text-lg leading-relaxed mb-6">
+              <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased">
                 At OnnaSoft, we follow a comprehensive and systematic approach
                 to ensure that every custom software solution we deliver meets
                 the highest standards of quality and functionality. Our process
@@ -223,7 +223,7 @@ export default function CustomDevelopment() {
                       />
                     </button>
                     {activeProcess === index && (
-                      <p className="mt-2 text-gray-600 dark:text-gray-400">
+                      <p className="mt-2 text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased">
                         {step.description}
                       </p>
                     )}
@@ -243,7 +243,7 @@ export default function CustomDevelopment() {
           <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-200 mb-6">
             Industries We Serve
           </h2>
-          <p className="text-lg leading-relaxed mb-6">
+          <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased">
             Our expertise spans across various industries, allowing us to
             deliver tailored solutions that address sector-specific challenges
             and requirements. Some of the key industries we serve include:
@@ -255,7 +255,7 @@ export default function CustomDevelopment() {
                 <Globe className="h-8 w-8 text-orange-500 mr-3" />
                 Healthcare
               </h3>
-              <p className="text-lg leading-relaxed">
+              <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased">
                 We develop custom applications for patient data management,
                 mobile health monitoring, secure APIs, and databases for patient
                 records, all while ensuring HIPAA compliance.
@@ -266,7 +266,7 @@ export default function CustomDevelopment() {
                 <Database className="h-8 w-8 text-orange-500 mr-3" />
                 Finance
               </h3>
-              <p className="text-lg leading-relaxed">
+              <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased">
                 Our solutions include secure transaction processing platforms,
                 mobile banking apps, API integrations with payment systems, and
                 databases for compliance and reporting, adhering to strict
@@ -278,7 +278,7 @@ export default function CustomDevelopment() {
                 <Smartphone className="h-8 w-8 text-orange-500 mr-3" />
                 E-commerce
               </h3>
-              <p className="text-lg leading-relaxed">
+              <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased">
                 We create scalable web stores, mobile shopping apps, APIs for
                 product and inventory management, and databases for customer
                 insights, helping businesses thrive in the digital marketplace.
@@ -289,7 +289,7 @@ export default function CustomDevelopment() {
                 <Cog className="h-8 w-8 text-orange-500 mr-3" />
                 Manufacturing
               </h3>
-              <p className="text-lg leading-relaxed">
+              <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased">
                 Our custom solutions include process automation tools, mobile
                 inspection apps, supply chain APIs, and databases for inventory
                 and resource management, optimizing manufacturing operations.
@@ -300,15 +300,15 @@ export default function CustomDevelopment() {
           <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-200 mb-6">
             Conclusion
           </h2>
-          <p className="text-lg leading-relaxed mb-4">
+          <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased">
             Custom software development is more than just a technological
-            upgrade; it&apos;s a strategic investment in your business&apos;s future. By
-            choosing OnnaSoft for your custom development needs, you&apos;re
-            partnering with a team that&apos;s committed to understanding your unique
-            challenges and delivering solutions that drive real, measurable
-            results.
+            upgrade; it&apos;s a strategic investment in your business&apos;s
+            future. By choosing OnnaSoft for your custom development needs,
+            you&apos;re partnering with a team that&apos;s committed to
+            understanding your unique challenges and delivering solutions that
+            drive real, measurable results.
           </p>
-          <p className="text-lg leading-relaxed mb-4">
+          <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased">
             Whether you&apos;re looking to streamline your operations, enhance
             customer experiences, or gain a competitive edge in your industry,
             our tailored approach to software development can help you achieve

@@ -16,6 +16,14 @@ export default {
           'Segoe UI Symbol"',
           'Noto Color Emoji"',
         ],
+        serif: [
+          '"Source Serif Pro"',
+          "Georgia",
+          "Cambria",
+          '"Times New Roman"',
+          "Times",
+          "serif",
+        ],
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -11,6 +11,11 @@ import {
   Globe,
   Database,
   Workflow,
+  ClipboardList,
+  KeyIcon as Strategy,
+  Code2,
+  TestTube,
+  LineChart,
 } from "lucide-react";
 import { MetaFunction } from "@remix-run/react";
 import bannerSrc from "~/assets/1462932996.webp";
@@ -74,26 +79,31 @@ const benefits = [
 
 const optimizationProcess = [
   {
+    icon: ClipboardList,
     title: "Performance Audit",
     description:
       "We conduct a comprehensive analysis of your application to identify performance bottlenecks and areas for improvement, reviewing everything from code efficiency to responsiveness in complex, real-time workflows.",
   },
   {
+    icon: Strategy,
     title: "Optimization Strategy",
     description:
       "Based on the audit, we develop a tailored strategy to address your specific performance needs, from SEO for websites to architecture for distributed systems.",
   },
   {
+    icon: Code2,
     title: "Implementation",
     description:
       "Our expert developers implement the necessary optimization measures, focusing on code efficiency, database queries, and resource management. If needed, we design distributed, real-time workflows using Kafka, ensuring that your application scales seamlessly with your business requirements.",
   },
   {
+    icon: TestTube,
     title: "Testing and Validation",
     description:
       "We rigorously test the optimized application to confirm performance improvements and identify and resolve any potential issues.",
   },
   {
+    icon: LineChart,
     title: "Monitoring and Continuous Improvement",
     description:
       "We set up performance monitoring tools and provide ongoing support to maintain optimal performance, ensuring that your application adapts to any changes in user or market demands.",
@@ -148,7 +158,7 @@ export default function PerformanceOptimization() {
             Performance Optimization: Enhancing Speed, Efficiency, and
             Scalability for Your Software
           </h1>
-          <p className="text-xl text-gray-700 dark:text-gray-300 mb-8">
+          <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased">
             Optimizing applications to meet and exceed both user expectations
             and business requirements
           </p>
@@ -160,9 +170,9 @@ export default function PerformanceOptimization() {
         </header>
 
         <div className="prose dark:prose-invert max-w-none mb-16">
-          <p className="text-xl text-gray-700 dark:text-gray-300 mb-6">
-            In today&apos;s fast-paced digital environment, every second counts, and
-            performance is key to success. At OnnaSoft, we specialize in
+          <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased">
+            In today&apos;s fast-paced digital environment, every second counts,
+            and performance is key to success. At OnnaSoft, we specialize in
             optimizing your applications to meet and exceed both user
             expectations and business requirements. Our Performance Optimization
             solutions cover everything from fast-loading websites to
@@ -178,7 +188,7 @@ export default function PerformanceOptimization() {
             {benefits.map((benefit, index) => (
               <li key={index} className="flex items-start">
                 <benefit.icon className="h-6 w-6 text-orange-500 dark:text-orange-400 mr-3 mt-1 flex-shrink-0" />
-                <span className="text-lg text-gray-700 dark:text-gray-300">
+                <span className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased">
                   <strong>{benefit.title}:</strong> {benefit.description}
                 </span>
               </li>
@@ -191,10 +201,8 @@ export default function PerformanceOptimization() {
           <ol className="space-y-4 mb-8">
             {optimizationProcess.map((step, index) => (
               <li key={index} className="flex items-start">
-                <span className="text-orange-500 dark:text-orange-400 font-bold mr-3">
-                  {index + 1}.
-                </span>
-                <span className="text-lg text-gray-700 dark:text-gray-300">
+                <step.icon className="h-6 w-6 text-orange-500 dark:text-orange-400 mr-3 mt-1 flex-shrink-0" />
+                <span className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased">
                   <strong>{step.title}:</strong> {step.description}
                 </span>
               </li>
@@ -208,7 +216,7 @@ export default function PerformanceOptimization() {
             {services.map((service, index) => (
               <li key={index} className="flex items-start">
                 <service.icon className="h-6 w-6 text-orange-500 dark:text-orange-400 mr-3 mt-1 flex-shrink-0" />
-                <span className="text-lg text-gray-700 dark:text-gray-300">
+                <span className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased">
                   <strong>{service.title}:</strong> {service.description}
                 </span>
               </li>
@@ -218,30 +226,30 @@ export default function PerformanceOptimization() {
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
             Conclusion
           </h2>
-          <p className="text-xl text-gray-700 dark:text-gray-300 mb-6">
+          <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased">
             In an increasingly competitive digital landscape, performance
-            optimization is not just a luxury—it&apos;s a necessity. At OnnaSoft,
-            we&apos;re committed to helping your systems perform at their best, from
-            SEO-optimized web pages to distributed, real-time systems. Our
-            comprehensive approach to performance optimization gives you a
-            significant competitive advantage, enhances user experience, and
-            ensures that your applications can meet the demands of a dynamic and
-            growing market.
+            optimization is not just a luxury—it&apos;s a necessity. At
+            OnnaSoft, we&apos;re committed to helping your systems perform at
+            their best, from SEO-optimized web pages to distributed, real-time
+            systems. Our comprehensive approach to performance optimization
+            gives you a significant competitive advantage, enhances user
+            experience, and ensures that your applications can meet the demands
+            of a dynamic and growing market.
           </p>
-          <p className="text-xl text-gray-700 dark:text-gray-300 mb-6">
-            By choosing OnnaSoft for your performance optimization needs, you&apos;re
-            not just improving your current systems—you&apos;re investing in the
-            future of your business. Our tailored solutions, cutting-edge
-            technologies, and expert team ensure that your applications will not
-            only meet but exceed both user expectations and business
-            requirements.
+          <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased">
+            By choosing OnnaSoft for your performance optimization needs,
+            you&apos;re not just improving your current systems—you&apos;re
+            investing in the future of your business. Our tailored solutions,
+            cutting-edge technologies, and expert team ensure that your
+            applications will not only meet but exceed both user expectations
+            and business requirements.
           </p>
-          <p className="text-xl text-gray-700 dark:text-gray-300 mb-6">
-            Don&apos;t let performance issues hold your business back. Partner with
-            OnnaSoft today, and let us help you unlock the full potential of
-            your software. Together, we can create faster, more efficient, and
-            highly scalable applications that drive your business forward in the
-            digital age.
+          <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased">
+            Don&apos;t let performance issues hold your business back. Partner
+            with OnnaSoft today, and let us help you unlock the full potential
+            of your software. Together, we can create faster, more efficient,
+            and highly scalable applications that drive your business forward in
+            the digital age.
           </p>
         </div>
       </article>

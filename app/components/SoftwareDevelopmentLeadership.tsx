@@ -5,27 +5,33 @@ import {
   Rocket,
   Users,
   ChevronRight,
+  Zap,
+  Shield,
+  Target,
+  Cog,
 } from "lucide-react";
 
 export default function SoftwareDevelopmentLeadership() {
   return (
-    <section className="py-20 bg-gray-50 dark:bg-gray-800">
+    <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4 max-w-6xl">
-        <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 dark:text-white mb-16">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-foreground mb-8">
           Pioneering Custom Software Solutions for Businesses
         </h2>
-        <p className="text-xl text-gray-700 dark:text-gray-300 text-center mb-12 max-w-3xl mx-auto">
-          We're dedicated to crafting bespoke software solutions that align
-          perfectly with your unique business needs, driving innovation and
-          efficiency in your operations.
+        <p className="text-xl leading-relaxed mb-12 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased text-foreground text-center max-w-3xl">
+          At OnnaSoft, we're dedicated to crafting bespoke software solutions
+          that align perfectly with your unique business needs. Our innovative
+          approach drives efficiency and growth, transforming your vision into
+          powerful, scalable software.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-16">
-          <div className="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-md transition-transform hover:scale-105">
-            <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-20">
+          <div>
+            <h3 className="text-2xl font-semibold text-foreground mb-6 flex items-center">
+              <Target className="h-8 w-8 text-orange-500 dark:text-orange-400 mr-3" />
               Our Approach
             </h3>
-            <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
+            <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased text-foreground">
               We combine strategic thinking with creative problem-solving to
               deliver comprehensive solutions. Our team becomes your ideal
               partner, supporting you through every phase necessary to turn your
@@ -33,62 +39,66 @@ export default function SoftwareDevelopmentLeadership() {
             </p>
             <ul className="space-y-4">
               {[
-                "Client-centric research",
-                "Tailored execution",
-                "Continuous result evaluation",
+                "In-depth client-centric research",
+                "Tailored execution strategies",
+                "Continuous result evaluation and optimization",
+                "Agile methodology for flexibility and rapid delivery",
               ].map((item, index) => (
                 <li
                   key={index}
-                  className="flex items-center text-lg text-gray-700 dark:text-gray-300"
+                  className="flex items-center text-xl leading-relaxed break-words text-rendering-optimizelegibility isolate break-word antialiased text-foreground"
                 >
-                  <ChevronRight className="h-6 w-6 text-orange-500 dark:text-orange-400 mr-3" />
-                  {item}
+                  <ChevronRight className="h-6 w-6 text-orange-500 dark:text-orange-400 mr-3 flex-shrink-0" />
+                  <span>{item}</span>
                 </li>
               ))}
             </ul>
           </div>
-          <div className="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-md transition-transform hover:scale-105">
-            <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+          <div>
+            <h3 className="text-2xl font-semibold text-foreground mb-6 flex items-center">
+              <Cog className="h-8 w-8 text-orange-500 dark:text-orange-400 mr-3" />
               Our Expertise
             </h3>
-            <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
-              As experts in custom software development, we offer a strategic
-              and creative approach to provide you with a complete solution. Our
-              expertise spans across various technologies and industries,
-              ensuring we can meet your specific needs.
+            <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased text-foreground">
+              As leaders in custom software development, we offer a strategic
+              and creative approach to provide you with complete, cutting-edge
+              solutions. Our expertise spans across various technologies and
+              industries, ensuring we can meet your specific needs and exceed
+              expectations.
             </p>
             <ul className="space-y-4">
               {[
-                "Cutting-edge technologies",
-                "Industry-specific solutions",
-                "Scalable architectures",
+                "Cutting-edge technologies and frameworks",
+                "Industry-specific, tailored solutions",
+                "Scalable and maintainable architectures",
+                "Cloud-native and serverless applications",
               ].map((item, index) => (
                 <li
                   key={index}
-                  className="flex items-center text-lg text-gray-700 dark:text-gray-300"
+                  className="flex items-center text-xl leading-relaxed break-words text-rendering-optimizelegibility isolate break-word antialiased text-foreground"
                 >
-                  <ChevronRight className="h-6 w-6 text-orange-500 dark:text-orange-400 mr-3" />
-                  {item}
+                  <ChevronRight className="h-6 w-6 text-orange-500 dark:text-orange-400 mr-3 flex-shrink-0" />
+                  <span>{item}</span>
                 </li>
               ))}
             </ul>
           </div>
         </div>
 
-        <h3 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
+        <h3 className="text-2xl md:text-3xl font-bold text-center text-foreground mb-12">
           Our Development Process
         </h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {developmentPhases.map((phase, index) => (
             <div
               key={index}
-              className="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-md text-center transition-transform hover:scale-105"
+              className="bg-background p-6 rounded-lg shadow-md text-center transition-all hover:shadow-lg"
             >
               {phase.icon}
-              <h4 className="text-xl font-semibold text-gray-900 dark:text-white mt-4 mb-2">
+              <h4 className="text-xl font-semibold text-foreground mt-4 mb-2">
                 {phase.title}
               </h4>
-              <p className="text-lg text-gray-700 dark:text-gray-300">
+              <p className="text-xl leading-relaxed break-words text-rendering-optimizelegibility isolate break-word antialiased text-foreground">
                 {phase.description}
               </p>
             </div>
@@ -102,37 +112,30 @@ export default function SoftwareDevelopmentLeadership() {
 const developmentPhases = [
   {
     icon: (
-      <Lightbulb className="h-16 w-16 text-orange-500 dark:text-orange-400 mx-auto" />
+      <Lightbulb className="h-12 w-12 text-orange-500 dark:text-orange-400 mx-auto" />
     ),
-    title: "Planning",
-    description: "Analyzing business model and requirements",
+    title: "Discovery & Planning",
+    description: "Analyzing business needs and defining project scope",
   },
   {
     icon: (
-      <Layout className="h-16 w-16 text-orange-500 dark:text-orange-400 mx-auto" />
+      <Layout className="h-12 w-12 text-orange-500 dark:text-orange-400 mx-auto" />
     ),
-    title: "Wireframing",
-    description: "Creating interactive prototypes",
+    title: "Design & Prototyping",
+    description: "Creating intuitive UX/UI and interactive prototypes",
   },
   {
     icon: (
-      <Users className="h-16 w-16 text-orange-500 dark:text-orange-400 mx-auto" />
+      <Code className="h-12 w-12 text-orange-500 dark:text-orange-400 mx-auto" />
     ),
-    title: "UX/UI Design",
-    description: "Crafting intuitive user experiences",
+    title: "Development & Testing",
+    description: "Building robust solutions with rigorous quality assurance",
   },
   {
     icon: (
-      <Code className="h-16 w-16 text-orange-500 dark:text-orange-400 mx-auto" />
+      <Rocket className="h-12 w-12 text-orange-500 dark:text-orange-400 mx-auto" />
     ),
-    title: "Development",
-    description: "Building robust and scalable solutions",
-  },
-  {
-    icon: (
-      <Rocket className="h-16 w-16 text-orange-500 dark:text-orange-400 mx-auto" />
-    ),
-    title: "Launch",
-    description: "Deploying and ensuring smooth operations",
+    title: "Deployment & Support",
+    description: "Launching your solution and providing ongoing maintenance",
   },
 ];

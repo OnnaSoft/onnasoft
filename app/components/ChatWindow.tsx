@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import { MessageCircle, X, Send } from "lucide-react";
 import { Button } from "./ui/button";
 
-export default function ChatWindow() {
+export type ChatWindowProps = {
+  assistantId: string;
+};
+
+export default function ChatWindow({ assistantId }: ChatWindowProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<{ text: string; isUser: boolean }[]>(
     []
@@ -28,6 +32,8 @@ export default function ChatWindow() {
       }, 1000);
     }
   };
+
+  if (!assistantId) return null;
 
   return (
     <div className="fixed bottom-4 right-4 z-50">
@@ -76,17 +82,17 @@ export default function ChatWindow() {
             onSubmit={sendMessage}
             className="p-4 border-t border-gray-200 dark:border-gray-700"
           >
-            <div className="flex">
+            <div className="flex gap-2">
               <input
                 type="text"
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
                 placeholder="Type your message..."
-                className="flex-grow px-3 py-2 border rounded-l-md dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                className="flex-grow px-3 py-2 border rounded-l-md h-10 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               />
               <Button
                 type="submit"
-                className="bg-orange-500 hover:bg-orange-600 text-white rounded-r-md"
+                className="bg-orange-500 hover:bg-orange-600 h-10 text-white rounded-r-md"
               >
                 <Send size={20} />
               </Button>

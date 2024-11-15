@@ -1,117 +1,89 @@
 import { useContext } from "react";
+import { Link } from "@remix-run/react";
+import { Button } from "./ui/button";
 import LandingContext from "~/contexts/landing";
 import { useScrollToSection } from "~/hooks/scrollToSection";
+import { Mail, Phone, MapPin } from "lucide-react";
 
 export default function Footer() {
   const { blogUrl } = useContext(LandingContext);
   const scrollToSection = useScrollToSection();
+
+  const quickLinks = [
+    { name: "Home", section: "hero" },
+    { name: "Services", section: "services" },
+    { name: "About", section: "about" },
+    { name: "Testimonials", section: "testimonials" },
+    { name: "FAQ", section: "faq" },
+  ];
+
   return (
-    <footer className="bg-gray-100 dark:bg-gray-800 py-12">
+    <footer className="bg-gray-50 py-12">
       <div className="container mx-auto px-4 max-w-6xl">
-        <div className="flex flex-wrap justify-between">
-          <div className="w-full md:w-1/3  mb-8 md:mb-0">
-            <h4 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h4 className="text-2xl font-semibold mb-4 text-foreground">
               OnnaSoft, Inc.
             </h4>
-            <p className="text-lg text-gray-700 dark:text-gray-300">
+            <p className="text-lg text-muted-foreground mb-2">
               Your trusted software factory for innovative solutions
             </p>
-            <p className="text-lg text-gray-700 dark:text-gray-300 mt-2">
+            <p className="text-lg text-muted-foreground">
               Delaware C Corporation
             </p>
           </div>
-          <div className="w-full md:w-1/3 mb-8 md:mb-0">
-            <h5 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">
+          <div>
+            <h5 className="text-xl font-semibold mb-4 text-foreground">
               Quick Links
             </h5>
-            <ul className="space-y-3">
+            <ul className="space-y-2">
+              {quickLinks.map((link) => (
+                <li key={link.section}>
+                  <Button
+                    variant="link"
+                    className="text-lg p-0 h-auto text-muted-foreground hover:text-primary"
+                    onClick={() => scrollToSection(link.section)}
+                  >
+                    {link.name}
+                  </Button>
+                </li>
+              ))}
               <li>
-                <a
-                  href="#hero"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection("hero");
-                  }}
-                  className="text-lg text-gray-700 hover:text-orange-500 dark:text-gray-300 dark:hover:text-orange-400 transition-colors"
+                <Button
+                  variant="link"
+                  className="text-lg p-0 h-auto text-muted-foreground hover:text-primary"
+                  asChild
                 >
-                  Home
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#services"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection("services");
-                  }}
-                  className="text-lg text-gray-700 hover:text-orange-500 dark:text-gray-300 dark:hover:text-orange-400 transition-colors"
-                >
-                  Services
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#about"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection("about");
-                  }}
-                  className="text-lg text-gray-700 hover:text-orange-500 dark:text-gray-300 dark:hover:text-orange-400 transition-colors"
-                >
-                  About
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#testimonials"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection("testimonials");
-                  }}
-                  className="text-lg text-gray-700 hover:text-orange-500 dark:text-gray-300 dark:hover:text-orange-400 transition-colors"
-                >
-                  Testimonials
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#faq"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection("faq");
-                  }}
-                  className="text-lg text-gray-700 hover:text-orange-500 dark:text-gray-300 dark:hover:text-orange-400 transition-colors"
-                >
-                  FAQ
-                </a>
-              </li>
-              <li>
-                <a
-                  href={blogUrl}
-                  className="text-lg text-gray-700 hover:text-orange-500 dark:text-gray-300 dark:hover:text-orange-400 transition-colors"
-                >
-                  Blog
-                </a>
+                  <Link to={blogUrl}>Blog</Link>
+                </Button>
               </li>
             </ul>
           </div>
-          <div className="w-full md:w-1/3">
-            <h5 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">
+          <div>
+            <h5 className="text-xl font-semibold mb-4 text-foreground">
               Contact
             </h5>
-            <p className="text-lg text-gray-700 dark:text-gray-300">
-              Julio Cesar Jr Torres Moreno
-            </p>
-            <p className="text-lg text-gray-700 dark:text-gray-300">
-              +1 (206) 649-8382
-            </p>
-            <p className="text-lg text-gray-700 dark:text-gray-300">
-              2261 Market Street, San Francisco, CA 94114 US
-            </p>
+            <ul className="space-y-2">
+              <li className="flex items-center text-lg text-muted-foreground">
+                <Mail className="mr-2 h-5 w-5" />
+                Julio Cesar Jr Torres Moreno
+              </li>
+              <li className="flex items-center text-lg text-muted-foreground">
+                <Phone className="mr-2 h-5 w-5" />
+                +1 (206) 649-8382
+              </li>
+              <li className="flex items-center text-lg text-muted-foreground">
+                <MapPin className="mr-2 h-5 w-5" />
+                2261 Market Street, San Francisco, CA 94114 US
+              </li>
+            </ul>
           </div>
         </div>
-        <div className="mt-10 pt-8 border-t border-gray-200 dark:border-gray-700 text-center text-lg text-gray-700 dark:text-gray-300">
-          <p>&copy; 2024 OnnaSoft, Inc. All rights reserved.</p>
+        <div className="mt-10 pt-8 border-t border-muted text-center text-lg text-muted-foreground">
+          <p>
+            &copy; {new Date().getFullYear()} OnnaSoft, Inc. All rights
+            reserved.
+          </p>
         </div>
       </div>
     </footer>

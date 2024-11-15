@@ -1,20 +1,25 @@
+import { Quote } from "lucide-react";
+
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-20 dark:bg-gray-800">
-      <div className="container mx-auto px-4 max-w-6xl">
-        <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 dark:text-white mb-16">
+    <section id="testimonials" className="py-20">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-foreground mb-12">
           What Our Clients Say
         </h2>
-        <div className="grid grid-cols-1 gap-10">
-          <div className="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-md">
-            <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
-              "OnnaSoft has been instrumental in implementing cloud
+        <div className="max-w-3xl mx-auto">
+          <div className="bg-background p-8 rounded-lg shadow-md">
+            <Quote className="h-8 w-8 text-orange-500 dark:text-orange-400 mb-4" />
+            <p className="text-xl leading-relaxed mb-6 break-words text-rendering-optimizelegibility isolate break-word antialiased text-foreground">
+              OnnaSoft has been instrumental in implementing cloud
               infrastructure for our services. Their expertise in cloud
               migration and management has significantly improved our operations
-              and scalability."
+              and scalability.
             </p>
-            <p className="text-xl font-semibold text-gray-900 dark:text-white">
-              Carlos Alberto Navarrete Arias & Nubia Yolanda Muñoz Diaz -
+            <p className="text-lg font-semibold text-foreground">
+              Carlos Alberto Navarrete Arias & Nubia Yolanda Muñoz Diaz
+            </p>
+            <p className="text-base text-muted-foreground">
               Founders of EclosionIT
             </p>
           </div>

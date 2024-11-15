@@ -1,13 +1,11 @@
 import { createContext } from "react";
 
 export type LandingContextType = {
-    blogUrl: string;
-    enableChat: boolean;
-}
+  blogUrl: string;
+};
 
 const LandingContext = createContext<LandingContextType>({
-    blogUrl: "",
-    enableChat: false,
+  blogUrl: "",
 });
 
 export default LandingContext;

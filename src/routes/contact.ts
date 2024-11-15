@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { Resend } from "resend";
+import resend from "src/lib/resend";
 
 const contactRouter = Router();
 
@@ -13,8 +13,6 @@ interface ApiResponse {
   success: boolean;
   message: string;
 }
-
-const resend = new Resend(process.env.RESEND_API_KEY);
 
 contactRouter.post<{}, ApiResponse, ContactRequestBody>(
   "/",

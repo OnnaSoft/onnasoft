@@ -1,0 +1,18 @@
+body {
+  font-family: "Source Serif Pro", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Opcionalmente, puedes definir variables CSS para reutilizar en toda tu aplicación */
+:root {
+  --font-body: "Source Serif Pro", serif;
+  --font-weight-normal: 400;
+}
+
+/* Luego puedes usar estas variables así: */
+body {
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-normal);
+  font-style: normal;
+}

@@ -1,16 +1,11 @@
-import { MetaFunction } from "@remix-run/react";
+import { MetaFunction } from "@remix-run/node";
 import CallToAction from "~/components/CallToAction";
 import Layout from "~/components/Layout";
 
 export const meta: MetaFunction = () => {
   return [
-    {
-      title: "Our Vision | OnnaSoft",
-    },
-    {
-      property: "og:title",
-      content: "Our Vision | OnnaSoft",
-    },
+    { title: "Our Vision | OnnaSoft" },
+    { property: "og:title", content: "Our Vision | OnnaSoft" },
     {
       name: "description",
       content:
@@ -27,148 +22,192 @@ export const meta: MetaFunction = () => {
 export default function Vision() {
   return (
     <Layout>
-      <div className="container mx-auto px-4 py-12 max-w-4xl">
-        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-8 text-center">
-          OnnaSoft, Inc. Vision
+      <main className="container mx-auto px-4 py-12 max-w-4xl">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-8 text-center">
+          OnnaSoft, Inc. Vision: Shaping the Future of Enterprise Technology
         </h1>
 
         <div className="prose dark:prose-invert max-w-none">
-          <p className="text-xl font-semibold mb-6 text-center">
-            &quot;To position OnnaSoft as the standard for quality and reliability in
-            the development of enterprise technological solutions.&quot;
+          <p className="text-xl md:text-2xl leading-relaxed mb-8 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased font-semibold text-center text-primary">
+            &quot;To position OnnaSoft as the global standard for quality,
+            reliability, and innovation in the development of enterprise
+            technological solutions.&quot;
           </p>
 
-          <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mt-8 mb-4">
-            Excellence and Quality as the Norm
+          <h2 className="text-2xl md:text-3xl font-semibold text-foreground mt-12 mb-6">
+            Excellence and Quality as the Cornerstone
           </h2>
-          <p className="text-lg mb-6">
-            At OnnaSoft, quality is more than a goal: it&apos;s a daily commitment.
-            We aspire to be a reference for excellence in enterprise software
-            development, establishing quality control and assurance practices at
-            every phase of the project. From conceptualization to
-            implementation, we constantly seek to exceed industry standards,
-            ensuring that every solution we deliver meets the highest demands of
-            quality, security, and efficiency.
+          <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased ">
+            At OnnaSoft, quality isn't just a goal—it's the foundation of
+            everything we do. We aspire to set the global benchmark for
+            excellence in enterprise software development, establishing rigorous
+            quality control and assurance practices at every phase of our
+            projects. From initial concept to final implementation, we
+            consistently strive to surpass industry standards, ensuring that
+            every solution we deliver meets the highest demands of quality,
+            security, and efficiency.
           </p>
-          <p className="text-lg mb-6">
-            This pursuit of excellence includes continuous investment in
-            training and development of our team, as well as incorporating new
-            technologies and methodologies to stay at the forefront. OnnaSoft
-            will be recognized as an organization of consistent quality, where
-            learning and continuous improvement are key elements of our
-            organizational culture.
+          <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased ">
+            This relentless pursuit of excellence includes substantial and
+            ongoing investment in the training and development of our team.
+            We're committed to incorporating cutting-edge technologies and
+            methodologies to stay at the forefront of our industry. Our vision
+            is for OnnaSoft to be universally recognized as an organization
+            where quality is consistent and unwavering, and where learning and
+            continuous improvement are not just encouraged, but are fundamental
+            elements of our organizational DNA.
           </p>
 
-          <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mt-8 mb-4">
-            Reliability and Transparency in Client Relationships
+          <h2 className="text-2xl md:text-3xl font-semibold text-foreground mt-12 mb-6">
+            Reliability and Transparency: The Pillars of Client Relationships
           </h2>
-          <p className="text-lg mb-6">
-            Trust is the foundation of our relationship with clients. At
-            OnnaSoft, we are committed to offering a reliable and transparent
-            development experience, where each client can understand,
-            participate in, and supervise their project at all stages. From
-            requirement definition to final delivery, we maintain open and
-            effective communication that allows our clients to have clarity and
-            confidence in the process.
+          <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased ">
+            Trust forms the bedrock of our client relationships. At OnnaSoft,
+            we're dedicated to offering a development experience characterized
+            by reliability and transparency, where each client can fully
+            understand, actively participate in, and closely supervise their
+            project at every stage. From the initial definition of requirements
+            to the final delivery, we maintain open and effective lines of
+            communication that provide our clients with clarity and instill
+            confidence throughout the entire process.
           </p>
-          <p className="text-lg mb-6">
+          <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased ">
             Our team specializes in agile methodologies such as Scrum and
-            DevOps, which ensure the delivery of consistent products and allow
-            for rapid adaptation to changes in project requirements. Through
-            communication and tracking tools like Slack and Jira, clients can
-            monitor progress in real-time, which not only ensures transparency
-            but also fosters a relationship of collaboration and continuous
-            alignment.
+            DevOps, which not only ensure the delivery of consistent,
+            high-quality products but also allow for rapid adaptation to
+            evolving project requirements. Through advanced communication and
+            tracking tools like Slack and Jira, we enable our clients to monitor
+            progress in real-time. This approach not only guarantees
+            transparency but also fosters a relationship built on collaboration
+            and continuous alignment of goals and expectations.
           </p>
 
-          <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mt-8 mb-4">
-            Adaptable and Scalable Long-Term Technological Solutions
+          <h2 className="text-2xl md:text-3xl font-semibold text-foreground mt-12 mb-6">
+            Pioneering Adaptable and Scalable Long-Term Technological Solutions
           </h2>
-          <p className="text-lg mb-6">
-            We understand that each business has specific challenges and needs,
-            so our approach focuses on creating customized solutions that not
-            only address current client problems but also facilitate long-term
-            growth. Our team designs and develops scalable systems that
-            integrate easily into our clients&apos; technological ecosystems,
-            allowing for continuous development and agile adaptation to future
-            needs.
+          <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased ">
+            We recognize that each business faces unique challenges and has
+            specific needs. Our approach, therefore, centers on creating bespoke
+            solutions that not only address our clients' current problems but
+            also facilitate their long-term growth and success. Our team designs
+            and develops scalable systems that integrate seamlessly into our
+            clients' existing technological ecosystems, enabling continuous
+            development and agile adaptation to future needs and market demands.
           </p>
-          <p className="text-lg mb-6">
-            This includes modular and flexible architectures that allow adding
-            functionalities without disrupting the company&apos;s workflow. With
-            experience in creating solutions for web applications, mobile, APIs,
-            and databases, as well as for Big Data flows and cloud environment
-            management (AWS, Kubernetes, and Cloudflare), OnnaSoft becomes a
-            comprehensive partner capable of supporting projects that evolve and
-            expand.
+          <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased ">
+            This includes the development of modular and flexible architectures
+            that allow for the addition of new functionalities without
+            disrupting the company's workflow. With extensive experience in
+            creating solutions across a wide spectrum—including web
+            applications, mobile platforms, APIs, databases, Big Data flows, and
+            cloud environment management (AWS, Kubernetes, and
+            Cloudflare)—OnnaSoft positions itself as a comprehensive partner
+            capable of supporting projects as they evolve, expand, and transform
+            over time.
           </p>
 
-          <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mt-8 mb-4">
-            Preferred Partner in Fintech, Healthcare, E-commerce, and
-            Manufacturing Sectors
+          <h2 className="text-2xl md:text-3xl font-semibold text-foreground mt-12 mb-6">
+            Preferred Partner in Key Industries: Fintech, Healthcare,
+            E-commerce, and Manufacturing
           </h2>
-          <p className="text-lg mb-6">
-            Our experience spans a wide range of industries, each with its own
-            challenges and specific regulations. In sectors such as fintech and
-            healthcare, where security and compliance with regulatory standards
-            are fundamental, OnnaSoft positions itself as a trusted ally. We
-            comply with regulations such as PCI DSS in fintech and HIPAA in
-            healthcare, ensuring that all communications, database connections,
-            and authentication and logging processes are handled with the
-            highest level of security.
+          <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased ">
+            Our experience spans a diverse range of industries, each with its
+            own unique challenges and regulatory landscapes. In sectors such as
+            fintech and healthcare, where security and compliance with stringent
+            regulatory standards are paramount, OnnaSoft has established itself
+            as a trusted ally. We rigorously adhere to industry-specific
+            regulations such as PCI DSS in fintech and HIPAA in healthcare,
+            ensuring that all aspects of our solutions—from communications and
+            database connections to authentication processes and logging
+            mechanisms—are handled with the utmost level of security and
+            compliance.
           </p>
-          <p className="text-lg mb-6">
-            In the e-commerce and manufacturing fields, we work on solutions
-            that improve operational efficiency, process automation, and
-            integration of multiple platforms. Our team collaborates with
-            clients to implement inventory management systems, transaction
-            processing, supply chain management, and data analysis, generating a
-            significant impact on their efficiency and productivity.
+          <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased ">
+            In the realms of e-commerce and manufacturing, we focus on
+            developing solutions that significantly enhance operational
+            efficiency, automate complex processes, and seamlessly integrate
+            multiple platforms. Our team collaborates closely with clients to
+            implement state-of-the-art systems for inventory management,
+            transaction processing, supply chain optimization, and advanced data
+            analysis. These solutions generate a substantial impact on our
+            clients' efficiency, productivity, and bottom line, positioning them
+            at the forefront of their respective industries.
           </p>
 
-          <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mt-8 mb-4">
-            Culture of Innovation and World-Class Team
+          <h2 className="text-2xl md:text-3xl font-semibold text-foreground mt-12 mb-6">
+            Fostering a Culture of Innovation with a World-Class Team
           </h2>
-          <p className="text-lg mb-6">
-            Our success as a company is based on the talent and passion of our
-            team. At OnnaSoft, we foster a work environment where the best
-            talents in technology find a space to develop professionally and add
-            value to projects. Our team consists of developers, software
-            architects, and specialists who apply best practices and
-            cutting-edge technologies to ensure that each project is innovative,
+          <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased ">
+            The cornerstone of our success as a company is the talent, passion,
+            and dedication of our team. At OnnaSoft, we cultivate a work
+            environment where the brightest minds in technology find not just a
+            job, but a space to grow professionally, push their boundaries, and
+            add significant value to cutting-edge projects. Our team comprises
+            seasoned developers, visionary software architects, and specialists
+            who consistently apply best practices and leverage cutting-edge
+            technologies to ensure that each project we undertake is innovative,
             robust, and of the highest quality.
           </p>
-          <p className="text-lg mb-6">
-            We strive to maintain an elite team, not only in terms of technical
-            skills but also in terms of ability to work in teams, collaborate,
-            and adapt to the changing needs of our clients. Additionally, we
-            have established policies that guarantee strict quality control and
-            review processes, especially useful for startups and medium-sized
-            companies that can benefit from accessing highly trained personnel
-            for key moments without compromising their budget.
+          <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased ">
+            We are committed to maintaining an elite team, not just in terms of
+            technical prowess, but also in their ability to work
+            collaboratively, communicate effectively, and adapt swiftly to the
+            evolving needs of our clients. Furthermore, we have established
+            comprehensive policies that guarantee stringent quality control and
+            review processes. This approach is particularly beneficial for
+            startups and medium-sized companies, allowing them to access highly
+            trained personnel for critical project phases without straining
+            their budgets or compromising on quality.
           </p>
 
-          <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mt-8 mb-4">
-            Responsible and Sustainable Innovation
+          <h2 className="text-2xl md:text-3xl font-semibold text-foreground mt-12 mb-6">
+            Championing Responsible and Sustainable Innovation
           </h2>
-          <p className="text-lg mb-6">
-            At OnnaSoft, innovation is not only pursued as an end in itself but
-            also as a means to create responsible and sustainable solutions. We
-            seek to reduce the environmental footprint of our developments
-            through resource optimization practices and energy efficiency in our
-            cloud implementations and software solutions.
+          <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased ">
+            At OnnaSoft, we view innovation not merely as an end in itself, but
+            as a powerful means to create responsible and sustainable solutions
+            that benefit both our clients and society at large. We are dedicated
+            to minimizing the environmental footprint of our developments
+            through the implementation of resource optimization practices and
+            energy-efficient strategies in our cloud implementations and
+            software solutions.
           </p>
-          <p className="text-lg mb-6">
-            We are committed to contributing positively to the industry,
-            creating solutions that not only generate immediate value but also
-            promote long-term sustainable growth for the companies we
-            collaborate with.
+          <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased ">
+            Our commitment extends beyond immediate value creation; we strive to
+            contribute positively to the tech industry and society by developing
+            solutions that promote long-term sustainable growth for the
+            companies we collaborate with. This vision of responsible innovation
+            guides our approach to every project, ensuring that we not only meet
+            our clients' immediate needs but also contribute to a more
+            sustainable and ethically responsible technological landscape.
+          </p>
+
+          <h2 className="text-2xl md:text-3xl font-semibold text-foreground mt-12 mb-6">
+            Shaping the Future of Enterprise Technology
+          </h2>
+          <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased ">
+            As we look to the future, OnnaSoft's vision is to be at the
+            forefront of shaping the next generation of enterprise technology.
+            We aim to lead the charge in integrating emerging technologies such
+            as artificial intelligence, machine learning, and blockchain into
+            practical, scalable solutions that drive business transformation.
+            Our goal is not just to keep pace with technological advancements,
+            but to anticipate future trends and proactively develop solutions
+            that will define the future of business operations across
+            industries.
+          </p>
+          <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased ">
+            By consistently delivering excellence, fostering innovation, and
+            maintaining our commitment to quality and reliability, we envision
+            OnnaSoft becoming synonymous with cutting-edge enterprise technology
+            solutions. Our ultimate aim is to empower businesses of all sizes to
+            harness the full potential of technology, enabling them to not just
+            succeed, but to lead in their respective fields.
           </p>
         </div>
-      </div>
+      </main>
 
-      {/* Call to Action Section */}
-      <section className="py-20 bg-white dark:bg-gray-900">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4 max-w-6xl">
           <CallToAction />
         </div>
