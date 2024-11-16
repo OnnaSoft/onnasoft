@@ -1,4 +1,3 @@
-import { Card, CardContent } from "@/components/ui/card";
 import accelyaSrc from "@/assets/Accelya.jpg";
 import credibancoSrc from "@/assets/credibanco.jpg";
 import idiSrc from "@/assets/Fundacion_IDI.jpg";
