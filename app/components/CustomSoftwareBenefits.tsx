@@ -22,9 +22,9 @@ export default function CustomSoftwareBenefits() {
           growth.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {benefits.map((benefit, index) => (
+          {benefits.map((benefit) => (
             <div
-              key={index}
+              key={benefit.title}
               className="bg-zinc-50 p-8 rounded-lg shadow-md transition duration-300 ease-in-out hover:shadow-lg"
             >
               <div className="flex items-start mb-4">

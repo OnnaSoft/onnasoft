@@ -7,9 +7,15 @@ import Layout from "~/components/Layout";
 import OutsourceDevelopmentBenefits from "~/components/OutsourceDevelopmentBenefits";
 import Services from "~/components/Services";
 import SoftwareDevelopmentLeadership from "~/components/SoftwareDevelopmentLeadership";
-import Testimonials from "~/components/Testimonials";
 import CallToAction from "~/components/CallToAction";
 import { MetaFunction } from "@remix-run/node";
+import MediumContext from "~/contexts/medium";
+import { loader } from "@/loaders/medium";
+import { useLoaderData } from "@remix-run/react";
+import MediumPosts from "~/components/MediumPosts";
+import CompaniesWorkedWith from "~/components/CompaniesWorkedWith";
+
+export { loader };
 
 export const meta: MetaFunction = () => {
   return [
@@ -34,19 +40,25 @@ export const meta: MetaFunction = () => {
 };
 
 export default function IndexPage() {
+  const mediumFeed = useLoaderData<typeof loader>();
   return (
-    <Layout>
-      <Hero />
-      <Services />
-      <About />
-      <SoftwareDevelopmentLeadership />
-      <CustomSoftwareBenefits />
-      <OutsourceDevelopmentBenefits />
-      <FAQ />
+    <MediumContext.Provider value={mediumFeed}>
+      <Layout>
+        <Hero />
+        <Services />
+        <About />
+        <SoftwareDevelopmentLeadership />
+        <CustomSoftwareBenefits />
+        <OutsourceDevelopmentBenefits />
+        <MediumPosts />
+        <FAQ />
 
-      <CallToAction />
+        <CompaniesWorkedWith />
 
-      <CookieConsent />
-    </Layout>
+        <CallToAction />
+
+        <CookieConsent />
+      </Layout>
+    </MediumContext.Provider>
   );
 }

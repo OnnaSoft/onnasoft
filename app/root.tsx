@@ -1,5 +1,4 @@
 import {
-  json,
   Links,
   Meta,
   Outlet,
@@ -18,7 +17,7 @@ export const links: LinksFunction = () => [];
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   const url = new URL(request.url);
   const protocol = request.headers.get("x-forwarded-proto");
-  return json({
+  return Response.json({
     blogUrl: process.env.BLOG_URL ?? "",
     assistantId: process.env.OPENAI_ASSISTANT_ID ?? "",
     enableChat: process.env.ENABLE_CHAT === "true",
@@ -82,7 +81,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <body>
         <LandingContext.Provider value={{ blogUrl }}>
           {children}
-
           <ChatWindow assistantId={assistantId} />
         </LandingContext.Provider>
         <ScrollRestoration />
