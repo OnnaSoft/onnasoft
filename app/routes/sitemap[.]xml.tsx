@@ -1,5 +1,5 @@
 // Puedes almacenar el dominio en tu archivo .env
-const DOMAIN = process.env.DOMAIN || "https://onnasoft.us";
+const DOMAIN = process.env.DOMAIN ?? "https://onnasoft.us";
 
 export const loader = () => {
   const lastMod = new Date().toISOString();
@@ -20,21 +20,21 @@ export const loader = () => {
     { path: "/services/seo-positioning", priority: "0.7" },
     { path: "/services/staff-augmentation", priority: "0.7" },
     // Archivo del sitemap
-    { path: "/sitemap.xml", priority: "0.5" }
+    { path: "/sitemap.xml", priority: "0.5" },
   ];
 
   const content = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
       ${routes
-      .map(
-        (route) => `
+        .map(
+          (route) => `
           <url>
             <loc>${DOMAIN}${route.path}</loc>
             <lastmod>${lastMod}</lastmod>
             <priority>${route.priority}</priority>
           </url>`
-      )
-      .join("")}
+        )
+        .join("")}
     </urlset>`;
 
   // Retornar la respuesta con el contenido, un status 200 y los headers apropiados para un archivo XML

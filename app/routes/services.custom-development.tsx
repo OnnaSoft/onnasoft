@@ -154,7 +154,7 @@ export default function CustomDevelopment() {
               <ul className="text-lg space-y-4">
                 {whyChooseItems.map((item, index) => (
                   <li
-                    key={index}
+                    key={item.title}
                     className="border-b border-gray-200 dark:border-gray-700 pb-4"
                   >
                     <button
@@ -203,7 +203,7 @@ export default function CustomDevelopment() {
               <ul className="text-lg space-y-4">
                 {processSteps.map((step, index) => (
                   <li
-                    key={index}
+                    key={step.title}
                     className="border-b border-gray-200 dark:border-gray-700 pb-4"
                   >
                     <button

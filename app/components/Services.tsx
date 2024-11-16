@@ -52,10 +52,10 @@ export default function Services() {
           Our Services
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
+          {services.map((service) => (
             <Link
               to={service.link}
-              key={index}
+              key={service.title}
               className="bg-background p-8 rounded-lg shadow-md transition-all hover:shadow-lg hover:-translate-y-1 block focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50"
             >
               <service.icon

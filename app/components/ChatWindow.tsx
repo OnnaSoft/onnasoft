@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { MessageCircle, X, Send } from "lucide-react";
 import { Button } from "./ui/button";
 
-export type ChatWindowProps = {
+export type ChatWindowProps = Readonly<{
   assistantId: string;
-};
+}>;
 
 export default function ChatWindow({ assistantId }: ChatWindowProps) {
   const [isOpen, setIsOpen] = useState(false);
@@ -63,7 +63,7 @@ export default function ChatWindow({ assistantId }: ChatWindowProps) {
           <div className="flex-grow p-4 overflow-y-auto">
             {messages.map((msg, index) => (
               <div
-                key={index}
+                key={msg.text + index}
                 className={`mb-2 ${msg.isUser ? "text-right" : "text-left"}`}
               >
                 <span

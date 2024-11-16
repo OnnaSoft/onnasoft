@@ -3,10 +3,7 @@ import {
   Code,
   Layout,
   Rocket,
-  Users,
   ChevronRight,
-  Zap,
-  Shield,
   Target,
   Cog,
 } from "lucide-react";
@@ -43,9 +40,9 @@ export default function SoftwareDevelopmentLeadership() {
                 "Tailored execution strategies",
                 "Continuous result evaluation and optimization",
                 "Agile methodology for flexibility and rapid delivery",
-              ].map((item, index) => (
+              ].map((item) => (
                 <li
-                  key={index}
+                  key={item}
                   className="flex items-center text-xl leading-relaxed break-words text-rendering-optimizelegibility isolate break-word antialiased text-foreground"
                 >
                   <ChevronRight className="h-6 w-6 text-orange-500 dark:text-orange-400 mr-3 flex-shrink-0" />
@@ -72,9 +69,9 @@ export default function SoftwareDevelopmentLeadership() {
                 "Industry-specific, tailored solutions",
                 "Scalable and maintainable architectures",
                 "Cloud-native and serverless applications",
-              ].map((item, index) => (
+              ].map((item) => (
                 <li
-                  key={index}
+                  key={item}
                   className="flex items-center text-xl leading-relaxed break-words text-rendering-optimizelegibility isolate break-word antialiased text-foreground"
                 >
                   <ChevronRight className="h-6 w-6 text-orange-500 dark:text-orange-400 mr-3 flex-shrink-0" />
@@ -89,9 +86,9 @@ export default function SoftwareDevelopmentLeadership() {
           Our Development Process
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {developmentPhases.map((phase, index) => (
+          {developmentPhases.map((phase) => (
             <div
-              key={index}
+              key={phase.title}
               className="bg-background p-6 rounded-lg shadow-md text-center transition-all hover:shadow-lg"
             >
               {phase.icon}

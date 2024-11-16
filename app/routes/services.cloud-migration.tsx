@@ -166,9 +166,9 @@ export default function CloudComputingBenefits() {
             Key Benefits of Cloud Computing
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {benefits.map((benefit, index) => (
+            {benefits.map((benefit) => (
               <div
-                key={index}
+                key={benefit.title}
                 className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 flex flex-col items-center text-center"
               >
                 <benefit.icon className="h-12 w-12 text-orange-500 dark:text-orange-400 mb-4" />
@@ -437,7 +437,7 @@ export default function CloudComputingBenefits() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {supportServices.map((service, index) => (
               <div
-                key={index}
+                key={service.title}
                 className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 flex flex-col items-center text-center"
               >
                 <service.icon className="h-12 w-12 text-orange-500 dark:text-orange-400 mb-4" />

@@ -185,8 +185,8 @@ export default function PerformanceOptimization() {
             Why Choose Our Performance Optimization Services?
           </h2>
           <ul className="space-y-4 mb-8">
-            {benefits.map((benefit, index) => (
-              <li key={index} className="flex items-start">
+            {benefits.map((benefit) => (
+              <li key={benefit.title} className="flex items-start">
                 <benefit.icon className="h-6 w-6 text-orange-500 dark:text-orange-400 mr-3 mt-1 flex-shrink-0" />
                 <span className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased">
                   <strong>{benefit.title}:</strong> {benefit.description}
@@ -200,7 +200,7 @@ export default function PerformanceOptimization() {
           </h2>
           <ol className="space-y-4 mb-8">
             {optimizationProcess.map((step, index) => (
-              <li key={index} className="flex items-start">
+              <li key={step.title} className="flex items-start">
                 <step.icon className="h-6 w-6 text-orange-500 dark:text-orange-400 mr-3 mt-1 flex-shrink-0" />
                 <span className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased">
                   <strong>{step.title}:</strong> {step.description}
@@ -213,8 +213,8 @@ export default function PerformanceOptimization() {
             Our Performance Optimization Services
           </h2>
           <ul className="space-y-4 mb-8">
-            {services.map((service, index) => (
-              <li key={index} className="flex items-start">
+            {services.map((service) => (
+              <li key={service.title} className="flex items-start">
                 <service.icon className="h-6 w-6 text-orange-500 dark:text-orange-400 mr-3 mt-1 flex-shrink-0" />
                 <span className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased">
                   <strong>{service.title}:</strong> {service.description}

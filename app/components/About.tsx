@@ -23,9 +23,9 @@ export default function About() {
                 "Expertise in full-stack software development",
                 "Focus on innovation and emerging technologies",
                 "Commitment to delivering scalable, robust solutions",
-              ].map((item, index) => (
+              ].map((item) => (
                 <li
-                  key={index}
+                  key={item}
                   className="flex items-center text-xl leading-relaxed"
                 >
                   <ChevronRight

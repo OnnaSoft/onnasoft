@@ -1,5 +1,4 @@
 import { OnnaSoftServiceRequest } from "../types/services";
-import resend from "src/lib/resend";
 
 export function processServiceRequest(request: OnnaSoftServiceRequest): void {
   console.log(`Processing ${request.service_type} request`);

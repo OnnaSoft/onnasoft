@@ -231,11 +231,14 @@ chatRouter.post(
         });
       }
 
-      const assistantResponse = assistantMessage
-        ? "text" in content
-          ? content.text.value
-          : ""
-        : "No se pudo obtener una respuesta del asistente.";
+      let assistantResponse = "No se pudo obtener una respuesta del asistente.";
+      if (assistantMessage) {
+        if ("text" in content) {
+          assistantResponse = content.text.value;
+        } else {
+          assistantResponse = "";
+        }
+      }
 
       res.json({ messageId: threadMessage.id, assistantResponse });
     } catch (error) {

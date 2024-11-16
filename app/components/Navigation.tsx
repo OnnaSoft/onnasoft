@@ -3,11 +3,7 @@ import { Link, useLocation } from "@remix-run/react";
 import {
   BookOpen,
   ChevronDown,
-  Code,
-  Globe,
   Zap,
-  Users,
-  Search,
   Cloud,
   Menu,
   X,
@@ -81,9 +77,9 @@ export default function Navigation() {
               </button>
               {isServicesOpen && (
                 <div className="absolute left-0 mt-2 w-64 bg-background rounded-lg shadow-lg py-2 z-10">
-                  {services.map((service, index) => (
+                  {services.map((service) => (
                     <Link
-                      key={index}
+                      key={service.title}
                       to={service.link}
                       className="block px-4 py-2 text-sm text-foreground hover:bg-muted transition-colors duration-150 ease-in-out"
                     >
@@ -155,7 +151,7 @@ export default function Navigation() {
             <div className="space-y-2">
               {services.map((service, index) => (
                 <Link
-                  key={index}
+                  key={service.title}
                   to={service.link}
                   className="block py-2 text-sm text-foreground hover:bg-muted transition-colors duration-150 ease-in-out"
                   onClick={toggleMobileMenu}

@@ -117,8 +117,8 @@ export default function StaffAugmentation() {
             Why Choose OnnaSoft for Staff Augmentation?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            {benefits.map((benefit, index) => (
-              <div key={index} className="flex items-start">
+            {benefits.map((benefit) => (
+              <div key={benefit.title} className="flex items-start">
                 <benefit.icon className="w-12 h-12 text-orange-500 mr-4 flex-shrink-0" />
                 <div>
                   <h3 className="text-xl font-semibold mb-2">
@@ -185,7 +185,7 @@ export default function StaffAugmentation() {
           <div className="space-y-4 mb-12">
             {faqs.map((faq, index) => (
               <div
-                key={index}
+                key={faq.answer}
                 className="border-b border-gray-200 dark:border-gray-700 pb-4"
               >
                 <button

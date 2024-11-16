@@ -11,6 +11,7 @@ import LandingContext from "@/contexts/landing";
 import ChatWindow from "@/components/ChatWindow";
 import "@/tailwind.css";
 import "~/styles/global.css";
+import { useMemo } from "react";
 
 export const links: LinksFunction = () => [];
 
@@ -29,7 +30,7 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
   });
 };
 
-export function Layout({ children }: { children: React.ReactNode }) {
+export function Layout({ children }: { readonly children: React.ReactNode }) {
   const {
     canonical,
     googleAnalyticsId,
@@ -37,6 +38,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
     assistantId,
     googleAdsConversionId,
   } = useLoaderData<typeof loader>();
+  const contextValue = useMemo(() => ({ blogUrl }), [blogUrl]);
 
   return (
     <html lang="en">
@@ -79,7 +81,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         />
       </head>
       <body>
-        <LandingContext.Provider value={{ blogUrl }}>
+        <LandingContext.Provider value={contextValue}>
           {children}
           <ChatWindow assistantId={assistantId} />
         </LandingContext.Provider>

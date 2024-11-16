@@ -1,12 +1,10 @@
 import {
-  ArrowRight,
   Code,
   DollarSign,
   Lightbulb,
   Rocket,
   Users,
   Zap,
-  ChevronRight,
   CheckCircle,
 } from "lucide-react";
 
@@ -23,9 +21,9 @@ export default function OutsourceDevelopmentBenefits() {
           business to focus on core competencies while leveraging global talent.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {benefits.map((benefit, index) => (
+          {benefits.map((benefit) => (
             <div
-              key={index}
+              key={benefit.title}
               className="bg-background p-8 rounded-lg shadow-md transition-all duration-300 ease-in-out hover:shadow-lg"
             >
               <div className="flex items-center mb-6">
@@ -38,8 +36,8 @@ export default function OutsourceDevelopmentBenefits() {
                 {benefit.description}
               </p>
               <ul className="space-y-4">
-                {benefit.points.map((point, idx) => (
-                  <li key={idx} className="flex items-start">
+                {benefit.points.map((point) => (
+                  <li key={point} className="flex items-start">
                     <CheckCircle className="h-6 w-6 text-orange-500 dark:text-orange-400 mr-3 mt-1 flex-shrink-0" />
                     <span className="text-lg leading-relaxed break-words text-rendering-optimizelegibility isolate break-word antialiased text-foreground">
                       {point}
