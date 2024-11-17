@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import {
   Links,
   Meta,
@@ -10,8 +11,7 @@ import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
 import LandingContext from "@/contexts/landing";
 import ChatWindow from "@/components/ChatWindow";
 import "@/tailwind.css";
-import "~/styles/global.css";
-import { useMemo } from "react";
+import "@/styles/global.css";
 
 export const links: LinksFunction = () => [];
 
@@ -20,7 +20,6 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
   const protocol = request.headers.get("x-forwarded-proto");
   return Response.json({
     blogUrl: process.env.BLOG_URL ?? "",
-    assistantId: process.env.OPENAI_ASSISTANT_ID ?? "",
     enableChat: process.env.ENABLE_CHAT === "true",
     googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID,
     googleAdsConversionId: process.env.GOOGLE_ADS_CONVERSION_ID,
@@ -36,7 +35,6 @@ export function Layout({ children }: { readonly children: React.ReactNode }) {
     googleAnalyticsId,
     blogUrl,
     enableChat,
-    assistantId,
     googleAdsConversionId,
   } = useLoaderData<typeof loader>();
   const contextValue = useMemo(() => ({ blogUrl }), [blogUrl]);
@@ -84,7 +82,7 @@ export function Layout({ children }: { readonly children: React.ReactNode }) {
       <body>
         <LandingContext.Provider value={contextValue}>
           {children}
-          <ChatWindow assistantId={assistantId} enableChat={enableChat} />
+          <ChatWindow enableChat={enableChat} />
         </LandingContext.Provider>
         <ScrollRestoration />
         <Scripts />
