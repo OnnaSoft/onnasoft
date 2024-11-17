@@ -15,7 +15,7 @@ export default function Hero() {
           <p className="text-2xl md:text-3xl mb-8">
             Empowering Your Vision with Expert Software Solutions
           </p>
-          <p className="text-2xl mb-10 max-w-3xl mx-auto">
+          <p className="text-xl mb-10 md:text-2xl max-w-3xl mx-auto">
             OnnaSoft, Inc. is a premier software factory dedicated to delivering
             innovative, high-quality software solutions. From custom development
             to outsourcing, we're your partner in digital success.
