@@ -3,7 +3,7 @@ import express, { Request, Response } from "express";
 import dotenv from "dotenv";
 import authRouter from "server/routes/auth";
 import contactRouter from "server/routes/contact";
-import chatRouter from "server/routes/chat.js";
+import chatRouter from "server/routes/chat";
 import { HttpError } from "http-errors-enhanced";
 
 dotenv.config();
@@ -27,8 +27,7 @@ app.use(
 
 const build = viteDevServer
   ? async () => await viteDevServer.ssrLoadModule("virtual:remix/server-build")
-  : // @ts-ignore
-    await import("build/server/index.js");
+  : await import("build/server/index.js");
 
 api.use(express.json());
 api.use(express.urlencoded({ extended: true }));

@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { HttpError } from "http-errors-enhanced";
 import resend from "server/lib/resend";
 
 const contactRouter = Router();
@@ -16,14 +17,11 @@ interface ApiResponse {
 
 contactRouter.post<{}, ApiResponse, ContactRequestBody>(
   "/",
-  async (req, res): Promise<void> => {
+  async (req, res, next): Promise<void> => {
     const { name, email, message } = req.body;
 
     if (!name || !email || !message) {
-      res
-        .status(400)
-        .json({ success: false, message: "Todos los campos son requeridos" });
-      return;
+      throw new HttpError(400, "Todos los campos son requeridos");
     }
 
     const fromEmail = process.env.FROM_EMAIL;
@@ -31,11 +29,7 @@ contactRouter.post<{}, ApiResponse, ContactRequestBody>(
 
     if (!fromEmail || !toEmail) {
       console.error("Faltan variables de entorno necesarias");
-      res.status(500).json({
-        success: false,
-        message: "Error en la configuración del servidor",
-      });
-      return;
+      throw new HttpError(500, "Error en la configuración del servidor");
     }
 
     try {
@@ -53,12 +47,10 @@ contactRouter.post<{}, ApiResponse, ContactRequestBody>(
 
       if (error) {
         console.error("Error al enviar el email:", error);
-        res.status(500).json({
-          success: false,
-          message:
-            "Error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.",
-        });
-        return;
+        throw new HttpError(
+          500,
+          "Error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde."
+        );
       }
 
       res
@@ -66,11 +58,7 @@ contactRouter.post<{}, ApiResponse, ContactRequestBody>(
         .json({ success: true, message: "Mensaje enviado con éxito" });
     } catch (error) {
       console.error("Error inesperado al enviar el email:", error);
-      res.status(500).json({
-        success: false,
-        message:
-          "Error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.",
-      });
+      next(error);
     }
   }
 );
