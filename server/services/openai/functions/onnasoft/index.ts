@@ -119,17 +119,6 @@ export class OnnaSoftService extends OpenAIService {
     "Information about OnnaSoft services and technical assistance";
 
   override async processServiceRequest(request: OnnaSoftServiceRequest) {
-    console.log(`Processing ${request.service_type} request`);
-    console.log(`User query: ${request.user_query}`);
-    console.log(`User language: ${request.user_language}`);
-    console.log(`Project type: ${request.user_details.project_type}`);
-    console.log(`Contact email: ${request.user_details.contact_info.email}`);
-    console.log(
-      `Contact phone: ${request.user_details.contact_info.phone_number}`
-    );
-    console.log(`Interest level: ${request.user_details.interest_level}`);
-    console.log("Processing request...", request.user_details);
-
     const handler = serviceHandlers[request.service_type];
     if (handler) {
       return handler(request);
