@@ -1,5 +1,5 @@
-import { HttpError } from "http-errors-enhanced";
 import OpenAI from "openai";
+import { HttpError } from "http-errors-enhanced";
 import { services, tools } from "&/services/openai/functions";
 
 const requiredEnvVars = ["OPENAI_API_KEY", "OPENAI_ASSISTANT_ID"];
@@ -19,87 +19,147 @@ const openai = new OpenAI({
 });
 const ASSISTANT_ID = process.env.OPENAI_ASSISTANT_ID ?? "";
 
-export async function runThread(threadId: string, message: string) {
-  if (!message) {
-    throw new HttpError(400, "Message is required");
-  }
+const ERROR_MESSAGES = {
+  ASSISTANT_NO_RESPONSE: "Unable to get a response from the assistant.",
+  MESSAGE_REQUIRED: "Message is required.",
+  THREAD_CREATION: "An error occurred while creating the thread.",
+  RUN_THREAD: "An error occurred while running the thread.",
+  RUN_STATUS_RETRIEVE: "An error occurred while retrieving run status.",
+  TOOL_CALL_PROCESS: "An error occurred while processing tool calls.",
+  TOOL_OUTPUT_SUBMIT: "An error occurred while submitting tool outputs.",
+  MESSAGES_RETRIEVE: "An error occurred while retrieving messages.",
+};
 
-  const threadMessage = await openai.beta.threads.messages.create(threadId, {
-    role: "user",
-    content: message,
-  });
+const chatService = {
+  async runThread(threadId: string, message: string) {
+    if (!message) {
+      throw new HttpError(400, ERROR_MESSAGES.MESSAGE_REQUIRED);
+    }
 
-  const run = await openai.beta.threads.runs.create(threadId, {
-    assistant_id: ASSISTANT_ID,
-    tools: tools,
-  });
+    const threadMessage = await openai.beta.threads.messages.create(threadId, {
+      role: "user",
+      content: message,
+    });
 
-  // Esperar a que el asistente complete su respuesta
-  let runStatus = await openai.beta.threads.runs.retrieve(threadId, run.id);
-  while (
-    runStatus.status !== "completed" &&
-    runStatus.status !== "requires_action"
-  ) {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    runStatus = await openai.beta.threads.runs.retrieve(threadId, run.id);
-  }
-
-  await applyThreadAction(runStatus, threadId, run);
-
-  return { threadMessage, run };
-}
-
-export async function applyThreadAction(
-  runStatus: OpenAI.Beta.Threads.Runs.Run,
-  threadId: string,
-  run: any
-) {
-  if (runStatus.status === "requires_action") {
-    const toolCalls = runStatus.required_action?.submit_tool_outputs.tool_calls;
-    if (toolCalls) {
-      const toolOutputs = await Promise.all(
-        toolCalls.map(async (toolCall) => {
-          const service = services.find(
-            (s) => s.function_name === toolCall.function.name
-          );
-
-          if (service) {
-            service.processServiceRequest(
-              JSON.parse(toolCall.function.arguments)
-            );
-
-            return {
-              tool_call_id: toolCall.id,
-              output: JSON.stringify({
-                response: "Información procesada para OnnaSoft Services",
-                details: JSON.parse(toolCall.function.arguments),
-              }),
-            };
-          }
-          return null;
-        })
-      );
-
-      await openai.beta.threads.runs.submitToolOutputs(threadId, run.id, {
-        tool_outputs: toolOutputs.filter((output) => output !== null),
+    const run = await openai.beta.threads.runs
+      .create(threadId, {
+        assistant_id: ASSISTANT_ID,
+        tools: tools,
+      })
+      .catch((error) => {
+        console.error("Error running thread:", error);
+        throw new HttpError(500, ERROR_MESSAGES.RUN_THREAD);
       });
 
-      // Esperar a que el asistente procese la salida de la herramienta
-      runStatus = await openai.beta.threads.runs.retrieve(threadId, run.id);
-      while (runStatus.status !== "completed") {
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+    // Wait for the assistant to complete its response
+    let runStatus = await openai.beta.threads.runs.retrieve(threadId, run.id);
+    while (
+      runStatus.status !== "completed" &&
+      runStatus.status !== "requires_action"
+    ) {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      runStatus = await openai.beta.threads.runs
+        .retrieve(threadId, run.id)
+        .catch((error) => {
+          console.error("Error retrieving run status:", error);
+          throw new HttpError(500, ERROR_MESSAGES.RUN_STATUS_RETRIEVE);
+        });
+    }
+
+    await this.applyThreadAction(runStatus, threadId, run);
+
+    return { threadMessage, run };
+  },
+
+  async applyThreadAction(
+    runStatus: OpenAI.Beta.Threads.Runs.Run,
+    threadId: string,
+    run: any
+  ) {
+    if (runStatus.status === "requires_action") {
+      const toolCalls =
+        runStatus.required_action?.submit_tool_outputs.tool_calls;
+      if (toolCalls) {
+        const toolOutputs = await Promise.all(
+          toolCalls.map(async (toolCall) => {
+            const service = services.find(
+              (s) => s.function_name === toolCall.function.name
+            );
+
+            if (service) {
+              service.processServiceRequest(
+                JSON.parse(toolCall.function.arguments)
+              );
+
+              return {
+                tool_call_id: toolCall.id,
+                output: JSON.stringify({
+                  response: "Processed information for OnnaSoft Services",
+                  details: JSON.parse(toolCall.function.arguments),
+                }),
+              };
+            }
+            return null;
+          })
+        ).catch((error) => {
+          console.error("Error processing tool calls:", error);
+          throw new HttpError(500, ERROR_MESSAGES.TOOL_CALL_PROCESS);
+        });
+
+        await openai.beta.threads.runs
+          .submitToolOutputs(threadId, run.id, {
+            tool_outputs: toolOutputs.filter((output) => output !== null),
+          })
+          .catch((error) => {
+            console.error("Error submitting tool outputs:", error);
+            throw new HttpError(500, ERROR_MESSAGES.TOOL_OUTPUT_SUBMIT);
+          });
+
+        // Wait for the assistant to process the tool output
         runStatus = await openai.beta.threads.runs.retrieve(threadId, run.id);
+        while (runStatus.status !== "completed") {
+          await new Promise((resolve) => setTimeout(resolve, 1000));
+          runStatus = await openai.beta.threads.runs
+            .retrieve(threadId, run.id)
+            .catch((error) => {
+              console.error("Error retrieving run status:", error);
+              throw new HttpError(500, ERROR_MESSAGES.RUN_STATUS_RETRIEVE);
+            });
+        }
       }
     }
-  }
 
-  return runStatus;
-}
+    return runStatus;
+  },
+  createThread() {
+    return openai.beta.threads.create().catch((error) => {
+      console.error("Error creating thread:", error);
+      throw new HttpError(500, ERROR_MESSAGES.THREAD_CREATION);
+    });
+  },
+  getMessages(threadId: string) {
+    return openai.beta.threads.messages.list(threadId).catch((error) => {
+      console.error("Error retrieving messages:", error);
+      throw new HttpError(500, ERROR_MESSAGES.MESSAGES_RETRIEVE);
+    });
+  },
+  async findAssistantMessage(threadId: string, runId: string) {
+    const messages = (await this.getMessages(threadId)).data;
+    const assistantMessage = messages.find(
+      (msg) => msg.role === "assistant" && msg.run_id === runId
+    );
+    const content = assistantMessage?.content?.[0];
+    if (!content) {
+      throw new HttpError(500, ERROR_MESSAGES.ASSISTANT_NO_RESPONSE);
+    }
 
-export function createThread() {
-  return openai.beta.threads.create();
-}
+    const assistantResponse =
+      assistantMessage && "text" in content
+        ? content.text.value
+        : ERROR_MESSAGES.ASSISTANT_NO_RESPONSE;
 
-export function getMessages(threadId: string) {
-  return openai.beta.threads.messages.list(threadId);
-}
+    return assistantResponse;
+  },
+};
+
+export default chatService;

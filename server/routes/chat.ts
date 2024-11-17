@@ -1,36 +1,36 @@
+import Joi from "joi";
 import express, { NextFunction, Request, Response } from "express";
-import { HttpError } from "http-errors-enhanced";
-import {
-  createThread,
-  getMessages,
-  runThread,
-} from "&/services/openai/chatgpt";
+import chatService from "&/services/openai/chatgpt";
+import { formatMessages } from "&/lib/formatMessages";
+import { HTTPResponse } from "&/types/http";
+import { validateRequest } from "&/middlewares/validate";
 
 const chatRouter = express.Router();
 
-// Interfaces
-interface CreateThreadRequest {}
+type CreateThreadRequest = {};
 
-interface CreateThreadResponse {
+type CreateThreadResponse = HTTPResponse<{
   threadId: string;
-}
+}>;
 
-interface SendMessageRequest {
+type SendMessageRequest = {
   message: string;
-}
+};
 
-interface SendMessageResponse {
+type SendMessageResponse = HTTPResponse<{
   messageId: string;
   assistantResponse: string;
-}
+}>;
 
-interface GetMessagesResponse {
-  messages: Array<{
-    role: string;
-    content: string;
-    created_at: number;
-  }>;
-}
+type FormattedMessage = {
+  role: string;
+  content: string;
+  created_at: number;
+};
+
+type GetMessagesResponse = HTTPResponse<{
+  messages: Array<FormattedMessage>;
+}>;
 
 // Crear un nuevo hilo
 chatRouter.post(
@@ -41,20 +41,21 @@ chatRouter.post(
     next: NextFunction
   ) => {
     try {
-      const thread = await createThread().catch((error) => {
-        console.error("Error creating thread:", error);
-        throw new HttpError(500, "An error occurred while creating the thread");
-      });
-      res.json({ threadId: thread.id });
+      const thread = await chatService.createThread();
+      res.json({ success: true, data: { threadId: thread.id } });
     } catch (error) {
       next(error);
     }
   }
 );
 
-// Enviar un mensaje a un hilo existente
+const sendMessageSchema = Joi.object({
+  message: Joi.string().required(),
+});
+
 chatRouter.post(
   "/thread/:threadId/message",
+  validateRequest(sendMessageSchema),
   async (
     req: Request<{ threadId: string }, {}, SendMessageRequest>,
     res: Response<SendMessageResponse>,
@@ -64,33 +65,19 @@ chatRouter.post(
       const { threadId } = req.params;
       const { message } = req.body;
 
-      if (!message) {
-        throw new HttpError(400, "Message is required");
-      }
-
-      const { threadMessage, run } = await runThread(threadId, message);
-
-      // Obtener la respuesta del asistente
-      const messages = await getMessages(threadId);
-      const assistantMessage = messages.data.find(
-        (msg) => msg.role === "assistant" && msg.run_id === run.id
+      const { threadMessage, run } = await chatService.runThread(
+        threadId,
+        message
       );
-      const content = assistantMessage?.content?.[0];
-      if (!content) {
-        const msg = "No se pudo obtener una respuesta del asistente.";
-        throw new HttpError(500, msg);
-      }
+      const assistantResponse = await chatService.findAssistantMessage(
+        threadId,
+        run.id
+      );
 
-      let assistantResponse = "No se pudo obtener una respuesta del asistente.";
-      if (assistantMessage) {
-        if ("text" in content) {
-          assistantResponse = content.text.value;
-        } else {
-          assistantResponse = "";
-        }
-      }
-
-      res.json({ messageId: threadMessage.id, assistantResponse });
+      res.json({
+        success: true,
+        data: { messageId: threadMessage.id, assistantResponse },
+      });
     } catch (error) {
       next(error);
     }
@@ -107,21 +94,10 @@ chatRouter.get(
   ) => {
     try {
       const { threadId } = req.params;
-      const messages = await getMessages(threadId).catch((error) => {
-        console.error("Error retrieving messages:", error);
-        throw new HttpError(500, "An error occurred while retrieving messages");
-      });
+      const messages = await chatService.getMessages(threadId);
+      const formattedMessages = formatMessages(messages.data);
 
-      const formattedMessages = messages.data.map((message) => {
-        const content = message.content[0];
-        return {
-          role: message.role,
-          content: "text" in content ? content.text.value : "",
-          created_at: message.created_at,
-        };
-      });
-
-      res.json({ messages: formattedMessages });
+      res.json({ success: true, data: { messages: formattedMessages } });
     } catch (error) {
       next(error);
     }

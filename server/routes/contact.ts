@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { HttpError } from "http-errors-enhanced";
 import resend from "&/lib/resend";
+import { HTTPResponse } from "&/types/http";
 
 const contactRouter = Router();
 
@@ -10,10 +11,9 @@ interface ContactRequestBody {
   message: string;
 }
 
-interface ApiResponse {
-  success: boolean;
+type ApiResponse = HTTPResponse<{
   message: string;
-}
+}>;
 
 contactRouter.post<{}, ApiResponse, ContactRequestBody>(
   "/",
@@ -53,9 +53,10 @@ contactRouter.post<{}, ApiResponse, ContactRequestBody>(
         );
       }
 
-      res
-        .status(200)
-        .json({ success: true, message: "Mensaje enviado con éxito" });
+      res.status(200).json({
+        success: true,
+        data: { message: "Mensaje enviado correctamente" },
+      });
     } catch (error) {
       console.error("Error inesperado al enviar el email:", error);
       next(error);
