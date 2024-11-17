@@ -27,6 +27,7 @@ export enum InterestLevel {
 
 // Define interface for contact information
 export interface ContactInfo {
+  full_name: string;
   email: string;
   phone_number: string;
 }

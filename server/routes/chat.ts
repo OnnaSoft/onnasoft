@@ -1,6 +1,10 @@
 import express, { NextFunction, Request, Response } from "express";
 import { HttpError } from "http-errors-enhanced";
-import { createThread, getMessages, runThread } from "server/lib/chatgpt";
+import {
+  createThread,
+  getMessages,
+  runThread,
+} from "server/services/openai/chatgpt";
 
 const chatRouter = express.Router();
 

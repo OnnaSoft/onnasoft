@@ -1,11 +1,7 @@
 import { HttpError } from "http-errors-enhanced";
 import OpenAI from "openai";
-import {
-  onasoftServicesFunction,
-  processServiceRequest,
-} from "server/services/openai/functions";
+import { services, tools } from "server/services/openai/functions";
 
-// Validate environment variables
 const requiredEnvVars = ["OPENAI_API_KEY", "OPENAI_ASSISTANT_ID"];
 const missingEnvVars = requiredEnvVars.filter(
   (varName) => !process.env[varName]
@@ -35,7 +31,7 @@ export async function runThread(threadId: string, message: string) {
 
   const run = await openai.beta.threads.runs.create(threadId, {
     assistant_id: ASSISTANT_ID,
-    tools: [{ type: "function", function: onasoftServicesFunction }],
+    tools: tools,
   });
 
   // Esperar a que el asistente complete su respuesta
@@ -63,10 +59,14 @@ export async function applyThreadAction(
     if (toolCalls) {
       const toolOutputs = await Promise.all(
         toolCalls.map(async (toolCall) => {
-          if (toolCall.function.name === "onasoft_services") {
-            // Aquí es donde procesarías la llamada a la función y devolverías el resultado
-            // Por ahora, solo devolveremos un mensaje de ejemplo
-            processServiceRequest(JSON.parse(toolCall.function.arguments));
+          const service = services.find(
+            (s) => s.function_name === toolCall.function.name
+          );
+
+          if (service) {
+            service.processServiceRequest(
+              JSON.parse(toolCall.function.arguments)
+            );
 
             return {
               tool_call_id: toolCall.id,
