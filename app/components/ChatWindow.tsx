@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { MessageCircle, X, Send } from "lucide-react";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
+import ReactMarkdown from "react-markdown";
 
 export type ChatWindowProps = Readonly<{
   enableChat: boolean;
@@ -13,7 +14,7 @@ export default function ChatWindow({ enableChat }: ChatWindowProps) {
     [
       {
         isUser: false,
-        text: "Hello! How can I help you today?",
+        text: "Hello! How can I help you today? You can use **Markdown** in your messages.",
       },
     ]
   );
@@ -26,6 +27,7 @@ export default function ChatWindow({ enableChat }: ChatWindowProps) {
       createThread();
     }
   }, [isOpen]);
+
   useEffect(() => {
     chatWindowRef.current?.scrollTo({
       top: chatWindowRef.current?.scrollHeight,
@@ -147,7 +149,7 @@ export default function ChatWindow({ enableChat }: ChatWindowProps) {
                       : "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
                   }`}
                 >
-                  {msg.text}
+                  <ReactMarkdown>{msg.text}</ReactMarkdown>
                 </span>
               </div>
             ))}
