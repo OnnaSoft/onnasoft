@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { MessageCircle, X, Send } from "lucide-react";
 import { Button } from "./ui/button";
 
@@ -7,29 +7,103 @@ export type ChatWindowProps = Readonly<{
 }>;
 
 export default function ChatWindow({ enableChat }: ChatWindowProps) {
+  const chatWindowRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<{ text: string; isUser: boolean }[]>(
-    []
+    [
+      {
+        isUser: false,
+        text: "Hello! How can I help you today?",
+      },
+    ]
   );
   const [inputMessage, setInputMessage] = useState("");
+  const [threadId, setThreadId] = useState<string | null>(null);
+  const [isSending, setIsSending] = useState(false);
+
+  useEffect(() => {
+    if (isOpen && !threadId) {
+      createThread();
+    }
+  }, [isOpen]);
+  useEffect(() => {
+    chatWindowRef.current?.scrollTo({
+      top: chatWindowRef.current?.scrollHeight,
+      behavior: "smooth",
+    });
+  }, [messages]);
 
   const toggleChat = () => setIsOpen(!isOpen);
 
-  const sendMessage = (e: React.FormEvent) => {
+  const createThread = async () => {
+    try {
+      const response = await fetch("/api/chat/thread", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({}),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to create chat thread");
+      }
+
+      const data = await response.json();
+      setThreadId(data.data.threadId);
+    } catch (error) {
+      console.error("Error creating thread:", error);
+      setMessages((prev) => [
+        ...prev,
+        {
+          text: "Failed to create a chat session. Please try again later.",
+          isUser: false,
+        },
+      ]);
+    }
+  };
+
+  const sendMessage = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (inputMessage.trim()) {
-      setMessages([...messages, { text: inputMessage, isUser: true }]);
-      setInputMessage("");
-      // Simulate a response (replace with actual chat logic)
-      setTimeout(() => {
-        setMessages((prev) => [
-          ...prev,
-          {
-            text: "Thanks for your message! Our team will get back to you soon.",
-            isUser: false,
-          },
-        ]);
-      }, 1000);
+    if (!inputMessage.trim() || isSending || !threadId) return;
+
+    const userMessage = inputMessage.trim();
+    setMessages([...messages, { text: userMessage, isUser: true }]);
+    setInputMessage("");
+    setIsSending(true);
+
+    try {
+      const response = await fetch(`/api/chat/thread/${threadId}/message`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ message: userMessage }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send message");
+      }
+
+      const data = await response.json();
+      const assistantResponse =
+        data.data.assistantResponse || "No response received.";
+
+      setMessages((prev) => [
+        ...prev,
+        { text: assistantResponse, isUser: false },
+      ]);
+    } catch (error) {
+      console.error("Error sending message:", error);
+      setMessages((prev) => [
+        ...prev,
+        {
+          text: "Failed to send message. Please try again later.",
+          isUser: false,
+        },
+      ]);
+    } finally {
+      setIsSending(false);
     }
   };
 
@@ -47,7 +121,7 @@ export default function ChatWindow({ enableChat }: ChatWindowProps) {
         </Button>
       )}
       {isOpen && (
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl w-80 h-96 flex flex-col">
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl w-[28rem] h-[36rem] flex flex-col">
           <div className="p-4 bg-orange-500 text-white rounded-t-lg flex justify-between items-center">
             <h3 className="font-semibold">Chat with us</h3>
             <Button
@@ -60,7 +134,7 @@ export default function ChatWindow({ enableChat }: ChatWindowProps) {
               <X size={20} />
             </Button>
           </div>
-          <div className="flex-grow p-4 overflow-y-auto">
+          <div ref={chatWindowRef} className="flex-grow p-4 overflow-y-auto">
             {messages.map((msg, index) => (
               <div
                 key={msg.text + index}
@@ -93,6 +167,7 @@ export default function ChatWindow({ enableChat }: ChatWindowProps) {
               <Button
                 type="submit"
                 className="bg-orange-500 hover:bg-orange-600 h-10 text-white rounded-r-md"
+                disabled={isSending}
               >
                 <Send size={20} />
               </Button>
