@@ -1,5 +1,5 @@
 import { FunctionDefinition } from "openai/resources/shared.mjs";
-import { OnnaSoftServiceRequest } from "server/types/services";
+import { OnnaSoftServiceRequest } from "&/types/services";
 import { OpenAIService } from "../services";
 import { handleInformationRequest } from "./handleInformationRequest";
 import { handleLeadGenerationRequest } from "./handleLeadGenerationRequest";

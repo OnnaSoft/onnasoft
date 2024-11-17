@@ -1,9 +1,9 @@
 import { createRequestHandler } from "@remix-run/express";
 import express, { Request, Response } from "express";
 import dotenv from "dotenv";
-import authRouter from "server/routes/auth";
-import contactRouter from "server/routes/contact";
-import chatRouter from "server/routes/chat";
+import authRouter from "&/routes/auth";
+import contactRouter from "&/routes/contact";
+import chatRouter from "&/routes/chat";
 import { HttpError } from "http-errors-enhanced";
 
 dotenv.config();

@@ -1,5 +1,5 @@
-import resend from "server/lib/resend";
-import { OnnaSoftServiceRequest } from "server/types/services";
+import resend from "&/lib/resend";
+import { OnnaSoftServiceRequest } from "&/types/services";
 
 const requiredVars = ["FROM_EMAIL", "TO_EMAIL"];
 const missingVars = requiredVars.filter((varName) => !process.env[varName]);

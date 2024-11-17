@@ -1,6 +1,6 @@
 import { HttpError } from "http-errors-enhanced";
 import OpenAI from "openai";
-import { services, tools } from "server/services/openai/functions";
+import { services, tools } from "&/services/openai/functions";
 
 const requiredEnvVars = ["OPENAI_API_KEY", "OPENAI_ASSISTANT_ID"];
 const missingEnvVars = requiredEnvVars.filter(

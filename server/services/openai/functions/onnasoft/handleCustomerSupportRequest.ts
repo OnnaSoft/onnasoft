@@ -1,5 +1,5 @@
-import resend from "server/lib/resend";
-import { OnnaSoftServiceRequest } from "server/types/services";
+import resend from "&/lib/resend";
+import { OnnaSoftServiceRequest } from "&/types/services";
 
 // Ensure required environment variables are set
 const requiredVars = ["FROM_EMAIL", "SUPPORT_EMAIL"];

@@ -1,4 +1,4 @@
-import { OnnaSoftServiceRequest } from "server/types/services";
+import { OnnaSoftServiceRequest } from "&/types/services";
 
 export async function handleChatHandoffRequest(
   request: OnnaSoftServiceRequest

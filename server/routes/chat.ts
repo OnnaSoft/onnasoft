@@ -4,7 +4,7 @@ import {
   createThread,
   getMessages,
   runThread,
-} from "server/services/openai/chatgpt";
+} from "&/services/openai/chatgpt";
 
 const chatRouter = express.Router();
 

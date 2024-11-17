@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { HttpError } from "http-errors-enhanced";
-import resend from "server/lib/resend";
+import resend from "&/lib/resend";
 
 const contactRouter = Router();
 
