@@ -4,9 +4,13 @@ import { Button } from "./ui/button";
 
 export type ChatWindowProps = Readonly<{
   assistantId: string;
+  enableChat: boolean;
 }>;
 
-export default function ChatWindow({ assistantId }: ChatWindowProps) {
+export default function ChatWindow({
+  assistantId,
+  enableChat,
+}: ChatWindowProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<{ text: string; isUser: boolean }[]>(
     []
@@ -33,7 +37,7 @@ export default function ChatWindow({ assistantId }: ChatWindowProps) {
     }
   };
 
-  if (!assistantId) return null;
+  if (!assistantId || !enableChat) return null;
 
   return (
     <div className="fixed bottom-4 right-4 z-50">

@@ -35,6 +35,7 @@ export function Layout({ children }: { readonly children: React.ReactNode }) {
     canonical,
     googleAnalyticsId,
     blogUrl,
+    enableChat,
     assistantId,
     googleAdsConversionId,
   } = useLoaderData<typeof loader>();
@@ -83,7 +84,7 @@ export function Layout({ children }: { readonly children: React.ReactNode }) {
       <body>
         <LandingContext.Provider value={contextValue}>
           {children}
-          <ChatWindow assistantId={assistantId} />
+          <ChatWindow assistantId={assistantId} enableChat={enableChat} />
         </LandingContext.Provider>
         <ScrollRestoration />
         <Scripts />

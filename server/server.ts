@@ -1,9 +1,10 @@
 import { createRequestHandler } from "@remix-run/express";
-import express from "express";
+import express, { Request, Response } from "express";
 import dotenv from "dotenv";
-import authRouter from "src/routes/auth";
-import contactRouter from "src/routes/contact";
-import chatRouter from "src/routes/chat.js";
+import authRouter from "server/routes/auth";
+import contactRouter from "server/routes/contact";
+import chatRouter from "server/routes/chat.js";
+import { HttpError } from "http-errors-enhanced";
 
 dotenv.config();
 
@@ -35,6 +36,15 @@ api.use(express.urlencoded({ extended: true }));
 api.use("/auth", authRouter);
 api.use("/chat", chatRouter);
 api.use("/contact", contactRouter);
+api.use(
+  (err: Error, req: Request, res: Response, next: express.NextFunction) => {
+    if (err instanceof HttpError) {
+      res.status(err.statusCode).json({ message: err.message });
+    } else {
+      next(err);
+    }
+  }
+);
 
 api.use((req, res) => {
   res.status(404).json({ message: "Not found" });

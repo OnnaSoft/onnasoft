@@ -1,5 +1,5 @@
 import { Router } from "express";
-import resend from "src/lib/resend";
+import resend from "server/lib/resend";
 
 const contactRouter = Router();
 

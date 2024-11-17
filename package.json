@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "build": "NODE_ENV=production remix vite:build",
-    "dev": "NODE_ENV=development bun ./src/server.ts",
+    "dev": "NODE_ENV=development bun ./server/server.ts",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
-    "start": "NODE_ENV=production bun ./src/server.ts",
+    "start": "NODE_ENV=production bun ./server/server.ts",
     "typecheck": "tsc"
   },
   "dependencies": {
@@ -23,6 +23,7 @@
     "clsx": "^2.1.1",
     "concurrently": "^9.0.1",
     "framer-motion": "^11.11.10",
+    "http-errors-enhanced": "^3.0.0",
     "isbot": "^4.1.0",
     "lucide-react": "^0.453.0",
     "openai": "^4.71.1",
