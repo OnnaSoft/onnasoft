@@ -2,13 +2,11 @@ import { FunctionDefinition } from "openai/resources/shared.mjs";
 import { OnnaSoftServiceRequest } from "server/types/services";
 import { OpenAIService } from "../services";
 import { handleInformationRequest } from "./handleInformationRequest";
-import { handleTechnicalAssistanceRequest } from "./handleTechnicalAssistanceRequest";
 import { handleLeadGenerationRequest } from "./handleLeadGenerationRequest";
 import { handleSchedulingRequest } from "./handleSchedulingRequest";
 import { handleCustomerSupportRequest } from "./handleCustomerSupportRequest";
 import { handleEducationalResourcesRequest } from "./handleEducationalResourcesRequest";
 import { handleMultilingualAssistanceRequest } from "./handleMultilingualAssistanceRequest";
-import { handleFAQRequest } from "./handleFAQRequest";
 import { handleChatHandoffRequest } from "./handleChatHandoffRequest";
 import { handlePersonalizedExperienceRequest } from "./handlePersonalizedExperienceRequest";
 
@@ -23,13 +21,11 @@ export const onasoftServicesFunction: FunctionDefinition = {
         type: "string",
         enum: [
           "information",
-          "technical_assistance",
           "lead_generation",
           "scheduling",
           "customer_support",
           "educational_resources",
           "multilingual_assistance",
-          "faq",
           "chat_handoff",
           "personalized_experience",
         ],
@@ -51,6 +47,29 @@ export const onasoftServicesFunction: FunctionDefinition = {
           project_type: {
             type: "string",
             description: "Type of project the user wants to start.",
+            enum: [
+              "staff_augmentation",
+              "third_party_api_integration",
+              "cloud_migration",
+              "microservices_development",
+              "cloud_cost_optimization",
+              "process_automation",
+              "ai_ml_development",
+              "cybersecurity_consulting",
+              "digital_transformation",
+              "infrastructure_management",
+              "data_analytics",
+              "data_compliance_development",
+              "devops_as_a_service",
+              "microfrontends_development",
+              "legacy_system_optimization",
+              "cloud_native_development",
+              "multilanguage_localization",
+              "enterprise_architecture_consulting",
+              "ci_cd_implementation",
+              "automated_testing_qa",
+              "erp_services",
+            ],
           },
           contact_info: {
             type: "object",
@@ -85,13 +104,11 @@ const serviceHandlers: {
   [key: string]: (request: OnnaSoftServiceRequest) => Promise<string>;
 } = {
   information: handleInformationRequest,
-  technical_assistance: handleTechnicalAssistanceRequest,
   lead_generation: handleLeadGenerationRequest,
   scheduling: handleSchedulingRequest,
   customer_support: handleCustomerSupportRequest,
   educational_resources: handleEducationalResourcesRequest,
   multilingual_assistance: handleMultilingualAssistanceRequest,
-  faq: handleFAQRequest,
   chat_handoff: handleChatHandoffRequest,
   personalized_experience: handlePersonalizedExperienceRequest,
 };
