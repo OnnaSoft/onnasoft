@@ -2,6 +2,7 @@ import { Router } from "express";
 import { HttpError } from "http-errors-enhanced";
 import resend from "&/lib/resend";
 import { HTTPResponse } from "&/types/http";
+import logger from "&/lib/logger";
 
 const contactRouter = Router();
 
@@ -28,7 +29,7 @@ contactRouter.post<{}, ApiResponse, ContactRequestBody>(
     const toEmail = process.env.TO_EMAIL;
 
     if (!fromEmail || !toEmail) {
-      console.error("Faltan variables de entorno necesarias");
+      logger.error("Faltan variables de entorno necesarias");
       throw new HttpError(500, "Error en la configuración del servidor");
     }
 
@@ -46,7 +47,7 @@ contactRouter.post<{}, ApiResponse, ContactRequestBody>(
       });
 
       if (error) {
-        console.error("Error al enviar el email:", error);
+        logger.error("Error al enviar el email:", error);
         throw new HttpError(
           500,
           "Error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde."
@@ -58,7 +59,7 @@ contactRouter.post<{}, ApiResponse, ContactRequestBody>(
         data: { message: "Mensaje enviado correctamente" },
       });
     } catch (error) {
-      console.error("Error inesperado al enviar el email:", error);
+      logger.error("Error inesperado al enviar el email:", error);
       next(error);
     }
   }

@@ -1,4 +1,5 @@
 import { Resend } from "resend";
+import logger from "./logger";
 
 // Validate environment variables
 const requiredEnvVars = ["RESEND_API_KEY", "FROM_EMAIL", "TO_EMAIL"];
@@ -7,7 +8,7 @@ const missingEnvVars = requiredEnvVars.filter(
 );
 
 if (missingEnvVars.length > 0) {
-  console.error(
+  logger.error(
     `Missing required environment variables: ${missingEnvVars.join(", ")}`
   );
   process.exit(1);

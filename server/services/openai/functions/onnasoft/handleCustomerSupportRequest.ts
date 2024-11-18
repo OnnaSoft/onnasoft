@@ -1,3 +1,4 @@
+import logger from "&/lib/logger";
 import resend from "&/lib/resend";
 import { OnnaSoftServiceRequest } from "&/types/services";
 
@@ -5,7 +6,7 @@ import { OnnaSoftServiceRequest } from "&/types/services";
 const requiredVars = ["FROM_EMAIL", "SUPPORT_EMAIL"];
 const missingVars = requiredVars.filter((varName) => !process.env[varName]);
 if (missingVars.length > 0) {
-  console.error(
+  logger.error(
     `Missing required environment variables: ${missingVars.join(", ")}`
   );
   process.exit(1);
@@ -32,7 +33,7 @@ export async function handleCustomerSupportRequest(
   if (!user_query) missingFields.push("User Query");
 
   if (missingFields.length > 0) {
-    console.error(
+    logger.error(
       `Missing required fields for customer support request: ${missingFields.join(
         ", "
       )}`
@@ -57,13 +58,13 @@ export async function handleCustomerSupportRequest(
     });
 
     if (error) {
-      console.error("Error sending email:", error);
+      logger.error("Error sending email:", error);
       return "Error processing your request. Please try again later.";
     }
 
     return `Customer support request submitted successfully. Thank you, ${full_name}.`;
   } catch (err) {
-    console.error("Unexpected error in handleCustomerSupportRequest:", err);
+    logger.error("Unexpected error in handleCustomerSupportRequest:", err);
     return "An unexpected error occurred. Please try again later.";
   }
 }

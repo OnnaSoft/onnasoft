@@ -1,6 +1,7 @@
 import OpenAI from "openai";
 import { HttpError } from "http-errors-enhanced";
 import { services, tools } from "&/services/openai/functions";
+import logger from "&/lib/logger";
 
 const requiredEnvVars = ["OPENAI_API_KEY", "OPENAI_ASSISTANT_ID"];
 const missingEnvVars = requiredEnvVars.filter(
@@ -8,7 +9,7 @@ const missingEnvVars = requiredEnvVars.filter(
 );
 
 if (missingEnvVars.length > 0) {
-  console.error(
+  logger.error(
     `Missing required environment variables: ${missingEnvVars.join(", ")}`
   );
   process.exit(1);
@@ -31,6 +32,13 @@ const ERROR_MESSAGES = {
 };
 
 const chatService = {
+  async createEmbedding(text: string): Promise<number[]> {
+    const response = await openai.embeddings.create({
+      model: "text-embedding-ada-002",
+      input: text,
+    });
+    return response.data[0].embedding;
+  },
   async runThread(threadId: string, message: string) {
     if (!message) {
       throw new HttpError(400, ERROR_MESSAGES.MESSAGE_REQUIRED);
@@ -47,7 +55,7 @@ const chatService = {
         tools: tools,
       })
       .catch((error) => {
-        console.error("Error running thread:", error);
+        logger.error("Error running thread:", error);
         throw new HttpError(500, ERROR_MESSAGES.RUN_THREAD);
       });
 
@@ -61,7 +69,7 @@ const chatService = {
       runStatus = await openai.beta.threads.runs
         .retrieve(threadId, run.id)
         .catch((error) => {
-          console.error("Error retrieving run status:", error);
+          logger.error("Error retrieving run status:", error);
           throw new HttpError(500, ERROR_MESSAGES.RUN_STATUS_RETRIEVE);
         });
     }
@@ -87,14 +95,14 @@ const chatService = {
             );
 
             if (service) {
-              service.processServiceRequest(
+              const response = await service.processServiceRequest(
                 JSON.parse(toolCall.function.arguments)
               );
 
               return {
                 tool_call_id: toolCall.id,
                 output: JSON.stringify({
-                  response: "Processed information for OnnaSoft Services",
+                  response,
                   details: JSON.parse(toolCall.function.arguments),
                 }),
               };
@@ -102,7 +110,7 @@ const chatService = {
             return null;
           })
         ).catch((error) => {
-          console.error("Error processing tool calls:", error);
+          logger.error("Error processing tool calls:", error);
           throw new HttpError(500, ERROR_MESSAGES.TOOL_CALL_PROCESS);
         });
 
@@ -111,7 +119,7 @@ const chatService = {
             tool_outputs: toolOutputs.filter((output) => output !== null),
           })
           .catch((error) => {
-            console.error("Error submitting tool outputs:", error);
+            logger.error("Error submitting tool outputs:", error);
             throw new HttpError(500, ERROR_MESSAGES.TOOL_OUTPUT_SUBMIT);
           });
 
@@ -122,7 +130,7 @@ const chatService = {
           runStatus = await openai.beta.threads.runs
             .retrieve(threadId, run.id)
             .catch((error) => {
-              console.error("Error retrieving run status:", error);
+              logger.error("Error retrieving run status:", error);
               throw new HttpError(500, ERROR_MESSAGES.RUN_STATUS_RETRIEVE);
             });
         }
@@ -133,13 +141,13 @@ const chatService = {
   },
   createThread() {
     return openai.beta.threads.create().catch((error) => {
-      console.error("Error creating thread:", error);
+      logger.error("Error creating thread:", error);
       throw new HttpError(500, ERROR_MESSAGES.THREAD_CREATION);
     });
   },
   getMessages(threadId: string) {
     return openai.beta.threads.messages.list(threadId).catch((error) => {
-      console.error("Error retrieving messages:", error);
+      logger.error("Error retrieving messages:", error);
       throw new HttpError(500, ERROR_MESSAGES.MESSAGES_RETRIEVE);
     });
   },

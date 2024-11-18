@@ -1,10 +1,11 @@
+import logger from "&/lib/logger";
 import resend from "&/lib/resend";
 import { OnnaSoftServiceRequest } from "&/types/services";
 
 const requiredVars = ["FROM_EMAIL", "TO_EMAIL"];
 const missingVars = requiredVars.filter((varName) => !process.env[varName]);
 if (missingVars.length > 0) {
-  console.error(
+  logger.error(
     `Missing required environment variables: ${missingVars.join(", ")}`
   );
   process.exit(1);
@@ -31,7 +32,7 @@ export async function handleSchedulingRequest(
   if (!user_query) missingFields.push("User Query");
 
   if (missingFields.length > 0) {
-    console.error(
+    logger.error(
       `Missing required fields for scheduling request: ${missingFields.join(
         ", "
       )}`
@@ -56,13 +57,13 @@ export async function handleSchedulingRequest(
     });
 
     if (error) {
-      console.error("Error sending email:", error);
+      logger.error("Error sending email:", error);
       return "Error processing your request. Please try again later.";
     }
 
     return `Scheduling request received successfully. Thank you, ${full_name}.`;
   } catch (err) {
-    console.error("Unexpected error in handleSchedulingRequest:", err);
+    logger.error("Unexpected error in handleSchedulingRequest:", err);
     return "An unexpected error occurred. Please try again later.";
   }
 }

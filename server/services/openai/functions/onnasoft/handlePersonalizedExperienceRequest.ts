@@ -1,10 +1,11 @@
+import logger from "&/lib/logger";
 import resend from "&/lib/resend";
 import { OnnaSoftServiceRequest } from "&/types/services";
 
 const requiredVars = ["FROM_EMAIL", "TO_EMAIL"];
 const missingVars = requiredVars.filter((varName) => !process.env[varName]);
 if (missingVars.length > 0) {
-  console.error(
+  logger.error(
     `Missing required environment variables: ${missingVars.join(", ")}`
   );
   process.exit(1);
@@ -53,7 +54,7 @@ export async function handlePersonalizedExperienceRequest(
   if (!user_query) missingFields.push("User Query");
 
   if (missingFields.length > 0) {
-    console.error(
+    logger.error(
       `Missing required fields for personalized experience: ${missingFields.join(
         ", "
       )}`
@@ -90,7 +91,7 @@ export async function handlePersonalizedExperienceRequest(
     });
 
     if (error) {
-      console.error("Error sending email:", error);
+      logger.error("Error sending email:", error);
       return "Error processing your request. Please try again later.";
     }
 
@@ -99,7 +100,7 @@ export async function handlePersonalizedExperienceRequest(
       we can assist with tailored solutions to address your needs. A member of our team will reach out shortly to discuss your query:
       "${user_query}". In the meantime, feel free to reply to this message with any additional details.`;
   } catch (err) {
-    console.error(
+    logger.error(
       "Unexpected error in handlePersonalizedExperienceRequest:",
       err
     );

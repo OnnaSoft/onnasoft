@@ -5,6 +5,8 @@ import authRouter from "&/routes/auth";
 import contactRouter from "&/routes/contact";
 import chatRouter from "&/routes/chat";
 import { HttpError } from "http-errors-enhanced";
+import logger from "./lib/logger";
+import "./db";
 
 dotenv.config();
 
@@ -57,5 +59,5 @@ app.all("*", createRequestHandler({ build }));
 const port = process.env.PORT ?? 3000;
 
 app.listen(port, () => {
-  console.log("App listening on http://localhost:" + port);
+  logger.info("App listening on http://localhost:" + port);
 });
