@@ -2,6 +2,7 @@ import fs from "fs";
 import logger from "&/lib/logger";
 import { Document } from "../db";
 import path from "path";
+import chatService from "&/services/openai/chatgpt";
 
 const documentsPath = path.join(__dirname, "../documents");
 
@@ -28,7 +29,7 @@ export const ensureDocuments = async () => {
           if (existingDocument.content !== document.content) {
             await existingDocument.update({
               content: document.content,
-              embedding: [],
+              embedding: await chatService.createEmbedding(document.content),
             });
             logger.error(`Document updated: "${document.name}"`);
           } else logger.error(`Document already exists: "${document.name}"`);
