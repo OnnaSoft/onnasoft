@@ -13,7 +13,6 @@ export default function Footer() {
     { name: "Home", section: "hero" },
     { name: "Services", section: "services" },
     { name: "About", section: "about" },
-    { name: "Testimonials", section: "testimonials" },
     { name: "FAQ", section: "faq" },
   ];
 
