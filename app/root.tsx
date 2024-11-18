@@ -10,6 +10,7 @@ import {
 import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
 import LandingContext from "@/contexts/landing";
 import ChatWindow from "@/components/ChatWindow";
+import Analytics from "@/components/Analytics";
 import "@/tailwind.css";
 import "@/styles/global.css";
 
@@ -75,44 +76,16 @@ export function Layout({ children }: { readonly children: React.ReactNode }) {
 
         <Meta />
         <Links />
-        {googleAnalyticsId && (
-          <>
-            <script
-              async
-              defer
-              src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
-            ></script>
-            <script
-              dangerouslySetInnerHTML={{
-                __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${googleAnalyticsId}', {
-                page_path: window.location.pathname,
-              });
-            `,
-              }}
-            />
-            <script
-              dangerouslySetInnerHTML={{
-                __html: `
-              gtag('event', 'conversion', {
-                  'send_to': '${googleAdsConversionId}',
-                  'value': 1.0,
-                  'currency': 'COP'
-              });
-            `,
-              }}
-            />
-          </>
-        )}
       </head>
       <body>
         <LandingContext.Provider value={contextValue}>
           {children}
           {hydrated && <ChatWindow enableChat={enableChat} />}
         </LandingContext.Provider>
+        <Analytics
+          googleAnalyticsId={googleAnalyticsId}
+          googleAdsConversionId={googleAdsConversionId}
+        />
         <ScrollRestoration />
         <Scripts />
       </body>
