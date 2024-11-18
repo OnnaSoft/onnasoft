@@ -1,4 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
+"use client";
+
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { MessageCircle, X, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ReactMarkdown from "react-markdown";
@@ -14,13 +16,60 @@ export default function ChatWindow({ enableChat }: ChatWindowProps) {
     [
       {
         isUser: false,
-        text: "Hello! How can I help you today? **Note**: This is currently experimental.",
+        text: "Hello! How can I help you today?",
       },
     ]
   );
   const [inputMessage, setInputMessage] = useState("");
   const [threadId, setThreadId] = useState<string | null>(null);
   const [isSending, setIsSending] = useState(false);
+  const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
+  const [isTabActive, setIsTabActive] = useState(true);
+  const [originalTitle, setOriginalTitle] = useState("");
+  const [hasInteracted, setHasInteracted] = useState(false);
+
+  useEffect(() => {
+    setAudio(new Audio("/notification-sound.mp3"));
+    setOriginalTitle(document.title);
+
+    const handleVisibilityChange = () => {
+      setIsTabActive(!document.hidden);
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, []);
+
+  const playSound = useCallback(() => {
+    if (audio && hasInteracted) {
+      audio
+        .play()
+        .catch((error) => console.error("Error playing sound:", error));
+    }
+  }, [audio, hasInteracted]);
+
+  const notifyUser = useCallback(() => {
+    if (!isTabActive) {
+      let messageCount = 0;
+      const interval = setInterval(() => {
+        document.title =
+          messageCount % 2 === 0 ? "New message!" : originalTitle;
+        messageCount++;
+        if (messageCount > 10 || isTabActive) {
+          clearInterval(interval);
+          document.title = originalTitle;
+        }
+      }, 1000);
+
+      return () => {
+        clearInterval(interval);
+        document.title = originalTitle;
+      };
+    }
+  }, [isTabActive, originalTitle]);
 
   useEffect(() => {
     if (isOpen && !threadId) {
@@ -33,7 +82,34 @@ export default function ChatWindow({ enableChat }: ChatWindowProps) {
       top: chatWindowRef.current?.scrollHeight,
       behavior: "smooth",
     });
-  }, [messages]);
+
+    // Play sound and notify when a new message is added (except for the initial message)
+    if (messages.length > 1 && !messages[messages.length - 1].isUser) {
+      playSound();
+      notifyUser();
+    }
+  }, [messages, playSound, notifyUser]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsOpen(true);
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    const handleInteraction = () => {
+      setHasInteracted(true);
+      document.removeEventListener("click", handleInteraction);
+    };
+
+    document.addEventListener("click", handleInteraction);
+
+    return () => {
+      document.removeEventListener("click", handleInteraction);
+    };
+  }, []);
 
   const toggleChat = () => setIsOpen(!isOpen);
 
@@ -125,7 +201,7 @@ export default function ChatWindow({ enableChat }: ChatWindowProps) {
       {isOpen && (
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl w-[28rem] h-[36rem] flex flex-col">
           <div className="p-4 bg-orange-500 text-white rounded-t-lg flex justify-between items-center">
-            <h3 className="font-semibold">Chat with us</h3>
+            <h3 className="font-semibold">Chat with us (beta)</h3>
             <Button
               onClick={toggleChat}
               variant="ghost"

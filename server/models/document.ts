@@ -1,6 +1,9 @@
 import { DataTypes, Model, Sequelize, ModelStatic } from "sequelize";
 import chatService from "&/services/openai/chatgpt";
 import logger from "&/lib/logger";
+import pgvector from "pgvector/sequelize";
+
+pgvector.registerType(Sequelize);
 
 export interface DocumentAttributes {
   id: string;
@@ -58,7 +61,8 @@ const DocumentModel = (sequelize: Sequelize): DocumentModel => {
         },
       },
       embedding: {
-        type: DataTypes.ARRAY(DataTypes.FLOAT),
+        // @ts-ignore
+        type: DataTypes.VECTOR(1536),
         allowNull: false,
         validate: {},
       },
@@ -117,9 +121,10 @@ const DocumentModel = (sequelize: Sequelize): DocumentModel => {
 
       const documents = await this.findAll({
         order: sequelize.literal(
-          `embedding <-> ARRAY[${queryEmbedding.join(",")}]`
+          `embedding <-> '[${queryEmbedding.join(",")}]'`
         ),
         limit,
+        attributes: ["id", "name", "content"],
       });
 
       return documents || [];

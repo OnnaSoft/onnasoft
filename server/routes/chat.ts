@@ -32,7 +32,6 @@ type GetMessagesResponse = HTTPResponse<{
   messages: Array<FormattedMessage>;
 }>;
 
-// Crear un nuevo hilo
 chatRouter.post(
   "/thread",
   async (
@@ -84,7 +83,6 @@ chatRouter.post(
   }
 );
 
-// Obtener mensajes de un hilo
 chatRouter.get(
   "/thread/:threadId/messages",
   async (

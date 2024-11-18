@@ -7,6 +7,7 @@ import chatRouter from "&/routes/chat";
 import { HttpError } from "http-errors-enhanced";
 import logger from "./lib/logger";
 import "./db";
+import documentRouter from "./routes/documents";
 
 dotenv.config();
 
@@ -37,6 +38,7 @@ api.use(express.urlencoded({ extended: true }));
 api.use("/auth", authRouter);
 api.use("/chat", chatRouter);
 api.use("/contact", contactRouter);
+api.use("/documents", documentRouter);
 api.use(
   (err: Error, req: Request, res: Response, next: express.NextFunction) => {
     if (err instanceof HttpError) {

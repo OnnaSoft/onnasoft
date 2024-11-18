@@ -49,15 +49,16 @@ export function Layout({ children }: { readonly children: React.ReactNode }) {
 
         <Meta />
         <Links />
-
-        <script
-          async
-          defer
-          src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
-        ></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
+        {googleAnalyticsId && (
+          <>
+            <script
+              async
+              defer
+              src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
+            ></script>
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
@@ -65,19 +66,21 @@ export function Layout({ children }: { readonly children: React.ReactNode }) {
                 page_path: window.location.pathname,
               });
             `,
-          }}
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
+              }}
+            />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
               gtag('event', 'conversion', {
                   'send_to': '${googleAdsConversionId}',
                   'value': 1.0,
                   'currency': 'COP'
               });
             `,
-          }}
-        />
+              }}
+            />
+          </>
+        )}
       </head>
       <body>
         <LandingContext.Provider value={contextValue}>
