@@ -34,6 +34,9 @@ export default function CompaniesWorkedWith() {
             >
               <img
                 src={company.logo}
+                width={200}
+                height={96}
+                loading="lazy"
                 alt={`${company.name} logo`}
                 className="h-16 md:h-24 max-w-full object-contain"
               />

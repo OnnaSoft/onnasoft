@@ -81,7 +81,6 @@ export default function ChatWindow({ enableChat }: ChatWindowProps) {
       behavior: "smooth",
     });
 
-    // Play sound and notify when a new message is added (except for the initial message)
     if (messages.length > 1 && !messages[messages.length - 1].isUser) {
       playSound();
       notifyUser();

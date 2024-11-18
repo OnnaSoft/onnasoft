@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   Links,
   Meta,
@@ -37,7 +37,12 @@ export function Layout({ children }: { readonly children: React.ReactNode }) {
     enableChat,
     googleAdsConversionId,
   } = useLoaderData<typeof loader>();
-  const contextValue = useMemo(() => ({ blogUrl }), [blogUrl]);
+  const [hydrated, setHydrated] = useState(false);
+  const contextValue = useMemo(() => ({ blogUrl, hydrated }), [blogUrl]);
+
+  useEffect(() => {
+    setHydrated(true);
+  }, []);
 
   return (
     <html lang="en">
@@ -85,7 +90,7 @@ export function Layout({ children }: { readonly children: React.ReactNode }) {
       <body>
         <LandingContext.Provider value={contextValue}>
           {children}
-          <ChatWindow enableChat={enableChat} />
+          {hydrated && <ChatWindow enableChat={enableChat} />}
         </LandingContext.Provider>
         <ScrollRestoration />
         <Scripts />
