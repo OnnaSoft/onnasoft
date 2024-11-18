@@ -6,11 +6,11 @@ export interface DocumentAttributes {
   id: string;
   name: string;
   content: string;
-  embedding: number[];
+  embedding?: number[];
 }
 
 export interface DocumentCreationAttributes
-  extends Omit<Omit<DocumentAttributes, "id">, "embedding"> {}
+  extends Omit<DocumentAttributes, "id"> {}
 
 interface DocumentInstance
   extends Model<DocumentAttributes, DocumentCreationAttributes>,
@@ -60,16 +60,14 @@ const DocumentModel = (sequelize: Sequelize): DocumentModel => {
       embedding: {
         type: DataTypes.ARRAY(DataTypes.FLOAT),
         allowNull: false,
-        validate: {
-          notEmpty: { msg: "Embedding is required" },
-        },
+        validate: {},
       },
     },
     {
       hooks: {
         beforeCreate: async (document: DocumentInstance) => {
           try {
-            if (!document.embedding) {
+            if (!document.embedding?.length) {
               const embedding = await chatService.createEmbedding(
                 document.content
               );

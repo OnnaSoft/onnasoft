@@ -1,6 +1,7 @@
 import { Sequelize } from "sequelize";
 import DocumentModel from "./models/document";
 import logger from "./lib/logger";
+import { ensureDocuments } from "./migrations/documents";
 
 // Validate environment variables
 const requiredEnvVars = [
@@ -67,7 +68,10 @@ sequelize
   });
 
 // Sync all models with database
-sequelize.sync({ alter: true }).catch((err) => {
-  logger.error("Unable to sync database or ensure default plans:", err);
-  process.exit(1);
-});
+sequelize
+  .sync({ alter: true })
+  .then(ensureDocuments)
+  .catch((err) => {
+    logger.error("Unable to sync database or ensure default plans:", err);
+    process.exit(1);
+  });

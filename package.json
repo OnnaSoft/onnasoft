@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "build": "NODE_ENV=production remix vite:build",
-    "dev": "NODE_ENV=development bun ./server/server.ts",
+    "dev": "NODE_ENV=development bun ./server/index.ts",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
-    "start": "NODE_ENV=production bun ./server/server.ts",
+    "start": "NODE_ENV=production bun ./server/index.ts",
     "typecheck": "tsc"
   },
   "dependencies": {
