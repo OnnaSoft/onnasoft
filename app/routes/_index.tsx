@@ -1,7 +1,7 @@
 import About from "~/components/About";
 import CookieConsent from "~/components/CookieConsent";
 import CustomSoftwareBenefits from "~/components/CustomSoftwareBenefits";
-import FAQ from "~/components/FAQ";
+import FrequentlyAskedQuestions from "~/components/FrequentlyAskedQuestions";
 import Hero from "~/components/Hero";
 import Layout from "~/components/Layout";
 import OutsourceDevelopmentBenefits from "~/components/OutsourceDevelopmentBenefits";
@@ -51,7 +51,7 @@ export default function IndexPage() {
         <CustomSoftwareBenefits />
         <OutsourceDevelopmentBenefits />
         <MediumPosts />
-        <FAQ />
+        <FrequentlyAskedQuestions />
 
         <CompaniesWorkedWith />
 

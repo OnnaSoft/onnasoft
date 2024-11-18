@@ -36,7 +36,7 @@ const FAQItem = ({
   );
 };
 
-export default function FAQ() {
+export default function FrequentlyAskedQuestions() {
   return (
     <section id="faq" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4 max-w-6xl">

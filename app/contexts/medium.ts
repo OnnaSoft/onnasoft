@@ -1,8 +1,10 @@
 import { createContext } from "react";
 import { MediumFeed } from "~/models/medium";
 
-export type MediumContextType = MediumFeed | null;
+export type MediumContextType = MediumFeed;
 
-const MediumContext = createContext<MediumContextType>(null);
+const MediumContext = createContext<MediumContextType>({
+  items: [],
+});
 
 export default MediumContext;

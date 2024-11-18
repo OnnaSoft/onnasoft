@@ -38,7 +38,10 @@ export function Layout({ children }: { readonly children: React.ReactNode }) {
     googleAdsConversionId,
   } = useLoaderData<typeof loader>();
   const [hydrated, setHydrated] = useState(false);
-  const contextValue = useMemo(() => ({ blogUrl, hydrated }), [blogUrl]);
+  const contextValue = useMemo(
+    () => ({ blogUrl, hydrated }),
+    [blogUrl, hydrated]
+  );
 
   useEffect(() => {
     setHydrated(true);

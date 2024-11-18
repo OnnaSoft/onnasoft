@@ -8,8 +8,8 @@ export interface MediumPost {
 }
 
 export interface MediumFeed {
-  status: string;
-  feed: {
+  status?: string;
+  feed?: {
     title: string;
     link: string;
     author: string;
