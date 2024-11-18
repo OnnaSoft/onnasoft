@@ -14,7 +14,7 @@ export default function ChatWindow({ enableChat }: ChatWindowProps) {
     [
       {
         isUser: false,
-        text: "Hello! How can I help you today? You can use **Markdown** in your messages.",
+        text: "Hello! How can I help you today? **Note**: This is currently experimental.",
       },
     ]
   );
