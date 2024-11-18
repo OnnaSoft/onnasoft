@@ -47,13 +47,31 @@ export function Layout({ children }: { readonly children: React.ReactNode }) {
     setHydrated(true);
   }, []);
 
+  useEffect(() => {
+    const preconnect = document.createElement("link");
+    preconnect.rel = "preconnect";
+    preconnect.href = "https://use.typekit.net";
+    document.head.appendChild(preconnect);
+
+    const stylesheet = document.createElement("link");
+    stylesheet.rel = "stylesheet";
+    stylesheet.href = "https://use.typekit.net/gus8ret.css";
+    stylesheet.media = "print"; // No bloqueará el renderizado
+    stylesheet.onload = () => (stylesheet.media = "all");
+    document.head.appendChild(stylesheet);
+
+    return () => {
+      document.head.removeChild(preconnect);
+      document.head.removeChild(stylesheet);
+    };
+  }, []);
+
   return (
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link href={canonical} rel="canonical" />
-        <link rel="stylesheet" href="https://use.typekit.net/gus8ret.css" />
 
         <Meta />
         <Links />
