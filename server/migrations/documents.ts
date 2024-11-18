@@ -37,6 +37,7 @@ export const ensureDocuments = async () => {
           await Document.create({
             name: document.name,
             content: document.content,
+            embedding: await chatService.createEmbedding(document.content),
           });
           logger.info(`Document created: "${document.name}"`);
         }
