@@ -21,9 +21,9 @@ export default function Footer() {
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h4 className="text-2xl font-semibold mb-4 text-foreground">
+            <span className="text-2xl font-semibold mb-4 text-foreground">
               OnnaSoft, Inc.
-            </h4>
+            </span>
             <p className="text-lg text-muted-foreground mb-2">
               Your trusted software factory for innovative solutions
             </p>
