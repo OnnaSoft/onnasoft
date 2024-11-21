@@ -43,7 +43,6 @@ describe("ChatWindow Component", () => {
     await act(async () => {
       fireEvent.click(closeChatButton);
     });
-    //expect(screen.getByTestId("title")).not.toBeInTheDocument();
   });
 
   test("displays the initial message", async () => {

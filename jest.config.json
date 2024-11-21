@@ -1,7 +1,7 @@
 {
   "testEnvironment": "jsdom",
   "moduleNameMapper": {
-    "\\.(jpg|jpeg|png|gif|webp|svg)$": "<rootDir>/__mocks__/fileMock.js",
+    "\\.(jpg|jpeg|png|gif|webp|svg|css|scss)$": "<rootDir>/__mocks__/fileMock.js",
     "^~/(.*)$": "<rootDir>/app/$1",
     "^@/(.*)$": "<rootDir>/app/$1",
     "^&/(.*)$": "<rootDir>/server/$1"
@@ -26,14 +26,24 @@
   ],
   "testPathIgnorePatterns": [
     "/node_modules/",
-    "/dist/"
+    "/dist/",
+    "/coverage/"
   ],
   "testMatch": [
-    "**/?(*.)+(test).[tj]s?(x)"
+    "**/__tests__/**/*.[jt]s?(x)",
+    "**/?(*.)+(spec|test).[tj]s?(x)"
   ],
   "collectCoverage": true,
   "collectCoverageFrom": [
-    "app/**/*.{js,jsx,ts,tsx}"
+    "app/**/*.{js,jsx,ts,tsx}",
+    "!app/**/__tests__/**",
+    "!app/**/*.d.ts"
   ],
-  "coverageDirectory": "coverage"
+  "coverageDirectory": "coverage",
+  "coverageReporters": [
+    "json",
+    "lcov",
+    "text",
+    "clover"
+  ]
 }
