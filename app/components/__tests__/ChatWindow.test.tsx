@@ -78,7 +78,6 @@ describe("ChatWindow Component", () => {
     // Simula el envío del mensaje
     const sendButton = screen.getByTestId("send-button");
     expect(sendButton).toBeInTheDocument();
-    //const sendButton = screen.getByRole("button", { name: /send/i });
     await act(async () => {
       fireEvent.click(sendButton);
     });
