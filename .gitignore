@@ -8,3 +8,4 @@ http
 .vscode
 .sonarlint
 sonar-project.properties
+coverage

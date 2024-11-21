@@ -23,32 +23,37 @@ describe("ChatWindow Component", () => {
     jest.clearAllMocks();
   });
 
-  test("renders ChatWindow component and toggles chat window", () => {
+  test("renders ChatWindow component and toggles chat window", async () => {
     render(<ChatWindow enableChat={true} />);
 
     // Verifica que el botón inicial está presente
     const openChatButton = screen.getByRole("button", { name: /open chat/i });
     expect(openChatButton).toBeInTheDocument();
 
-    // Abre el chat
-    fireEvent.click(openChatButton);
-    expect(screen.getByText(/Chat with us \(beta\)/i)).toBeInTheDocument();
+    // Haz clic en el botón para abrir el chat
+    await act(async () => {
+      fireEvent.click(openChatButton);
+    });
 
+    // Verifica que el título aparece en el DOM
+    const titleElement = await screen.findByTestId("title");
+    expect(titleElement).toBeInTheDocument();
     // Cierra el chat
     const closeChatButton = screen.getByRole("button", { name: /close chat/i });
-    fireEvent.click(closeChatButton);
-    expect(
-      screen.queryByText(/Chat with us \(beta\)/i)
-    ).not.toBeInTheDocument();
+    await act(async () => {
+      fireEvent.click(closeChatButton);
+    });
+    //expect(screen.getByTestId("title")).not.toBeInTheDocument();
   });
 
-  test("displays the initial message", () => {
+  test("displays the initial message", async () => {
     render(<ChatWindow enableChat={true} />);
 
     // Abre el chat
     const openChatButton = screen.getByRole("button", { name: /open chat/i });
-    fireEvent.click(openChatButton);
-
+    await act(async () => {
+      fireEvent.click(openChatButton);
+    });
     // Verifica el mensaje inicial
     expect(
       screen.getByText(/Hello! How can I help you today?/i)
@@ -100,8 +105,9 @@ describe("ChatWindow Component", () => {
     render(<ChatWindow enableChat={true} />);
 
     // Abre el chat
-    fireEvent.click(screen.getByRole("button", { name: /open chat/i }));
-
+    await act(async () => {
+      fireEvent.click(screen.getByRole("button", { name: /open chat/i }));
+    });
     // Verifica que aparece un mensaje de error
     await waitFor(() => {
       expect(

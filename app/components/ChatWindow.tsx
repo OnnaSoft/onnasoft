@@ -130,7 +130,6 @@ export default function ChatWindow({ enableChat }: ChatWindowProps) {
       const data = await response.json();
       setThreadId(data.data.threadId);
     } catch (error) {
-      console.error("Error creating thread:", error);
       setMessages((prev) => [
         ...prev,
         {
@@ -172,7 +171,6 @@ export default function ChatWindow({ enableChat }: ChatWindowProps) {
         { text: assistantResponse, isUser: false },
       ]);
     } catch (error) {
-      console.error("Error sending message:", error);
       setMessages((prev) => [
         ...prev,
         {
@@ -201,7 +199,9 @@ export default function ChatWindow({ enableChat }: ChatWindowProps) {
       {isOpen && (
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl w-[28rem] h-[36rem] flex flex-col">
           <div className="p-4 bg-orange-500 text-white rounded-t-lg flex justify-between items-center">
-            <h3 className="font-semibold">Chat with us (beta)</h3>
+            <h3 className="font-semibold" data-testid="title">
+              Chat with us (beta)
+            </h3>
             <Button
               onClick={toggleChat}
               variant="ghost"
