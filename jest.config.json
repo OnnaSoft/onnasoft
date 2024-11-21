@@ -1,6 +1,9 @@
 {
   "testEnvironment": "jsdom",
   "moduleNameMapper": {
+    "^~/(.*)$": "<rootDir>/app/$1",
+    "^~/(.*)@": "<rootDir>/app/$1",
+    "^~/(.*)&": "<rootDir>/server/$1",
     "\\.(jpg|jpeg|png|gif|webp|svg)$": "<rootDir>/__mocks__/fileMock.js"
   },
   "setupFilesAfterEnv": [
@@ -18,6 +21,9 @@
     "^.+\\.(ts|tsx)$": "ts-jest",
     "^.+\\.(js|jsx)$": "babel-jest"
   },
+  "transformIgnorePatterns": [
+    "/node_modules/(?!(@web3-storage|lucide-react)/)"
+  ],
   "testPathIgnorePatterns": [
     "/node_modules/",
     "/dist/"
