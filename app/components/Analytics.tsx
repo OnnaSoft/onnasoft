@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 
 interface AnalyticsProps {
-  googleAnalyticsId: string;
-  googleAdsConversionId: string;
+  googleAnalyticsId?: string;
+  googleAdsConversionId?: string;
 }
 
 function Analytics({

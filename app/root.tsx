@@ -19,7 +19,7 @@ export const links: LinksFunction = () => [];
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   const url = new URL(request.url);
   const protocol = request.headers.get("x-forwarded-proto");
-  return Response.json({
+  const result = {
     blogUrl: process.env.BLOG_URL ?? "",
     enableChat: process.env.ENABLE_CHAT === "true",
     googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID,
@@ -27,7 +27,8 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
     canonical: `${protocol ? protocol + ":" : url.protocol}//${url.host}${
       url.pathname
     }`,
-  });
+  };
+  return Response.json(result) as any as typeof result;
 };
 
 export function Layout({ children }: { readonly children: React.ReactNode }) {

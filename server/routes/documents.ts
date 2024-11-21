@@ -2,7 +2,6 @@ import express, { NextFunction, Request, Response } from "express";
 import { HTTPResponse } from "&/types/http";
 import { DocumentAttributes } from "&/models/document";
 import { Document } from "&/db";
-import { Op } from "sequelize";
 import { HttpError } from "http-errors-enhanced";
 
 const documentRouter = express.Router();

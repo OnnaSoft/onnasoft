@@ -5,3 +5,6 @@ node_modules
 .env
 http
 .scannerwork
+.vscode
+.sonarlint
+sonar-project.properties
