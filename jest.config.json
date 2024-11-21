@@ -1,10 +1,10 @@
 {
   "testEnvironment": "jsdom",
   "moduleNameMapper": {
+    "\\.(jpg|jpeg|png|gif|webp|svg)$": "<rootDir>/__mocks__/fileMock.js",
     "^~/(.*)$": "<rootDir>/app/$1",
-    "^~/(.*)@": "<rootDir>/app/$1",
-    "^~/(.*)&": "<rootDir>/server/$1",
-    "\\.(jpg|jpeg|png|gif|webp|svg)$": "<rootDir>/__mocks__/fileMock.js"
+    "^@/(.*)$": "<rootDir>/app/$1",
+    "^&/(.*)$": "<rootDir>/server/$1"
   },
   "setupFilesAfterEnv": [
     "<rootDir>/setupTests.js"
@@ -22,7 +22,7 @@
     "^.+\\.(js|jsx)$": "babel-jest"
   },
   "transformIgnorePatterns": [
-    "/node_modules/(?!(@web3-storage|lucide-react)/)"
+    "/node_modules/(?!(@web3-storage|lucide-react|react-markdown|devlop|hast(-util-[a-z-]+)?|comma-separated-tokens|estree-util-is-identifier-name|property-information|space-separated-tokens|unist(-util-[a-z-]+)?|vfile(-message)?|html-url-attributes|remark(-rehype|-parse)?|mdast(-util-[a-z-]+)?|micromark(-[a-z-]+)?|decode-named-character-reference|trim-lines|unified|bail|is-plain-obj|trough)/)"
   ],
   "testPathIgnorePatterns": [
     "/node_modules/",

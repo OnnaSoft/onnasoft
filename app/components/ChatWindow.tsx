@@ -76,10 +76,13 @@ export default function ChatWindow({ enableChat }: ChatWindowProps) {
   }, [isOpen]);
 
   useEffect(() => {
-    chatWindowRef.current?.scrollTo({
-      top: chatWindowRef.current?.scrollHeight,
-      behavior: "smooth",
-    });
+    const scrollTo = chatWindowRef.current?.scrollTo;
+    if (scrollTo) {
+      scrollTo({
+        top: chatWindowRef.current?.scrollHeight,
+        behavior: "smooth",
+      });
+    }
 
     if (messages.length > 1 && !messages[messages.length - 1].isUser) {
       playSound();
@@ -240,6 +243,7 @@ export default function ChatWindow({ enableChat }: ChatWindowProps) {
                 className="flex-grow px-3 py-2 border rounded-l-md h-10 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
               />
               <Button
+                data-testid="send-button"
                 type="submit"
                 className="bg-orange-500 hover:bg-orange-600 h-10 text-white rounded-r-md"
                 disabled={isSending}
