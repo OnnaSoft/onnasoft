@@ -12,9 +12,12 @@ export const loader = async () => {
       throw new Error("Failed to fetch Medium posts");
     }
 
-    return Response.json(data);
+    return Response.json(data) as any as MediumFeed;
   } catch (error) {
-    console.error("Error fetching Medium posts:", error);
-    return Response.json({ status: "error", feed: {}, items: [] });
+    return Response.json({
+      status: "error",
+      feed: {},
+      items: [],
+    }) as any as MediumFeed;
   }
 };
