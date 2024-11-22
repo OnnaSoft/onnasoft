@@ -7,6 +7,8 @@ export type ChatWindowProps = Readonly<{
   enableChat: boolean;
 }>;
 
+let isOpened = false;
+
 export default function ChatWindow({ enableChat }: ChatWindowProps) {
   const chatWindowRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState(false);
@@ -54,7 +56,13 @@ export default function ChatWindow({ enableChat }: ChatWindowProps) {
     }
   }, [audio, hasInteracted]);
 
-  const toggleChat = () => setIsOpen(!isOpen);
+  const toggleChat = () => {
+    const newIsOpen = !isOpen;
+    setIsOpen(newIsOpen);
+    if (newIsOpen) {
+      isOpened = true;
+    }
+  };
 
   const createThread = async () => {
     try {
@@ -171,6 +179,16 @@ export default function ChatWindow({ enableChat }: ChatWindowProps) {
       createThread();
     }
   }, [isOpen]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (isOpened) return;
+      setIsOpen(true);
+      isOpened = true;
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   if (!enableChat) return null;
 
