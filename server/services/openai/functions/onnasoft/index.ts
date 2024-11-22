@@ -1,15 +1,14 @@
 import { OnnaSoftServiceRequest } from "&/types/services";
 import { OpenAIService } from "../services";
-import { handleInformationRequest } from "./handleInformationRequest";
-import { handleLeadGenerationRequest } from "./handleLeadGenerationRequest";
-import { handleSchedulingRequest } from "./handleSchedulingRequest";
-import { handleCustomerSupportRequest } from "./handleCustomerSupportRequest";
-import { handleEducationalResourcesRequest } from "./handleEducationalResourcesRequest";
-import { handleMultilingualAssistanceRequest } from "./handleMultilingualAssistanceRequest";
-import { handleChatHandoffRequest } from "./handleChatHandoffRequest";
-import { handlePersonalizedExperienceRequest } from "./handlePersonalizedExperienceRequest";
-
-export { onasoftServicesFunction } from "./definition";
+import { handleInformationRequest } from "&/services/openai/functions/onnasoft/handleInformationRequest";
+import { handleLeadGenerationRequest } from "&/services/openai/functions/onnasoft/handleLeadGenerationRequest";
+import { handleSchedulingRequest } from "&/services/openai/functions/onnasoft/handleSchedulingRequest";
+import { handleCustomerSupportRequest } from "&/services/openai/functions/onnasoft/handleCustomerSupportRequest";
+import { handleEducationalResourcesRequest } from "&/services/openai/functions/onnasoft/handleEducationalResourcesRequest";
+import { handleMultilingualAssistanceRequest } from "&/services/openai/functions/onnasoft/handleMultilingualAssistanceRequest";
+import { handleChatHandoffRequest } from "&/services/openai/functions/onnasoft/handleChatHandoffRequest";
+import { handlePersonalizedExperienceRequest } from "&/services/openai/functions/onnasoft/handlePersonalizedExperienceRequest";
+export { onasoftServicesFunction } from "&/services/openai/functions/onnasoft/definition";
 
 const serviceHandlers: {
   [key: string]: (request: OnnaSoftServiceRequest) => Promise<string>;

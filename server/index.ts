@@ -5,9 +5,9 @@ import authRouter from "&/routes/auth";
 import contactRouter from "&/routes/contact";
 import chatRouter from "&/routes/chat";
 import { HttpError } from "http-errors-enhanced";
-import logger from "./lib/logger";
-import "./db";
-import documentRouter from "./routes/documents";
+import logger from "&/lib/logger";
+import documentRouter from "&/routes/documents";
+import "&/db";
 
 dotenv.config();
 

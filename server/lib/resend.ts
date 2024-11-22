@@ -1,5 +1,5 @@
 import { Resend } from "resend";
-import logger from "./logger";
+import logger from "&/lib/logger";
 
 // Validate environment variables
 const requiredEnvVars = ["RESEND_API_KEY", "FROM_EMAIL", "TO_EMAIL"];

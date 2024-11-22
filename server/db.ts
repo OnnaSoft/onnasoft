@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize";
-import DocumentModel from "./models/document";
-import logger from "./lib/logger";
-import { ensureDocuments } from "./migrations/documents";
+import DocumentModel from "&/models/document";
+import logger from "&/lib/logger";
+import { ensureDocuments } from "&/migrations/documents";
 
 // Validate environment variables
 const requiredEnvVars = [
