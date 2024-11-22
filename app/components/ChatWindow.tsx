@@ -26,29 +26,6 @@ export default function ChatWindow({ enableChat }: ChatWindowProps) {
   const [originalTitle, setOriginalTitle] = useState("");
   const [hasInteracted, setHasInteracted] = useState(false);
 
-  useEffect(() => {
-    setAudio(new Audio("/notification-sound.mp3"));
-    setOriginalTitle(document.title);
-
-    const handleVisibilityChange = () => {
-      setIsTabActive(!document.hidden);
-    };
-
-    document.addEventListener("visibilitychange", handleVisibilityChange);
-
-    return () => {
-      document.removeEventListener("visibilitychange", handleVisibilityChange);
-    };
-  }, []);
-
-  const playSound = useCallback(() => {
-    if (audio && hasInteracted) {
-      audio
-        .play()
-        .catch((error) => console.error("Error playing sound:", error));
-    }
-  }, [audio, hasInteracted]);
-
   const notifyUser = useCallback(() => {
     if (!isTabActive) {
       let messageCount = 0;
@@ -69,47 +46,13 @@ export default function ChatWindow({ enableChat }: ChatWindowProps) {
     }
   }, [isTabActive, originalTitle]);
 
-  useEffect(() => {
-    if (isOpen && !threadId) {
-      createThread();
+  const playSound = useCallback(() => {
+    if (audio && hasInteracted) {
+      audio
+        .play()
+        .catch((error) => console.error("Error playing sound:", error));
     }
-  }, [isOpen]);
-
-  useEffect(() => {
-    const scrollTo = chatWindowRef.current?.scrollTo;
-    if (scrollTo) {
-      scrollTo({
-        top: chatWindowRef.current?.scrollHeight,
-        behavior: "smooth",
-      });
-    }
-
-    if (messages.length > 1 && !messages[messages.length - 1].isUser) {
-      playSound();
-      notifyUser();
-    }
-  }, [messages, playSound, notifyUser]);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsOpen(true);
-    }, 5000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
-    const handleInteraction = () => {
-      setHasInteracted(true);
-      document.removeEventListener("click", handleInteraction);
-    };
-
-    document.addEventListener("click", handleInteraction);
-
-    return () => {
-      document.removeEventListener("click", handleInteraction);
-    };
-  }, []);
+  }, [audio, hasInteracted]);
 
   const toggleChat = () => setIsOpen(!isOpen);
 
@@ -183,6 +126,52 @@ export default function ChatWindow({ enableChat }: ChatWindowProps) {
     }
   };
 
+  useEffect(() => {
+    const handleInteraction = () => {
+      setHasInteracted(true);
+      document.removeEventListener("click", handleInteraction);
+    };
+
+    document.addEventListener("click", handleInteraction);
+
+    return () => {
+      document.removeEventListener("click", handleInteraction);
+    };
+  }, []);
+
+  useEffect(() => {
+    setAudio(new Audio("/notification-sound.mp3"));
+    setOriginalTitle(document.title);
+
+    const handleVisibilityChange = () => {
+      setIsTabActive(!document.hidden);
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!chatWindowRef.current?.scrollTo) return;
+    chatWindowRef.current?.scrollTo({
+      top: chatWindowRef.current.scrollHeight,
+      behavior: "smooth",
+    });
+    if (messages.length > 1 && !messages[messages.length - 1].isUser) {
+      playSound();
+      notifyUser();
+    }
+  }, [messages]);
+
+  useEffect(() => {
+    if (isOpen && !threadId) {
+      createThread();
+    }
+  }, [isOpen]);
+
   if (!enableChat) return null;
 
   return (
@@ -236,7 +225,10 @@ export default function ChatWindow({ enableChat }: ChatWindowProps) {
           >
             <div className="flex gap-2">
               <input
+                id="message"
                 type="text"
+                name="message"
+                autoComplete="off"
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
                 placeholder="Type your message..."
