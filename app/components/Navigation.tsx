@@ -149,7 +149,7 @@ export default function Navigation() {
         <div className="md:hidden bg-background py-2">
           <div className="container mx-auto px-4">
             <div className="space-y-2">
-              {services.map((service, index) => (
+              {services.map((service) => (
                 <Link
                   key={service.title}
                   to={service.link}

@@ -16,7 +16,7 @@ type ApiResponse = HTTPResponse<{
   message: string;
 }>;
 
-contactRouter.post<{}, ApiResponse, ContactRequestBody>(
+contactRouter.post<unknown, ApiResponse, ContactRequestBody>(
   "/",
   async (req, res, next): Promise<void> => {
     const { name, email, message } = req.body;

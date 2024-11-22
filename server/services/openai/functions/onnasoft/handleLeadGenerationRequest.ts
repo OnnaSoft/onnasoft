@@ -1,8 +1,4 @@
-import { OnnaSoftServiceRequest } from "&/types/services";
-
-export async function handleLeadGenerationRequest(
-  request: OnnaSoftServiceRequest
-): Promise<string> {
+export async function handleLeadGenerationRequest(): Promise<string> {
   const message = `
     We are thrilled to assist you with the technological aspects of your lead generation efforts. 
     Our services include developing your website, configuring email systems, and ensuring your technological infrastructure is optimized for successful marketing campaigns.

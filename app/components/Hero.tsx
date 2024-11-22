@@ -18,7 +18,7 @@ export default function Hero() {
           <p className="text-xl mb-10 md:text-2xl max-w-3xl mx-auto">
             OnnaSoft, Inc. is a premier software factory dedicated to delivering
             innovative, high-quality software solutions. From custom development
-            to outsourcing, we're your partner in digital success.
+            to outsourcing, we&apos;re your partner in digital success.
           </p>
           <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
             <Button

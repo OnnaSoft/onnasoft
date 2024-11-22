@@ -1,9 +1,9 @@
 import { DataTypes, Model, Sequelize, ModelStatic } from "sequelize";
 import chatService from "&/services/openai/chatgpt";
 import logger from "&/lib/logger";
-import pgvector from "pgvector/sequelize";
+import { registerType } from "pgvector/sequelize";
 
-pgvector.registerType(Sequelize);
+registerType(Sequelize);
 
 export interface DocumentAttributes {
   id: string;
@@ -12,8 +12,7 @@ export interface DocumentAttributes {
   embedding?: number[];
 }
 
-export interface DocumentCreationAttributes
-  extends Omit<DocumentAttributes, "id"> {}
+export type DocumentCreationAttributes = Omit<DocumentAttributes, "id">;
 
 interface DocumentInstance
   extends Model<DocumentAttributes, DocumentCreationAttributes>,
@@ -61,7 +60,7 @@ const DocumentModel = (sequelize: Sequelize): DocumentModel => {
         },
       },
       embedding: {
-        // @ts-ignore
+        // @ts-expect-error - Sequelize type definitions are not up-to-date
         type: DataTypes.VECTOR(1536),
         allowNull: false,
         validate: {},
@@ -105,9 +104,7 @@ const DocumentModel = (sequelize: Sequelize): DocumentModel => {
     }
   ) as DocumentModel;
 
-  Document.associate = (models: { [key: string]: ModelStatic<Model> }) => {
-    // Add associations if needed
-  };
+  Document.associate = () => {};
 
   Document.findSimilarDocuments = async function (
     query: string,

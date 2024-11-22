@@ -1,7 +1,3 @@
-import { OnnaSoftServiceRequest } from "&/types/services";
-
-export async function handleChatHandoffRequest(
-  request: OnnaSoftServiceRequest
-): Promise<string> {
+export async function handleChatHandoffRequest(): Promise<string> {
   return "At the moment, this function is not implemented.";
 }

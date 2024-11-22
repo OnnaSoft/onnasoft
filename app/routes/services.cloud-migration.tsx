@@ -435,7 +435,7 @@ export default function CloudComputingBenefits() {
             operations while maximizing the benefits of cloud adoption.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {supportServices.map((service, index) => (
+            {supportServices.map((service) => (
               <div
                 key={service.title}
                 className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 flex flex-col items-center text-center"

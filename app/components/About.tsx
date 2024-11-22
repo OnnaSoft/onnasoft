@@ -16,7 +16,7 @@ export default function About() {
               developers is committed to driving the success of your business
               through cutting-edge technology. With years of experience and a
               passion for excellence, we strive to deliver solutions that not
-              only meet but exceed our clients' expectations.
+              only meet but exceed our clients&apos; expectations.
             </p>
             <ul className="space-y-4">
               {[

@@ -88,6 +88,7 @@ export default function ChatWindow({ enableChat }: ChatWindowProps) {
           isUser: false,
         },
       ]);
+      console.error("Failed to create chat thread:", error);
     }
   };
 
@@ -129,6 +130,7 @@ export default function ChatWindow({ enableChat }: ChatWindowProps) {
           isUser: false,
         },
       ]);
+      console.error("Failed to send message:", error);
     } finally {
       setIsSending(false);
     }
@@ -172,13 +174,13 @@ export default function ChatWindow({ enableChat }: ChatWindowProps) {
       playSound();
       notifyUser();
     }
-  }, [messages]);
+  }, [messages, playSound, notifyUser]);
 
   useEffect(() => {
     if (isOpen && !threadId) {
       createThread();
     }
-  }, [isOpen]);
+  }, [isOpen, threadId]);
 
   useEffect(() => {
     const timer = setTimeout(() => {

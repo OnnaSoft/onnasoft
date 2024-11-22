@@ -138,7 +138,7 @@ export default function ITOutsourcing() {
               <span className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased">
                 <strong>Faster Time-to-Market:</strong> With our ready-to-deploy
                 professionals, you can accelerate development timelines and stay
-                ahead in a competitive environment. Our team's extensive
+                ahead in a competitive environment. Our team&apos;s extensive
                 experience and established workflows mean we can hit the ground
                 running, reducing the time spent on onboarding and training.
                 This efficiency translates directly into faster project
@@ -198,7 +198,7 @@ export default function ITOutsourcing() {
                 factors such as communication style, problem-solving approach,
                 and cultural fit. We carefully curate a team that not only
                 possesses the necessary technical expertise but also aligns with
-                your company's values and work ethic, ensuring a smooth
+                your company&apos;s values and work ethic, ensuring a smooth
                 collaboration.
               </span>
             </li>
@@ -240,7 +240,7 @@ export default function ITOutsourcing() {
                 remain efficient and up-to-date. We conduct periodic performance
                 assessments, gathering feedback from both our team and yours to
                 identify areas for improvement. Our commitment to continuous
-                optimization means we're always looking for ways to enhance
+                optimization means we&apos;re always looking for ways to enhance
                 productivity, streamline processes, and leverage new
                 technologies to keep your IT infrastructure at the cutting edge.
               </span>
@@ -326,15 +326,15 @@ export default function ITOutsourcing() {
                 <strong>Cloud Services:</strong> Cloud migration, management,
                 and optimization services to streamline operations, reduce
                 costs, and improve scalability. Our cloud experts can help you
-                navigate the complexities of cloud adoption, whether you're
+                navigate the complexities of cloud adoption, whether you&apos;re
                 looking to migrate existing systems, develop cloud-native
                 applications, or optimize your current cloud infrastructure. We
                 work with leading cloud platforms like AWS, Azure, and Google
                 Cloud to design and implement robust, scalable, and secure cloud
                 solutions. Our services include cloud strategy development,
                 migration planning and execution, cloud security implementation,
-                and ongoing cloud management and optimization to ensure you're
-                getting the most value from your cloud investments.
+                and ongoing cloud management and optimization to ensure
+                you&apos;re getting the most value from your cloud investments.
               </span>
             </li>
           </ul>

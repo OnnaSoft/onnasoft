@@ -16,10 +16,10 @@ export default function SoftwareDevelopmentLeadership() {
           Pioneering Custom Software Solutions for Businesses
         </h2>
         <p className="text-xl leading-relaxed mb-12 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased text-foreground text-center max-w-3xl">
-          At OnnaSoft, we're dedicated to crafting bespoke software solutions
-          that align perfectly with your unique business needs. Our innovative
-          approach drives efficiency and growth, transforming your vision into
-          powerful, scalable software.
+          At OnnaSoft, we&apos;re dedicated to crafting bespoke software
+          solutions that align perfectly with your unique business needs. Our
+          innovative approach drives efficiency and growth, transforming your
+          vision into powerful, scalable software.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-20">

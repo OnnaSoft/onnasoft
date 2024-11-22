@@ -9,7 +9,7 @@ export const meta = () => {
     {
       name: "description",
       content:
-        "Enhance your team's capabilities with OnnaSoft's staff augmentation services. Access top-tier talent to accelerate your projects and drive innovation.",
+        "Enhance your team&apos;s capabilities with OnnaSoft&apos;s staff augmentation services. Access top-tier talent to accelerate your projects and drive innovation.",
     },
   ];
 };
@@ -25,7 +25,7 @@ const benefits = [
     icon: Briefcase,
     title: "Flexibility and Scalability",
     description:
-      "Quickly scale your team up or down based on project requirements and deadlines. Our flexible engagement model allows you to adjust your team size and composition as your project evolves, providing the agility needed in today's fast-paced tech landscape.",
+      "Quickly scale your team up or down based on project requirements and deadlines. Our flexible engagement model allows you to adjust your team size and composition as your project evolves, providing the agility needed in today&apos;s fast-paced tech landscape.",
   },
   {
     icon: ChartBar,
@@ -45,7 +45,7 @@ const faqs = [
   {
     question: "What is staff augmentation?",
     answer:
-      "Staff augmentation is a flexible outsourcing strategy where we provide skilled professionals to supplement your existing workforce on a temporary basis. This allows you to quickly scale your team's capabilities without the long-term commitment of hiring full-time employees. It's particularly useful for projects requiring specialized skills, handling workload spikes, or exploring new technologies without committing to permanent hires.",
+      "Staff augmentation is a flexible outsourcing strategy where we provide skilled professionals to supplement your existing workforce on a temporary basis. This allows you to quickly scale your team&apos;s capabilities without the long-term commitment of hiring full-time employees. It&apos;s particularly useful for projects requiring specialized skills, handling workload spikes, or exploring new technologies without committing to permanent hires.",
   },
   {
     question: "How does OnnaSoft ensure the quality of augmented staff?",
@@ -55,12 +55,12 @@ const faqs = [
   {
     question: "Can I choose the professionals that will join my team?",
     answer:
-      "Yes, we provide profiles of potential team members and you can interview them before making a decision. We typically present a shortlist of 3-5 candidates who best match your criteria. You have the opportunity to review their detailed profiles, conduct interviews, and even administer technical tests if desired. The final decision always rests with you, ensuring you're completely comfortable with the professionals joining your team.",
+      "Yes, we provide profiles of potential team members and you can interview them before making a decision. We typically present a shortlist of 3-5 candidates who best match your criteria. You have the opportunity to review their detailed profiles, conduct interviews, and even administer technical tests if desired. The final decision always rests with you, ensuring you&apos;re completely comfortable with the professionals joining your team.",
   },
   {
-    question: "What if the augmented staff doesn't meet our expectations?",
+    question: "What if the augmented staff doesn&apos;t meet our expectations?",
     answer:
-      "We have a replacement policy in place. If you're not satisfied with a team member's performance, we'll work quickly to provide a suitable replacement at no additional cost. We ask that you communicate your concerns promptly, allowing us to address any issues through additional training or support. If problems persist, we'll initiate our replacement process immediately, leveraging our understanding of your needs and the feedback you've provided to quickly identify and present alternative candidates, ensuring minimal disruption to your project timelines.",
+      "We have a replacement policy in place. If you&apos;re not satisfied with a team member&apos;s performance, we&apos;ll work quickly to provide a suitable replacement at no additional cost. We ask that you communicate your concerns promptly, allowing us to address any issues through additional training or support. If problems persist, we&apos;ll initiate our replacement process immediately, leveraging our understanding of your needs and the feedback you&apos;ve provided to quickly identify and present alternative candidates, ensuring minimal disruption to your project timelines.",
   },
 ];
 
@@ -86,11 +86,11 @@ export default function StaffAugmentation() {
           <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased">
             In the rapidly evolving world of technology, businesses face the
             constant challenge of staying competitive while managing fluctuating
-            project demands. OnnaSoft's staff augmentation services offer a
+            project demands. OnnaSoft&apos;s staff augmentation services offer a
             dynamic solution to this challenge, providing companies with the
             ability to swiftly scale their teams with top-tier talent. Our
             service goes beyond simply filling positions; we offer a strategic
-            partnership that enhances your team's capabilities, drives
+            partnership that enhances your team&apos;s capabilities, drives
             innovation, and ensures project success. By leveraging our extensive
             network of skilled professionals, you gain immediate access to
             expertise across a wide range of technologies and domains, allowing
@@ -99,18 +99,18 @@ export default function StaffAugmentation() {
 
           <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased">
             What sets OnnaSoft apart is our commitment to not just meeting your
-            technical requirements, but also aligning with your company's
+            technical requirements, but also aligning with your company&apos;s
             culture and work ethic. Our rigorous vetting process ensures that
             each professional we provide brings not only the necessary technical
             skills but also the soft skills and adaptability crucial for
             seamless integration into your team. This holistic approach to staff
-            augmentation means you're not just getting additional manpower, but
-            true team members who can hit the ground running, contribute
+            augmentation means you&apos;re not just getting additional manpower,
+            but true team members who can hit the ground running, contribute
             meaningfully to your projects, and help drive your business forward.
-            With OnnaSoft, you're not just filling gaps in your workforce;
-            you're strategically enhancing your team's capabilities and
-            positioning your company for long-term success in the competitive
-            tech landscape.
+            With OnnaSoft, you&apos;re not just filling gaps in your workforce;
+            you&apos;re strategically enhancing your team&apos;s capabilities
+            and positioning your company for long-term success in the
+            competitive tech landscape.
           </p>
 
           <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-200 mb-6">
@@ -150,8 +150,8 @@ export default function StaffAugmentation() {
               considering both technical skills and cultural fit. We use a
               combination of advanced AI-powered matching algorithms and human
               expertise to shortlist candidates who not only meet your technical
-              requirements but also align with your company's values and work
-              style.
+              requirements but also align with your company&apos;s values and
+              work style.
             </li>
             <li className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased">
               <strong>Interview and Selection:</strong> You interview and select

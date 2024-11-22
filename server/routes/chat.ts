@@ -1,13 +1,11 @@
 import Joi from "joi";
-import express, { NextFunction, Request, Response } from "express";
+import { NextFunction, Request, Response, Router } from "express";
 import chatService from "&/services/openai/chatgpt";
 import { formatMessages } from "&/lib/formatMessages";
 import { HTTPResponse } from "&/types/http";
 import { validateRequest } from "&/middlewares/validate";
 
-const chatRouter = express.Router();
-
-type CreateThreadRequest = {};
+const chatRouter = Router();
 
 type CreateThreadResponse = HTTPResponse<{
   threadId: string;
@@ -35,7 +33,7 @@ type GetMessagesResponse = HTTPResponse<{
 chatRouter.post(
   "/thread",
   async (
-    _req: Request<{}, {}, CreateThreadRequest>,
+    _req: Request,
     res: Response<CreateThreadResponse>,
     next: NextFunction
   ) => {
@@ -56,7 +54,7 @@ chatRouter.post(
   "/thread/:threadId/message",
   validateRequest(sendMessageSchema),
   async (
-    req: Request<{ threadId: string }, {}, SendMessageRequest>,
+    req: Request<{ threadId: string }, unknown, SendMessageRequest>,
     res: Response<SendMessageResponse>,
     next: NextFunction
   ) => {

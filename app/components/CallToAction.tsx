@@ -12,8 +12,8 @@ export default function CallToAction() {
               Ready to Launch Your Digital Transformation?
             </h2>
             <p className="text-xl leading-relaxed mb-6 break-words text-rendering-optimizelegibility isolate break-word antialiased text-white text-opacity-90">
-              Let's create tailored solutions that propel your business forward
-              in the digital age.
+              Let&apos;s create tailored solutions that propel your business
+              forward in the digital age.
             </p>
             <Link to="/contact" className="inline-block">
               <Button

@@ -22,11 +22,11 @@ if (missingEnvVars.length > 0) {
   process.exit(1);
 }
 
-const log = (msg: any) => logger.info(msg);
+const log = (msg: unknown) => logger.info(msg);
 
 // Sequelize setup
 export const sequelize = new Sequelize(
-  // @ts-ignore
+  // @ts-expect-error - This field was validated above
   process.env.DB_NAME,
   process.env.DB_USER,
   process.env.DB_PASSWORD,
@@ -49,7 +49,7 @@ Object.values(models).forEach((model) => {
   if (model.associate) model.associate(models);
 });
 
-// @ts-ignore
+// @ts-expect-error - This field was validated above
 sequelize.models = models;
 
 // Test the connection

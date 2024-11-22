@@ -38,8 +38,8 @@ export default function Vision() {
             Excellence and Quality as the Cornerstone
           </h2>
           <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased ">
-            At OnnaSoft, quality isn't just a goal—it's the foundation of
-            everything we do. We aspire to set the global benchmark for
+            At OnnaSoft, quality isn&apos;t just a goal—it&apos;s the foundation
+            of everything we do. We aspire to set the global benchmark for
             excellence in enterprise software development, establishing rigorous
             quality control and assurance practices at every phase of our
             projects. From initial concept to final implementation, we
@@ -50,7 +50,7 @@ export default function Vision() {
           <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased ">
             This relentless pursuit of excellence includes substantial and
             ongoing investment in the training and development of our team.
-            We're committed to incorporating cutting-edge technologies and
+            We&apos;re committed to incorporating cutting-edge technologies and
             methodologies to stay at the forefront of our industry. Our vision
             is for OnnaSoft to be universally recognized as an organization
             where quality is consistent and unwavering, and where learning and
@@ -63,13 +63,13 @@ export default function Vision() {
           </h2>
           <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased ">
             Trust forms the bedrock of our client relationships. At OnnaSoft,
-            we're dedicated to offering a development experience characterized
-            by reliability and transparency, where each client can fully
-            understand, actively participate in, and closely supervise their
-            project at every stage. From the initial definition of requirements
-            to the final delivery, we maintain open and effective lines of
-            communication that provide our clients with clarity and instill
-            confidence throughout the entire process.
+            we&apos;re dedicated to offering a development experience
+            characterized by reliability and transparency, where each client can
+            fully understand, actively participate in, and closely supervise
+            their project at every stage. From the initial definition of
+            requirements to the final delivery, we maintain open and effective
+            lines of communication that provide our clients with clarity and
+            instill confidence throughout the entire process.
           </p>
           <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased ">
             Our team specializes in agile methodologies such as Scrum and
@@ -88,16 +88,17 @@ export default function Vision() {
           <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased ">
             We recognize that each business faces unique challenges and has
             specific needs. Our approach, therefore, centers on creating bespoke
-            solutions that not only address our clients' current problems but
-            also facilitate their long-term growth and success. Our team designs
-            and develops scalable systems that integrate seamlessly into our
-            clients' existing technological ecosystems, enabling continuous
-            development and agile adaptation to future needs and market demands.
+            solutions that not only address our clients&apos; current problems
+            but also facilitate their long-term growth and success. Our team
+            designs and develops scalable systems that integrate seamlessly into
+            our clients&apos; existing technological ecosystems, enabling
+            continuous development and agile adaptation to future needs and
+            market demands.
           </p>
           <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased ">
             This includes the development of modular and flexible architectures
             that allow for the addition of new functionalities without
-            disrupting the company's workflow. With extensive experience in
+            disrupting the company&apos;s workflow. With extensive experience in
             creating solutions across a wide spectrum—including web
             applications, mobile platforms, APIs, databases, Big Data flows, and
             cloud environment management (AWS, Kubernetes, and
@@ -130,8 +131,8 @@ export default function Vision() {
             implement state-of-the-art systems for inventory management,
             transaction processing, supply chain optimization, and advanced data
             analysis. These solutions generate a substantial impact on our
-            clients' efficiency, productivity, and bottom line, positioning them
-            at the forefront of their respective industries.
+            clients&apos; efficiency, productivity, and bottom line, positioning
+            them at the forefront of their respective industries.
           </p>
 
           <h2 className="text-2xl md:text-3xl font-semibold text-foreground mt-12 mb-6">
@@ -178,7 +179,7 @@ export default function Vision() {
             solutions that promote long-term sustainable growth for the
             companies we collaborate with. This vision of responsible innovation
             guides our approach to every project, ensuring that we not only meet
-            our clients' immediate needs but also contribute to a more
+            our clients&apos; immediate needs but also contribute to a more
             sustainable and ethically responsible technological landscape.
           </p>
 
@@ -186,7 +187,7 @@ export default function Vision() {
             Shaping the Future of Enterprise Technology
           </h2>
           <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased ">
-            As we look to the future, OnnaSoft's vision is to be at the
+            As we look to the future, OnnaSoft&apos;s vision is to be at the
             forefront of shaping the next generation of enterprise technology.
             We aim to lead the charge in integrating emerging technologies such
             as artificial intelligence, machine learning, and blockchain into

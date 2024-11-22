@@ -9,7 +9,7 @@ export const meta: MetaFunction = () => {
     {
       name: "description",
       content:
-        "Discover OnnaSoft's mission to drive digital transformation by delivering scalable and innovative software solutions for established businesses and ambitious startups. Learn how we're shaping the future of technology-driven business growth.",
+        "Discover OnnaSoft&apos;s mission to drive digital transformation by delivering scalable and innovative software solutions for established businesses and ambitious startups. Learn how we&apos;re shaping the future of technology-driven business growth.",
     },
     {
       name: "keywords",
@@ -33,9 +33,9 @@ export default function Mission() {
             We are dedicated to driving the digital transformation of businesses
             across all sectors and sizes by implementing bespoke technological
             solutions. Our approach is not just about addressing current needs;
-            it's about architecting systems designed to evolve and scale
-            alongside our clients' ambitions and the ever-changing technological
-            landscape.
+            it&apos;s about architecting systems designed to evolve and scale
+            alongside our clients&apos; ambitions and the ever-changing
+            technological landscape.
           </p>
 
           <p className="text-xl leading-relaxed mb-6 max-w-prose mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased">
@@ -44,7 +44,7 @@ export default function Mission() {
             decision we make is anchored in meticulous requirement management
             and adheres to stringent quality standards that guide each line of
             code we write. This commitment to excellence is not just a goal;
-            it's the very foundation of our operational philosophy.
+            it&apos;s the very foundation of our operational philosophy.
           </p>
 
           <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200 mt-8 mb-4">
@@ -64,11 +64,12 @@ export default function Mission() {
 
           <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased">
             Our approach involves meticulously structuring our work to ensure
-            that each stage of development aligns seamlessly with our clients'
-            internal policies and industry regulations. We optimize every
-            process, from initial planning to final deployment, ensuring that
-            the end product is not just robust and scalable, but strategically
-            designed to tackle both current challenges and future opportunities.
+            that each stage of development aligns seamlessly with our
+            clients&apos; internal policies and industry regulations. We
+            optimize every process, from initial planning to final deployment,
+            ensuring that the end product is not just robust and scalable, but
+            strategically designed to tackle both current challenges and future
+            opportunities.
           </p>
 
           <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased">
@@ -108,7 +109,7 @@ export default function Mission() {
             access highly trained and specialized personnel for critical issues
             and complex projects. This provides the flexibility to leverage
             expert knowledge and skills without the need for a constant
-            investment in high-cost, in-house resources. Whether it's AI
+            investment in high-cost, in-house resources. Whether it&apos;s AI
             integration, advanced data analytics, or cutting-edge UX/UI design,
             we ensure our clients have the expertise they need, when they need
             it.
@@ -152,10 +153,10 @@ export default function Mission() {
           </h2>
           <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased">
             As we look to the future, our mission at OnnaSoft is to continue
-            pushing the boundaries of what's possible in software development
-            and digital transformation. We are committed to being at the
-            forefront of emerging technologies, anticipating market trends, and
-            proactively developing solutions that will shape the future of
+            pushing the boundaries of what&apos;s possible in software
+            development and digital transformation. We are committed to being at
+            the forefront of emerging technologies, anticipating market trends,
+            and proactively developing solutions that will shape the future of
             business operations across industries.
           </p>
 
@@ -173,8 +174,8 @@ export default function Mission() {
             impact that not only strengthens their operational capabilities but
             also positions them to respond with agility and innovation to the
             ever-changing demands of a competitive and rapidly evolving digital
-            landscape. At OnnaSoft, we don't just build software; we build the
-            future of business, one line of code at a time.
+            landscape. At OnnaSoft, we don&apos;t just build software; we build
+            the future of business, one line of code at a time.
           </p>
         </div>
       </main>

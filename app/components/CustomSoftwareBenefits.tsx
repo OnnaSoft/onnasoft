@@ -15,11 +15,11 @@ export default function CustomSoftwareBenefits() {
           Why Do Manually What a Custom Program Can Do for You?
         </h2>
         <p className="text-xl leading-relaxed mb-12 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased text-foreground text-center max-w-3xl">
-          Embrace the power of automation through custom software. It's not just
-          about saving time; it's about revolutionizing your business processes,
-          enhancing accuracy, and driving efficiency to new heights. Let
-          technology work for you, freeing your team to focus on innovation and
-          growth.
+          Embrace the power of automation through custom software. It&apos;s not
+          just about saving time; it&apos;s about revolutionizing your business
+          processes, enhancing accuracy, and driving efficiency to new heights.
+          Let technology work for you, freeing your team to focus on innovation
+          and growth.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {benefits.map((benefit) => (

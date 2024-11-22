@@ -97,6 +97,7 @@ export default function Contact() {
         content:
           "There was an error sending your message. Please try again later.",
       });
+      console.error("Failed to send message:", error);
     } finally {
       setIsSubmitting(false);
     }

@@ -1,6 +1,13 @@
 import { createRequestHandler } from "@remix-run/express";
-import express, { Request, Response } from "express";
-import dotenv from "dotenv";
+import express, {
+  json,
+  Request,
+  Response,
+  Router,
+  static as static_,
+  urlencoded,
+} from "express";
+import { config } from "dotenv";
 import authRouter from "&/routes/auth";
 import contactRouter from "&/routes/contact";
 import chatRouter from "&/routes/chat";
@@ -9,31 +16,28 @@ import logger from "&/lib/logger";
 import documentRouter from "&/routes/documents";
 import "&/db";
 
-dotenv.config();
+config();
 
 const app = express();
-const api = express.Router();
+const api = Router();
 
 const viteDevServer =
   process.env.NODE_ENV === "production"
     ? null
-    : // @ts-ignore
-      await import("vite").then((vite) =>
+    : await import("vite").then((vite) =>
         vite.createServer({
           server: { middlewareMode: true },
         })
       );
 
-app.use(
-  viteDevServer ? viteDevServer.middlewares : express.static("build/client")
-);
+app.use(viteDevServer ? viteDevServer.middlewares : static_("build/client"));
 
 const build = viteDevServer
   ? async () => await viteDevServer.ssrLoadModule("virtual:remix/server-build")
   : await import("build/server/index.js");
 
-api.use(express.json());
-api.use(express.urlencoded({ extended: true }));
+api.use(json());
+api.use(urlencoded({ extended: true }));
 
 api.use("/auth", authRouter);
 api.use("/chat", chatRouter);
@@ -55,7 +59,7 @@ api.use((req, res) => {
 
 app.use("/api", api);
 
-// @ts-ignore
+// @ts-expect-error - Remix types are not available
 app.all("*", createRequestHandler({ build }));
 
 const port = process.env.PORT ?? 3000;

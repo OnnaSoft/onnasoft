@@ -28,7 +28,7 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
       url.pathname
     }`,
   };
-  return Response.json(result) as any as typeof result;
+  return Response.json(result) as unknown as typeof result;
 };
 
 export function Layout({ children }: { readonly children: React.ReactNode }) {

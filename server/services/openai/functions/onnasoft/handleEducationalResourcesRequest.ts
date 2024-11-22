@@ -1,8 +1,4 @@
-import { OnnaSoftServiceRequest } from "&/types/services";
-
-export async function handleEducationalResourcesRequest(
-  request: OnnaSoftServiceRequest
-): Promise<string> {
+export async function handleEducationalResourcesRequest(): Promise<string> {
   const educationalResources = `
     We currently do not provide formal educational resources, but here are some platforms and tools that might be helpful for learning:
 

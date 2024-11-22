@@ -199,7 +199,7 @@ export default function PerformanceOptimization() {
             Our Performance Optimization Process
           </h2>
           <ol className="space-y-4 mb-8">
-            {optimizationProcess.map((step, index) => (
+            {optimizationProcess.map((step) => (
               <li key={step.title} className="flex items-start">
                 <step.icon className="h-6 w-6 text-orange-500 dark:text-orange-400 mr-3 mt-1 flex-shrink-0" />
                 <span className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased">

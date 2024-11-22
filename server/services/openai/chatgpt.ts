@@ -1,7 +1,8 @@
-import OpenAI from "openai";
+import OpenAIClient from "openai";
 import { HttpError } from "http-errors-enhanced";
 import { services, tools } from "&/services/openai/functions";
 import logger from "&/lib/logger";
+import { Run } from "openai/resources/beta/threads/runs/runs.mjs";
 
 const requiredEnvVars = ["OPENAI_API_KEY", "OPENAI_ASSISTANT_ID"];
 const missingEnvVars = requiredEnvVars.filter(
@@ -15,7 +16,7 @@ if (missingEnvVars.length > 0) {
   process.exit(1);
 }
 
-const openai = new OpenAI({
+const openai = new OpenAIClient({
   apiKey: process.env.OPENAI_API_KEY,
 });
 const ASSISTANT_ID = process.env.OPENAI_ASSISTANT_ID ?? "";
@@ -80,9 +81,9 @@ const chatService = {
   },
 
   async applyThreadAction(
-    runStatus: OpenAI.Beta.Threads.Runs.Run,
+    runStatus: OpenAIClient.Beta.Threads.Runs.Run,
     threadId: string,
-    run: any
+    run: Run
   ) {
     if (runStatus.status === "requires_action") {
       const toolCalls =

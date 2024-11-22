@@ -18,10 +18,10 @@ export default function CompaniesWorkedWith() {
     <section className="py-20 bg-background">
       <div className="container mx-auto px-4 max-w-6xl">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-foreground mb-8">
-          Companies We've Worked With
+          Companies We&apos;ve Worked With
         </h2>
         <p className="text-xl leading-relaxed mb-12 mx-auto text-center text-foreground max-w-3xl">
-          Based on our team's professional experience, we have had the
+          Based on our team&apos;s professional experience, we have had the
           opportunity to collaborate with leading companies in the industry.
           These experiences shape the expertise and quality we bring to our
           clients through our current projects.
