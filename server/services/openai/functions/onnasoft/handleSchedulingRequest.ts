@@ -1,5 +1,8 @@
 import logger from "&/lib/logger";
-import { ContactRequestOptions, handleContactRequest } from "&/utils";
+import {
+  ContactRequestOptions,
+  handleContactRequest,
+} from "&/services/openai/functions/onnasoft/utils";
 
 const requiredVars = ["FROM_EMAIL", "TO_EMAIL"];
 const missingVars = requiredVars.filter((varName) => !process.env[varName]);
