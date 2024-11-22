@@ -81,7 +81,7 @@ export function Layout({ children }: { readonly children: React.ReactNode }) {
       <body>
         <LandingContext.Provider value={contextValue}>
           {children}
-          {hydrated && <ChatWindow enableChat={enableChat} />}
+          <ChatWindow enableChat={enableChat} />
         </LandingContext.Provider>
         <Analytics
           googleAnalyticsId={googleAnalyticsId}

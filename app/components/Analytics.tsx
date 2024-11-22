@@ -14,6 +14,7 @@ function Analytics({
     let gaConfigScript: HTMLScriptElement | undefined = undefined;
     let gaConversionScript: HTMLScriptElement | undefined = undefined;
     if (googleAnalyticsId) {
+      console.log("googleAnalyticsId", googleAnalyticsId);
       gaScript = document.createElement("script");
       gaScript.async = true;
       gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`;
@@ -30,19 +31,19 @@ function Analytics({
       });
     `;
       document.head.appendChild(gaConfigScript);
-    }
 
-    if (googleAdsConversionId) {
-      gaConversionScript = document.createElement("script");
-      gaConversionScript.type = "text/javascript";
-      gaConversionScript.innerHTML = `
+      if (googleAdsConversionId) {
+        gaConversionScript = document.createElement("script");
+        gaConversionScript.type = "text/javascript";
+        gaConversionScript.innerHTML = `
       gtag('event', 'conversion', {
         'send_to': '${googleAdsConversionId}',
         'value': 1.0,
         'currency': 'COP'
       });
     `;
-      document.head.appendChild(gaConversionScript);
+        document.head.appendChild(gaConversionScript);
+      }
     }
 
     return () => {
