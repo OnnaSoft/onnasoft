@@ -7,9 +7,18 @@ import { renderToPipeableStream } from "react-dom/server";
 
 const ABORT_DELAY = 5_000;
 
+const contentSecurityPolicy = [
+  "default-src 'self';",
+  "img-src 'self' https:;", 
+  "script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://www.googletagmanager.com;",
+  "style-src 'self' 'unsafe-inline' https://use.typekit.net;", 
+  "connect-src 'self';",
+  "font-src 'self' https://use.typekit.net;"
+].join(" ");
+
 const securityHeaders = {
   "Content-Type": "text/html",
-  "Content-Security-Policy": "default-src 'self'; img-src 'self' https:; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://use.typekit.net; connect-src 'self'; font-src 'self' https://use.typekit.net;",
+  "Content-Security-Policy": contentSecurityPolicy,
   "X-Content-Type-Options": "nosniff",
   "X-Frame-Options": "DENY",
   "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
