@@ -19,7 +19,6 @@ const securityHeaders = {
   "Cross-Origin-Embedder-Policy": "require-corp",
   "Cross-Origin-Opener-Policy": "same-origin",
   "Cache-Control": "public, max-age=2592000, s-maxage=2592000",
-  "Set-Cookie": "sessionId=abc123; HttpOnly; Secure; SameSite=Strict",
   Server: "",
   "Expect-CT": "max-age=86400, enforce",
 };
