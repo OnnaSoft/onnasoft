@@ -11,7 +11,7 @@ const contentSecurityPolicy = [
   "default-src 'self';",
   "img-src 'self' https:;", 
   "script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://www.googletagmanager.com;",
-  "style-src 'self' 'unsafe-inline' https://use.typekit.net;", 
+  "style-src 'self' 'unsafe-inline' https://p.typekit.net https://use.typekit.net;", 
   "connect-src 'self';",
   "font-src 'self' https://use.typekit.net;"
 ].join(" ");
