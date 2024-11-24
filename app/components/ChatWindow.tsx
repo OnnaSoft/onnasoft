@@ -8,6 +8,7 @@ export type ChatWindowProps = Readonly<{
 }>;
 
 let isOpened = false;
+const disableAutoOpen = true
 
 export default function ChatWindow({ enableChat }: ChatWindowProps) {
   const chatWindowRef = useRef<HTMLDivElement>(null);
@@ -183,6 +184,7 @@ export default function ChatWindow({ enableChat }: ChatWindowProps) {
   }, [isOpen, threadId]);
 
   useEffect(() => {
+    if (disableAutoOpen) return;
     const timer = setTimeout(() => {
       if (isOpened) return;
       setIsOpen(true);
