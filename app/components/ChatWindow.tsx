@@ -8,6 +8,7 @@ export type ChatWindowProps = Readonly<{
 }>;
 
 let isOpened = false;
+const disableAutoOpen = true
 
 export default function ChatWindow({ enableChat }: ChatWindowProps) {
   const chatWindowRef = useRef<HTMLDivElement>(null);
@@ -183,6 +184,7 @@ export default function ChatWindow({ enableChat }: ChatWindowProps) {
   }, [isOpen, threadId]);
 
   useEffect(() => {
+    if (disableAutoOpen) return;
     const timer = setTimeout(() => {
       if (isOpened) return;
       setIsOpen(true);
@@ -206,7 +208,7 @@ export default function ChatWindow({ enableChat }: ChatWindowProps) {
         </Button>
       )}
       {isOpen && (
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl w-[28rem] h-[36rem] flex flex-col">
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl md:w-[28rem] w-[22rem] h-[36rem] flex flex-col">
           <div className="p-4 bg-orange-500 text-white rounded-t-lg flex justify-between items-center">
             <h3 className="font-semibold" data-testid="title">
               Chat with us (beta)

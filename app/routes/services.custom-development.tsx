@@ -117,7 +117,7 @@ export default function CustomDevelopment() {
       <article className="container mx-auto px-4 py-12 max-w-4xl">
         <header className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Custom Development: Tailored Software Solutions for Your Business
+            Custom Development: Tailored Solutions for Your Business
           </h1>
           <p className="text-xl leading-relaxed mb-6 mx-auto break-words text-rendering-optimizelegibility isolate break-word antialiased">
             Empowering your business with bespoke software solutions designed to

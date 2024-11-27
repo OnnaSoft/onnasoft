@@ -14,7 +14,7 @@ export const meta: MetaFunction = () => {
     {
       name: "keywords",
       content:
-        "OnnaSoft mission, digital transformation, custom software development, scalable software solutions, enterprise digital innovation, support for startups, agile software processes, software quality standards, technology for business growth, mission-driven software solutions, AI integration, cloud computing, cybersecurity, IoT solutions, blockchain technology",
+        "OnnaSoft mission, digital transformation, custom software development, scalable software solutions, enterprise digital innovation, support for startups, agile software processes, software quality standards, technology for business growth, mission-driven software solutions, AI integration, cloud computing, cybersecurity",
     },
   ];
 };
