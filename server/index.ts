@@ -34,6 +34,8 @@ app.use(viteDevServer ? viteDevServer.middlewares : static_("build/client"));
 
 const build = viteDevServer
   ? async () => await viteDevServer.ssrLoadModule("virtual:remix/server-build")
+  // @ts-expect-error - Remix types are not available
+  // eslint-disable-next-line import/no-unresolved
   : await import("build/server/index.js");
 
 api.use(json());
@@ -59,7 +61,6 @@ api.use((req, res) => {
 
 app.use("/api", api);
 
-// @ts-expect-error - Remix types are not available
 app.all("*", createRequestHandler({ build }));
 
 const port = process.env.PORT ?? 3000;
