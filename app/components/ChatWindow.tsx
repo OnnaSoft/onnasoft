@@ -254,7 +254,7 @@ export default function ChatWindow({ enableChat }: ChatWindowProps) {
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
                 placeholder="Type your message..."
-                className="flex-grow px-3 py-2 border rounded-l-md h-10 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                className="flex-grow px-3 py-2 border rounded-l-md h-10 bg-white"
               />
               <Button
                 data-testid="send-button"
